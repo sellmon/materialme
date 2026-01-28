@@ -1,0 +1,12 @@
+{
+  "name": "@materialme/cli",
+  "version": "0.0.1",
+  "bin": {
+    "materialme": "src/index.ts"
+  },
+ "dependencies": {
+    "prompts": "^2.4.2",
+    "fs-extra": "^11.1.1"
+  },
+  "type": "module"
+}

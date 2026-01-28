@@ -1,0 +1,12 @@
+{
+  "name": "@materialme/components",
+  "version": "0.0.1",
+  "private": true,
+  "main": "src/index.ts",
+  "dependencies": {
+    "clsx": "^1.2.1",
+    "class-variance-authority": "^1.2.2",
+    "tailwind-merge": "^1.14.0"
+  }
+
+}

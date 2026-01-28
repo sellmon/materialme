@@ -1,0 +1,13 @@
+{
+  "button": {
+    "files": [
+      "packages/components/src/components/button.tsx",
+      "packages/components/src/lib/utils.ts"
+    ],
+    "dependencies": [
+      "clsx",
+      "class-variance-authority",
+      "tailwind-merge"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "materialme",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "echo 'Use CLI or Next.js app to run components'"
+  }
+}
