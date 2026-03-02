@@ -1,12 +1,30 @@
 {
-  "name": "@materialme/cli",
+  "name": "materialme-cli",
   "version": "0.0.1",
+  "description": "Material Me CLI for adding components",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vladislavkors/materialme.git"
+  },
   "bin": {
-    "materialme": "src/index.ts"
+    "materialme": "dist/index.js"
   },
- "dependencies": {
-    "prompts": "^2.4.2",
-    "fs-extra": "^11.1.1"
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
   },
-  "type": "module"
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.11.0",
+    "@types/prompts": "^2.4.9",
+    "typescript": "^5.3.3"
+  }
 }

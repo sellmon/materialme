@@ -1,13 +1,24 @@
 {
   "button": {
+    "name": "button",
+    "type": "component",
     "files": [
-      "packages/components/src/components/button.tsx",
-      "packages/components/src/lib/utils.ts"
+      {
+        "path": "components/ui/button.tsx",
+        "type": "component",
+        "url": "https://raw.githubusercontent.com/vladislavkors/materialme/main/packages/components/src/components/button.tsx"
+      },
+      {
+        "path": "lib/utils.ts",
+        "type": "util",
+        "url": "https://raw.githubusercontent.com/vladislavkors/materialme/main/packages/components/src/lib/utils.ts"
+      }
     ],
     "dependencies": [
       "clsx",
       "class-variance-authority",
       "tailwind-merge"
-    ]
+    ],
+    "registryDependencies": []
   }
 }

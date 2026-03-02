@@ -1,12 +1,26 @@
 {
   "name": "@materialme/components",
   "version": "0.0.1",
-  "private": true,
+  "description": "Material Me UI components",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/materialme.git"
+  },
   "main": "src/index.ts",
+  "files": [
+    "src"
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
   "dependencies": {
-    "clsx": "^1.2.1",
-    "class-variance-authority": "^1.2.2",
-    "tailwind-merge": "^1.14.0"
+    "clsx": "^2.1.1",
+    "class-variance-authority": "^0.7.1",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "react": "^18.3.0"
   }
-
 }
