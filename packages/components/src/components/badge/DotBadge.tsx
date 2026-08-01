@@ -1,12 +1,18 @@
-import {FC, MouseEventHandler} from "react";
+import { HTMLAttributes } from "react";
 
-export interface DotBadgeProps {
-    className?: string;
-    onClick?: MouseEventHandler<HTMLDivElement>;
+import { cn } from "../../lib/utils";
+
+const dotBadgeStyles = {
+  default:
+    "flex h-3 w-3 cursor-pointer rounded-full bg-error px-1 py-1 text-on-error",
+} as const;
+
+export interface DotBadgeProps extends HTMLAttributes<HTMLDivElement> {}
+
+function DotBadge({ className, ...props }: DotBadgeProps) {
+  return <div className={cn(dotBadgeStyles.default, className)} {...props} />;
 }
 
-const DotBadge: FC<DotBadgeProps> = ({className, onClick}: DotBadgeProps) => {
-    return <div className={`dotBadge ${className || ""}`} onClick={onClick} />;
-};
+DotBadge.displayName = "DotBadge";
 
-export {DotBadge};
+export { DotBadge };

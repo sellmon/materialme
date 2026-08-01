@@ -176,23 +176,26 @@ export default function GeoCustom({
                             />
                         </svg>
                         {events && (
-                            <div className="controls">
+                            <div className="controls flex flex-col gap-[8px]">
                                 <button
-                                    className="btn btn-zoom"
+                                    type="button"
+                                    className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full bg-primary text-on-primary"
                                     onClick={() =>
                                         zoom.scale({scaleX: 1.2, scaleY: 1.2})
                                     }>
                                     +
                                 </button>
                                 <button
-                                    className="btn btn-zoom btn-bottom"
+                                    type="button"
+                                    className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full bg-primary text-on-primary"
                                     onClick={() =>
                                         zoom.scale({scaleX: 0.8, scaleY: 0.8})
                                     }>
                                     -
                                 </button>
                                 <button
-                                    className="btn btn-lg"
+                                    type="button"
+                                    className="inline-flex h-[40px] items-center justify-center rounded-full bg-secondary px-[16px] text-label-large text-on-secondary"
                                     onClick={zoom.reset}>
                                     Reset
                                 </button>

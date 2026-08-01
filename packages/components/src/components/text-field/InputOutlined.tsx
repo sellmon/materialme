@@ -9,6 +9,28 @@ import {
 
 import { cn } from "../../lib/utils";
 
+const inputOutlinedStyles = {
+  root: "relative flex w-full rounded-t-small",
+  leftElement:
+    "absolute flex h-14 w-14 items-center justify-center text-on-surface-variant",
+  input: {
+    default:
+      "peer flex h-full w-full rounded-small border border-outline bg-inherit px-3 pt-6 text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-primary focus:outline-none",
+    withLeft: "pl-15",
+  },
+  label: {
+    default: [
+      "pointer-events-none absolute top-1.5 cursor-text text-body-small text-on-surface-variant transition-all",
+      "peer-placeholder-shown:top-4.25 peer-placeholder-shown:text-body-medium",
+      "peer-focus:top-1.5 peer-focus:text-body-small",
+    ],
+    withLeft: "left-12 px-3",
+    withoutLeft: "left-3",
+  },
+  rightElement:
+    "absolute right-2 flex h-14 w-fit items-center justify-end text-on-surface",
+} as const;
+
 export interface InputOutlinedProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   leftElement?: ReactNode;
@@ -33,11 +55,9 @@ const InputOutlined = forwardRef<HTMLInputElement, InputOutlinedProps>(
     const inputId = id ?? reactId;
 
     return (
-      <div className="relative flex w-full rounded-t-[8px]">
+      <div className={inputOutlinedStyles.root}>
         {leftElement ? (
-          <div className="absolute flex h-[56px] w-[56px] items-center justify-center text-on-surface-variant">
-            {leftElement}
-          </div>
+          <div className={inputOutlinedStyles.leftElement}>{leftElement}</div>
         ) : null}
         <input
           ref={ref}
@@ -47,8 +67,8 @@ const InputOutlined = forwardRef<HTMLInputElement, InputOutlinedProps>(
           autoComplete="off"
           placeholder={placeholder}
           className={cn(
-            "peer flex h-full w-full rounded-[8px] border border-outline bg-inherit px-[12px] pt-[24px] text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-primary focus:outline-none",
-            leftElement && "pl-[60px]",
+            inputOutlinedStyles.input.default,
+            leftElement && inputOutlinedStyles.input.withLeft,
             className
           )}
           {...props}
@@ -56,18 +76,16 @@ const InputOutlined = forwardRef<HTMLInputElement, InputOutlinedProps>(
         <label
           htmlFor={inputId}
           className={cn(
-            "pointer-events-none absolute -top-[-6px] cursor-text text-body-small text-on-surface-variant transition-all",
-            "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-body-medium",
-            "peer-focus:-top-[-6px] peer-focus:text-body-small",
-            leftElement ? "left-[48px] px-[12px]" : "left-[12px]"
+            inputOutlinedStyles.label.default,
+            leftElement
+              ? inputOutlinedStyles.label.withLeft
+              : inputOutlinedStyles.label.withoutLeft
           )}
         >
           {placeholder}
         </label>
         {rightElement ? (
-          <div className="absolute right-2 flex h-[56px] w-fit items-center justify-end text-on-surface">
-            {rightElement}
-          </div>
+          <div className={inputOutlinedStyles.rightElement}>{rightElement}</div>
         ) : null}
       </div>
     );

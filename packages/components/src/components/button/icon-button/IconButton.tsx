@@ -3,18 +3,32 @@
 import {
   ButtonHTMLAttributes,
   forwardRef,
-  MouseEventHandler,
   ReactNode,
 } from "react";
 
 import { Icon } from "../../../elements";
 import { cn } from "../../../lib/utils";
 
+const iconButtonStyles = {
+  default: [
+    "m-0 flex max-h-10 max-w-10 items-center justify-center gap-3 rounded-full p-2",
+    "[&_svg]:pointer-events-none [&_svg]:size-6 [&_svg]:shrink-0",
+    "disabled:cursor-not-allowed disabled:opacity-30",
+  ],
+  variants: {
+    filled: "bg-primary text-on-primary hover:bg-primary-hover",
+    tonal: "bg-secondary text-on-secondary hover:bg-secondary-hover",
+    outlined:
+      "border border-on-secondary text-on-secondary hover:bg-secondary-container",
+    standard:
+      "cursor-pointer text-on-surface hover:bg-surface-container-highest hover:text-on-surface",
+  },
+} as const;
+
 export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  variant?: "filled" | "tonal" | "outlined" | "standard";
+  variant?: keyof typeof iconButtonStyles.variants;
 }
 
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
@@ -24,7 +38,6 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       className,
       disabled,
       icon,
-      onClick,
       type = "button",
       variant = "filled",
       ...props
@@ -36,9 +49,12 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         ref={ref}
         type={type}
         aria-label={ariaLabel}
-        className={cn("iconBtn", `iconBtn-${variant}`, className)}
+        className={cn(
+          iconButtonStyles.default,
+          iconButtonStyles.variants[variant],
+          className
+        )}
         disabled={disabled}
-        onClick={onClick}
         {...props}
       >
         <Icon icon={icon} />

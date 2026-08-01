@@ -9,6 +9,28 @@ import {
 
 import { cn } from "../../lib/utils";
 
+const textFieldOutlinedStyles = {
+  root: "relative flex w-full rounded-t-small",
+  leftElement:
+    "absolute flex h-14 w-14 items-center justify-center text-on-surface-variant",
+  field: {
+    default:
+      "peer flex w-full rounded-small border border-outline bg-inherit px-3 pr-12 pt-6.5 text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-outline-variant focus:outline-none sm:pt-7",
+    withLeft: "pl-15",
+  },
+  label: {
+    default: [
+      "absolute top-1 cursor-text rounded-br-small rounded-tl-small px-3 pb-1.5 pt-1.5 text-body-small text-on-surface-variant transition-all",
+      "peer-placeholder-shown:top-2 peer-placeholder-shown:text-body-medium",
+      "peer-focus:top-px peer-focus:text-body-small",
+    ],
+    withLeft: "left-12 rounded-b-small rounded-tl-none",
+    withoutLeft: "left-px",
+  },
+  rightElement:
+    "absolute right-2 flex h-14 w-14 items-center justify-end text-on-surface",
+} as const;
+
 export interface TextFieldOutlinedProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   leftElement?: ReactNode;
@@ -37,9 +59,9 @@ const TextFieldOutlined = forwardRef<
     const inputId = id ?? reactId;
 
     return (
-      <div className="relative flex w-full rounded-t-[8px]">
+      <div className={textFieldOutlinedStyles.root}>
         {leftElement ? (
-          <div className="absolute flex h-[56px] w-[56px] items-center justify-center text-on-surface-variant">
+          <div className={textFieldOutlinedStyles.leftElement}>
             {leftElement}
           </div>
         ) : null}
@@ -52,8 +74,8 @@ const TextFieldOutlined = forwardRef<
           autoComplete="off"
           placeholder={placeholder}
           className={cn(
-            "peer flex w-full rounded-[8px] border border-outline bg-inherit px-[12px] pr-[48px] pt-[26px] text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-outline-variant focus:outline-none sm:pt-[28px]",
-            leftElement && "pl-[60px]",
+            textFieldOutlinedStyles.field.default,
+            leftElement && textFieldOutlinedStyles.field.withLeft,
             className
           )}
           {...props}
@@ -61,18 +83,16 @@ const TextFieldOutlined = forwardRef<
         <label
           htmlFor={inputId}
           className={cn(
-            "absolute top-[4px] cursor-text rounded-br-[8px] rounded-tl-[8px] px-[12px] pb-[6px] pt-[6px] text-body-small text-on-surface-variant transition-all",
-            "peer-placeholder-shown:top-[8px] peer-placeholder-shown:text-body-medium",
-            "peer-focus:top-[1px] peer-focus:text-body-small",
+            textFieldOutlinedStyles.label.default,
             leftElement
-              ? "left-[48px] rounded-b-[8px] rounded-tl-none"
-              : "left-[1px]"
+              ? textFieldOutlinedStyles.label.withLeft
+              : textFieldOutlinedStyles.label.withoutLeft
           )}
         >
           {placeholder}
         </label>
         {rightElement ? (
-          <div className="absolute right-2 flex h-[56px] w-[56px] items-center justify-end text-on-surface">
+          <div className={textFieldOutlinedStyles.rightElement}>
             {rightElement}
           </div>
         ) : null}

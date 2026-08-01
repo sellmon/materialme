@@ -59,7 +59,8 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "icon"
+      "icon",
+      "utils"
     ]
   },
   "dot-badge": {
@@ -85,7 +86,8 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "icon"
+      "icon",
+      "utils"
     ]
   },
   "on-icon-badge": {
@@ -111,7 +113,8 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "icon"
+      "icon",
+      "utils"
     ]
   },
   "bottom-app-bar": {
@@ -325,7 +328,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "table": {
     "name": "table",

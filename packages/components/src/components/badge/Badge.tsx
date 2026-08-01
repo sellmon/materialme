@@ -1,33 +1,40 @@
-import React, {FC, MouseEventHandler, ReactNode} from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
-import {Icon} from "../../elements/index";
+import { Icon } from "../../elements";
+import { cn } from "../../lib/utils";
 
-export interface BadgeProps {
-    children?: ReactNode;
-    className?: string;
-    text?: string;
-    icon?: ReactNode | undefined;
-    iconLeft?: ReactNode | undefined;
-    iconRight?: ReactNode | undefined;
-    onClick?: MouseEventHandler<HTMLDivElement>;
+const badgeStyles = {
+  default:
+    "flex h-5 w-max cursor-pointer items-center gap-1 rounded-full bg-error px-1.5 py-1.5 text-label-small text-on-error",
+} as const;
+
+export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
+  children?: ReactNode;
+  icon?: ReactNode;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
+  text?: string;
 }
 
-const Badge: FC<BadgeProps> = ({
-    children,
-    className,
-    text,
-    icon,
-    iconLeft,
-    iconRight,
-    onClick,
-}: BadgeProps) => {
-    return (
-        <div className={`badge ${className || ""}`} onClick={onClick}>
-            <Icon iconLeft={iconLeft} />
-            {text || children} <Icon icon={icon} />
-            <Icon iconRight={iconRight} />
-        </div>
-    );
-};
+function Badge({
+  children,
+  className,
+  icon,
+  iconLeft,
+  iconRight,
+  text,
+  ...props
+}: BadgeProps) {
+  return (
+    <div className={cn(badgeStyles.default, className)} {...props}>
+      {iconLeft ? <Icon icon={iconLeft} /> : null}
+      {text || children}
+      {icon ? <Icon icon={icon} /> : null}
+      {iconRight ? <Icon icon={iconRight} /> : null}
+    </div>
+  );
+}
 
-export {Badge};
+Badge.displayName = "Badge";
+
+export { Badge };

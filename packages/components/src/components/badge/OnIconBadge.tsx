@@ -1,23 +1,30 @@
-import {FC, MouseEventHandler, ReactNode} from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
-export interface OnIconBadgeProps {
-    children?: ReactNode;
-    className?: string;
-    count?: string | number;
-    onClick?: MouseEventHandler<HTMLDivElement>;
+import { cn } from "../../lib/utils";
+
+const onIconBadgeStyles = {
+  default:
+    "absolute flex min-h-2 min-w-2 cursor-pointer rounded-full bg-error px-1 text-label-small text-on-error",
+} as const;
+
+export interface OnIconBadgeProps extends HTMLAttributes<HTMLDivElement> {
+  children?: ReactNode;
+  count?: string | number;
 }
 
-const OnIconBadge: FC<OnIconBadgeProps> = ({
-    className,
-    count,
-    onClick,
-    children,
-}: OnIconBadgeProps) => {
-    return (
-        <div className={`onIconBadge ${className || ""}`} onClick={onClick}>
-            {count || children}
-        </div>
-    );
-};
+function OnIconBadge({
+  children,
+  className,
+  count,
+  ...props
+}: OnIconBadgeProps) {
+  return (
+    <div className={cn(onIconBadgeStyles.default, className)} {...props}>
+      {count ?? children}
+    </div>
+  );
+}
 
-export {OnIconBadge};
+OnIconBadge.displayName = "OnIconBadge";
+
+export { OnIconBadge };

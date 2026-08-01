@@ -9,6 +9,28 @@ import {
 
 import { cn } from "../../lib/utils";
 
+const inputFilledStyles = {
+  root: "relative flex w-full rounded-t-small",
+  leftElement:
+    "absolute flex h-14 w-14 items-center justify-center text-on-surface-variant",
+  input: {
+    default:
+      "peer flex h-14 w-full rounded-t-small border-x-0 border-b-2 border-t-0 border-on-surface-variant bg-surface-container px-3 pt-6 text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-primary focus:outline-none",
+    withLeft: "pl-15",
+  },
+  label: {
+    default: [
+      "pointer-events-none absolute top-1.5 cursor-text text-body-small text-on-surface-variant transition-all",
+      "peer-placeholder-shown:top-4.25 peer-placeholder-shown:text-body-medium",
+      "peer-focus:top-1.5 peer-focus:text-body-small",
+    ],
+    withLeft: "left-12 px-3",
+    withoutLeft: "left-3",
+  },
+  rightElement:
+    "absolute right-2 flex h-14 w-14 items-center justify-end text-on-surface",
+} as const;
+
 export interface InputFilledProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   leftElement?: ReactNode;
@@ -33,11 +55,9 @@ const InputFilled = forwardRef<HTMLInputElement, InputFilledProps>(
     const inputId = id ?? reactId;
 
     return (
-      <div className="relative flex w-full rounded-t-[8px]">
+      <div className={inputFilledStyles.root}>
         {leftElement ? (
-          <div className="absolute flex h-[56px] w-[56px] items-center justify-center text-on-surface-variant">
-            {leftElement}
-          </div>
+          <div className={inputFilledStyles.leftElement}>{leftElement}</div>
         ) : null}
         <input
           ref={ref}
@@ -47,8 +67,8 @@ const InputFilled = forwardRef<HTMLInputElement, InputFilledProps>(
           autoComplete="off"
           placeholder={placeholder}
           className={cn(
-            "peer flex h-[56px] w-full rounded-t-[8px] border-x-0 border-b-2 border-t-0 border-on-surface-variant bg-surface-container px-[12px] pt-[24px] text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-primary focus:outline-none",
-            leftElement && "pl-[60px]",
+            inputFilledStyles.input.default,
+            leftElement && inputFilledStyles.input.withLeft,
             className
           )}
           {...props}
@@ -56,18 +76,16 @@ const InputFilled = forwardRef<HTMLInputElement, InputFilledProps>(
         <label
           htmlFor={inputId}
           className={cn(
-            "pointer-events-none absolute -top-[-6px] cursor-text text-body-small text-on-surface-variant transition-all",
-            "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-body-medium",
-            "peer-focus:-top-[-6px] peer-focus:text-body-small",
-            leftElement ? "left-[48px] px-[12px]" : "left-[12px]"
+            inputFilledStyles.label.default,
+            leftElement
+              ? inputFilledStyles.label.withLeft
+              : inputFilledStyles.label.withoutLeft
           )}
         >
           {placeholder}
         </label>
         {rightElement ? (
-          <div className="absolute right-[8px] flex h-[56px] w-[56px] items-center justify-end text-on-surface">
-            {rightElement}
-          </div>
+          <div className={inputFilledStyles.rightElement}>{rightElement}</div>
         ) : null}
       </div>
     );

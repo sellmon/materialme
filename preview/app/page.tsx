@@ -147,18 +147,21 @@ export default function Home() {
                         <ExtendedFAB
                             variant="surface"
                             icon={<MdAdd size={24} />}
-                            text="Create"
-                        />
+                        >
+                            Create
+                        </ExtendedFAB>
                         <ExtendedFAB
                             variant="secondary"
                             icon={<MdEdit size={24} />}
-                            text="Edit"
-                        />
+                        >
+                            Edit
+                        </ExtendedFAB>
                         <ExtendedFAB
                             variant="tertiary"
                             icon={<MdShare size={24} />}
-                            text="Share"
-                        />
+                        >
+                            Share
+                        </ExtendedFAB>
                     </div>
                 </Section>
 

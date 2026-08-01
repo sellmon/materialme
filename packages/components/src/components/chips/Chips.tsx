@@ -1,29 +1,41 @@
-import {FC, MouseEventHandler, ReactNode} from "react";
+"use client";
 
-interface ChipsProps {
-    children?: ReactNode;
-    className?: string;
-    text?: string;
-    leftElement?: ReactNode;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
-    rightElement?: ReactNode;
+import { ButtonHTMLAttributes, ReactNode } from "react";
+
+import { cn } from "../../lib/utils";
+
+const chipsStyles = {
+  default:
+    "flex h-8 w-max cursor-pointer items-center gap-2 rounded-small bg-surface-container-low px-2 text-label-large text-on-surface hover:bg-surface-container-lowest disabled:opacity-30",
+} as const;
+
+export interface ChipsProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: ReactNode;
+  leftElement?: ReactNode;
+  rightElement?: ReactNode;
 }
 
-const Chips: FC<ChipsProps> = ({
-    children,
-    className,
-    text = "Chips",
-    leftElement,
-    onClick,
-    rightElement,
-}: ChipsProps) => {
-    return (
-        <button className={`chips ${className || ""}`} onClick={onClick}>
-            {leftElement && <div>{leftElement}</div>}
-            {children || text}
-            {rightElement && <div>{rightElement}</div>}
-        </button>
-    );
-};
+function Chips({
+  children,
+  className,
+  leftElement,
+  rightElement,
+  type = "button",
+  ...props
+}: ChipsProps) {
+  return (
+    <button
+      type={type}
+      className={cn(chipsStyles.default, className)}
+      {...props}
+    >
+      {leftElement}
+      {children}
+      {rightElement}
+    </button>
+  );
+}
 
-export {Chips};
+Chips.displayName = "Chips";
+
+export { Chips };

@@ -9,6 +9,27 @@ import {
 
 import { cn } from "../../lib/utils";
 
+const textFieldFilledStyles = {
+  root: "relative flex w-full rounded-t-small",
+  leftElement:
+    "absolute flex h-14 w-14 items-center justify-center text-on-surface-variant",
+  field: {
+    default:
+      "peer flex w-full rounded-t-small border-x-0 border-b-2 border-t-0 border-outline bg-surface-container-low px-3 pr-12 pt-6.5 text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-primary focus:outline-none sm:pt-7",
+    withLeft: "pl-15",
+  },
+  label: {
+    default: [
+      "absolute top-0 cursor-text rounded-br-small rounded-tl-small bg-surface-container-low px-3 pb-1.5 pt-1.5 text-body-small text-on-surface-variant transition-all",
+      "peer-placeholder-shown:top-1.5 peer-placeholder-shown:text-body-medium",
+      "peer-focus:top-0 peer-focus:text-body-small",
+    ],
+    withLeft: "left-12",
+  },
+  rightElement:
+    "absolute right-2 flex h-14 w-14 items-center justify-end text-on-surface",
+} as const;
+
 export interface TextFieldFilledProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   leftElement?: ReactNode;
@@ -34,11 +55,9 @@ const TextFieldFilled = forwardRef<HTMLTextAreaElement, TextFieldFilledProps>(
     const inputId = id ?? reactId;
 
     return (
-      <div className="relative flex w-full rounded-t-[8px]">
+      <div className={textFieldFilledStyles.root}>
         {leftElement ? (
-          <div className="absolute flex h-[56px] w-[56px] items-center justify-center text-on-surface-variant">
-            {leftElement}
-          </div>
+          <div className={textFieldFilledStyles.leftElement}>{leftElement}</div>
         ) : null}
         <textarea
           ref={ref}
@@ -49,8 +68,8 @@ const TextFieldFilled = forwardRef<HTMLTextAreaElement, TextFieldFilledProps>(
           autoComplete="off"
           placeholder={placeholder}
           className={cn(
-            "peer flex w-full rounded-t-[8px] border-x-0 border-b-2 border-t-0 border-outline bg-surface-container-low px-[12px] pr-[48px] pt-[26px] text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-primary focus:outline-none sm:pt-[28px]",
-            leftElement && "pl-[60px]",
+            textFieldFilledStyles.field.default,
+            leftElement && textFieldFilledStyles.field.withLeft,
             className
           )}
           {...props}
@@ -58,16 +77,14 @@ const TextFieldFilled = forwardRef<HTMLTextAreaElement, TextFieldFilledProps>(
         <label
           htmlFor={inputId}
           className={cn(
-            "absolute top-0 cursor-text rounded-br-[8px] rounded-tl-[8px] bg-surface-container-low px-[12px] pb-[6px] pt-[6px] text-body-small text-on-surface-variant transition-all",
-            "peer-placeholder-shown:top-[6px] peer-placeholder-shown:text-body-medium",
-            "peer-focus:top-0 peer-focus:text-body-small",
-            leftElement && "left-[48px]"
+            textFieldFilledStyles.label.default,
+            leftElement && textFieldFilledStyles.label.withLeft
           )}
         >
           {placeholder}
         </label>
         {rightElement ? (
-          <div className="absolute right-2 flex h-[56px] w-[56px] items-center justify-end text-on-surface">
+          <div className={textFieldFilledStyles.rightElement}>
             {rightElement}
           </div>
         ) : null}

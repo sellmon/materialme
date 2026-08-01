@@ -5,6 +5,19 @@ import { ReactNode, useId, useState } from "react";
 import { Icon } from "../../../elements";
 import { cn } from "../../../lib/utils";
 
+const segmentedButtonStyles = {
+  root: "flex w-full flex-col",
+  list: "mx-3 flex h-15 w-fit flex-row overflow-x-auto rounded-full border border-outline scrollbar-hide sm:mx-5",
+  item: {
+    default:
+      "flex h-full min-w-max max-w-40 flex-auto items-center justify-center gap-2 px-7 text-center text-label-large",
+    selected: "border-outline bg-surface-container text-on-surface",
+    unselected: "bg-surface text-on-surface hover:bg-surface-container",
+  },
+  panel:
+    "flex w-full flex-col gap-4 pt-4 text-body-medium text-on-surface",
+} as const;
+
 export interface SegmentedButtonItem {
   id: string;
   header: string;
@@ -43,11 +56,8 @@ function SegmentedButtons({
   };
 
   return (
-    <section className={cn("flex w-full flex-col", className)}>
-      <div
-        role="tablist"
-        className="mx-[12px] flex h-[60px] w-fit flex-row overflow-x-auto rounded-full border border-outline scrollbar-hide sm:mx-[20px]"
-      >
+    <section className={cn(segmentedButtonStyles.root, className)}>
+      <div role="tablist" className={segmentedButtonStyles.list}>
         {buttons.map((button) => {
           const selected = button.id === selectedId;
           const tabId = `${reactId}-${button.id}`;
@@ -61,10 +71,10 @@ function SegmentedButtons({
               aria-selected={selected}
               onClick={() => select(button.id)}
               className={cn(
-                "flex h-full min-w-max max-w-[160px] flex-auto items-center justify-center gap-[8px] px-[28px] text-center text-label-large",
+                segmentedButtonStyles.item.default,
                 selected
-                  ? "border-outline bg-surface-container text-on-surface"
-                  : "bg-surface text-on-surface hover:bg-surface-container"
+                  ? segmentedButtonStyles.item.selected
+                  : segmentedButtonStyles.item.unselected
               )}
             >
               {selected ? <Icon iconLeft={icon} /> : null}
@@ -77,7 +87,7 @@ function SegmentedButtons({
       <div
         role="tabpanel"
         aria-labelledby={selectedId ? `${reactId}-${selectedId}` : undefined}
-        className="flex w-full flex-col gap-[16px] pt-[16px] text-body-medium text-on-surface"
+        className={segmentedButtonStyles.panel}
       >
         {selectedButton?.content}
       </div>
