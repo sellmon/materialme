@@ -4,7 +4,14 @@
   "workspaces": [
     "packages/*"
   ],
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "scripts": {
+    "sync:components": "node scripts/sync-components.mjs",
+    "build:registry": "node scripts/build-registry.mjs",
+    "build:cli": "pnpm --filter materialme-cli build",
     "dev": "echo 'Use CLI or Next.js app to run components'"
   }
 }

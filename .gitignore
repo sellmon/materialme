@@ -2,3 +2,10 @@ node_modules
 dist
 *.log
 .DS_Store
+.next
+**/.next/
+*.tsbuildinfo
+.env
+.env.*
+!/.env.example
+packages/components/next-env.d.ts

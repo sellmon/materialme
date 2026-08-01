@@ -1,23 +1,3830 @@
 {
-  "button": {
-    "name": "button",
+  "avatar-stack": {
+    "name": "avatar-stack",
+    "category": "components",
     "type": "component",
     "files": [
       {
-        "path": "components/ui/button.tsx",
-        "type": "component",
-        "url": "https://raw.githubusercontent.com/vladislavkors/materialme/main/packages/components/src/components/button.tsx"
+        "path": "components/avatar-stack/AvatarStack.tsx",
+        "source": "src/components/avatar-stack/AvatarStack.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "avatar"
+    ]
+  },
+  "avatar": {
+    "name": "avatar",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/avatar/Avatar.tsx",
+        "source": "src/components/avatar/Avatar.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next",
+      "react-icons"
+    ],
+    "registryDependencies": [
+      "badge",
+      "dot-badge",
+      "on-icon-badge"
+    ]
+  },
+  "badge": {
+    "name": "badge",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/badge/Badge.tsx",
+        "source": "src/components/badge/Badge.tsx",
+        "type": "component"
       },
       {
+        "path": "components/badge/DotBadge.tsx",
+        "source": "src/components/badge/DotBadge.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/badge/OnIconBadge.tsx",
+        "source": "src/components/badge/OnIconBadge.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "icon"
+    ]
+  },
+  "dot-badge": {
+    "name": "dot-badge",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/badge/Badge.tsx",
+        "source": "src/components/badge/Badge.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/badge/DotBadge.tsx",
+        "source": "src/components/badge/DotBadge.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/badge/OnIconBadge.tsx",
+        "source": "src/components/badge/OnIconBadge.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "icon"
+    ]
+  },
+  "on-icon-badge": {
+    "name": "on-icon-badge",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/badge/Badge.tsx",
+        "source": "src/components/badge/Badge.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/badge/DotBadge.tsx",
+        "source": "src/components/badge/DotBadge.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/badge/OnIconBadge.tsx",
+        "source": "src/components/badge/OnIconBadge.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "icon"
+    ]
+  },
+  "bottom-app-bar": {
+    "name": "bottom-app-bar",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/bottom-app-bar/BottomAppBar.tsx",
+        "source": "src/components/bottom-app-bar/BottomAppBar.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "button": {
+    "name": "button",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/button/common-button/Button.tsx",
+        "source": "src/components/button/common-button/Button.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "icon"
+    ]
+  },
+  "extended-fab": {
+    "name": "extended-fab",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/button/fab-extended/ExtendedFAB.tsx",
+        "source": "src/components/button/fab-extended/ExtendedFAB.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "icon"
+    ]
+  },
+  "blob": {
+    "name": "blob",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/blob/Blob.tsx",
+        "source": "src/components/blob/Blob.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "fab": {
+    "name": "fab",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/button/fab-standard/FAB.tsx",
+        "source": "src/components/button/fab-standard/FAB.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "react-icons"
+    ],
+    "registryDependencies": [
+      "icon"
+    ]
+  },
+  "icon-button": {
+    "name": "icon-button",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/button/icon-button/IconButton.tsx",
+        "source": "src/components/button/icon-button/IconButton.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "react-icons"
+    ],
+    "registryDependencies": [
+      "icon"
+    ]
+  },
+  "segmented-buttons": {
+    "name": "segmented-buttons",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/button/segmented-button/SegmentedButtons.tsx",
+        "source": "src/components/button/segmented-button/SegmentedButtons.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "react-icons"
+    ],
+    "registryDependencies": [
+      "icon"
+    ]
+  },
+  "card": {
+    "name": "card",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/cards/Card.tsx",
+        "source": "src/components/cards/Card.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/cards/CardBody.tsx",
+        "source": "src/components/cards/CardBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/cards/CardFooter.tsx",
+        "source": "src/components/cards/CardFooter.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/cards/CardHeader.tsx",
+        "source": "src/components/cards/CardHeader.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "card-body": {
+    "name": "card-body",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/cards/Card.tsx",
+        "source": "src/components/cards/Card.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/cards/CardBody.tsx",
+        "source": "src/components/cards/CardBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/cards/CardFooter.tsx",
+        "source": "src/components/cards/CardFooter.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/cards/CardHeader.tsx",
+        "source": "src/components/cards/CardHeader.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "card-footer": {
+    "name": "card-footer",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/cards/Card.tsx",
+        "source": "src/components/cards/Card.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/cards/CardBody.tsx",
+        "source": "src/components/cards/CardBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/cards/CardFooter.tsx",
+        "source": "src/components/cards/CardFooter.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/cards/CardHeader.tsx",
+        "source": "src/components/cards/CardHeader.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "chips": {
+    "name": "chips",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/chips/Chips.tsx",
+        "source": "src/components/chips/Chips.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "table": {
+    "name": "table",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/data-table/Table.tsx",
+        "source": "src/components/data-table/Table.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableBody.tsx",
+        "source": "src/components/data-table/TableBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableCell.tsx",
+        "source": "src/components/data-table/TableCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHead.tsx",
+        "source": "src/components/data-table/TableHead.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHeaderCell.tsx",
+        "source": "src/components/data-table/TableHeaderCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableRow.tsx",
+        "source": "src/components/data-table/TableRow.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TextContainer.tsx",
+        "source": "src/components/data-table/TextContainer.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "table-body": {
+    "name": "table-body",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/data-table/Table.tsx",
+        "source": "src/components/data-table/Table.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableBody.tsx",
+        "source": "src/components/data-table/TableBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableCell.tsx",
+        "source": "src/components/data-table/TableCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHead.tsx",
+        "source": "src/components/data-table/TableHead.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHeaderCell.tsx",
+        "source": "src/components/data-table/TableHeaderCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableRow.tsx",
+        "source": "src/components/data-table/TableRow.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TextContainer.tsx",
+        "source": "src/components/data-table/TextContainer.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "table-cell": {
+    "name": "table-cell",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/data-table/Table.tsx",
+        "source": "src/components/data-table/Table.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableBody.tsx",
+        "source": "src/components/data-table/TableBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableCell.tsx",
+        "source": "src/components/data-table/TableCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHead.tsx",
+        "source": "src/components/data-table/TableHead.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHeaderCell.tsx",
+        "source": "src/components/data-table/TableHeaderCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableRow.tsx",
+        "source": "src/components/data-table/TableRow.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TextContainer.tsx",
+        "source": "src/components/data-table/TextContainer.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "table-head": {
+    "name": "table-head",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/data-table/Table.tsx",
+        "source": "src/components/data-table/Table.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableBody.tsx",
+        "source": "src/components/data-table/TableBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableCell.tsx",
+        "source": "src/components/data-table/TableCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHead.tsx",
+        "source": "src/components/data-table/TableHead.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHeaderCell.tsx",
+        "source": "src/components/data-table/TableHeaderCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableRow.tsx",
+        "source": "src/components/data-table/TableRow.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TextContainer.tsx",
+        "source": "src/components/data-table/TextContainer.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "table-header-cell": {
+    "name": "table-header-cell",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/data-table/Table.tsx",
+        "source": "src/components/data-table/Table.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableBody.tsx",
+        "source": "src/components/data-table/TableBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableCell.tsx",
+        "source": "src/components/data-table/TableCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHead.tsx",
+        "source": "src/components/data-table/TableHead.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHeaderCell.tsx",
+        "source": "src/components/data-table/TableHeaderCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableRow.tsx",
+        "source": "src/components/data-table/TableRow.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TextContainer.tsx",
+        "source": "src/components/data-table/TextContainer.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "table-row": {
+    "name": "table-row",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/data-table/Table.tsx",
+        "source": "src/components/data-table/Table.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableBody.tsx",
+        "source": "src/components/data-table/TableBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableCell.tsx",
+        "source": "src/components/data-table/TableCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHead.tsx",
+        "source": "src/components/data-table/TableHead.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHeaderCell.tsx",
+        "source": "src/components/data-table/TableHeaderCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableRow.tsx",
+        "source": "src/components/data-table/TableRow.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TextContainer.tsx",
+        "source": "src/components/data-table/TextContainer.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "text-container": {
+    "name": "text-container",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/data-table/Table.tsx",
+        "source": "src/components/data-table/Table.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableBody.tsx",
+        "source": "src/components/data-table/TableBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableCell.tsx",
+        "source": "src/components/data-table/TableCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHead.tsx",
+        "source": "src/components/data-table/TableHead.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHeaderCell.tsx",
+        "source": "src/components/data-table/TableHeaderCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableRow.tsx",
+        "source": "src/components/data-table/TableRow.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TextContainer.tsx",
+        "source": "src/components/data-table/TextContainer.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "dialog": {
+    "name": "dialog",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/dialogs/Dialog.tsx",
+        "source": "src/components/dialogs/Dialog.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogBody.tsx",
+        "source": "src/components/dialogs/DialogBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogFooter.tsx",
+        "source": "src/components/dialogs/DialogFooter.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogHeader.tsx",
+        "source": "src/components/dialogs/DialogHeader.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "dialog-body": {
+    "name": "dialog-body",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/dialogs/Dialog.tsx",
+        "source": "src/components/dialogs/Dialog.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogBody.tsx",
+        "source": "src/components/dialogs/DialogBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogFooter.tsx",
+        "source": "src/components/dialogs/DialogFooter.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogHeader.tsx",
+        "source": "src/components/dialogs/DialogHeader.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "dialog-footer": {
+    "name": "dialog-footer",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/dialogs/Dialog.tsx",
+        "source": "src/components/dialogs/Dialog.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogBody.tsx",
+        "source": "src/components/dialogs/DialogBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogFooter.tsx",
+        "source": "src/components/dialogs/DialogFooter.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogHeader.tsx",
+        "source": "src/components/dialogs/DialogHeader.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "dialog-header": {
+    "name": "dialog-header",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/dialogs/Dialog.tsx",
+        "source": "src/components/dialogs/Dialog.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogBody.tsx",
+        "source": "src/components/dialogs/DialogBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogFooter.tsx",
+        "source": "src/components/dialogs/DialogFooter.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dialogs/DialogHeader.tsx",
+        "source": "src/components/dialogs/DialogHeader.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "divider": {
+    "name": "divider",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/divider/Divider.tsx",
+        "source": "src/components/divider/Divider.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "dropdown": {
+    "name": "dropdown",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/dropdown/Dropdown.tsx",
+        "source": "src/components/dropdown/Dropdown.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dropdown/DropdownItem.tsx",
+        "source": "src/components/dropdown/DropdownItem.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next"
+    ],
+    "registryDependencies": []
+  },
+  "dropdown-item": {
+    "name": "dropdown-item",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/dropdown/Dropdown.tsx",
+        "source": "src/components/dropdown/Dropdown.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/dropdown/DropdownItem.tsx",
+        "source": "src/components/dropdown/DropdownItem.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next"
+    ],
+    "registryDependencies": []
+  },
+  "gallery": {
+    "name": "gallery",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/gallery/Gallery.tsx",
+        "source": "src/components/gallery/Gallery.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/gallery/ImageRow.tsx",
+        "source": "src/components/gallery/ImageRow.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "image-row": {
+    "name": "image-row",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/gallery/Gallery.tsx",
+        "source": "src/components/gallery/Gallery.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/gallery/ImageRow.tsx",
+        "source": "src/components/gallery/ImageRow.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "list": {
+    "name": "list",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/lists/List.tsx",
+        "source": "src/components/lists/List.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "link-box": {
+    "name": "link-box",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/link/LinkBox.tsx",
+        "source": "src/components/link/LinkBox.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next"
+    ],
+    "registryDependencies": []
+  },
+  "nav-bar-item": {
+    "name": "nav-bar-item",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/navigation-bar/NavBarItem.tsx",
+        "source": "src/components/navigation-bar/NavBarItem.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/navigation-bar/NavigationBar.tsx",
+        "source": "src/components/navigation-bar/NavigationBar.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "icon",
+      "on-icon-badge"
+    ]
+  },
+  "navigation-bar": {
+    "name": "navigation-bar",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/navigation-bar/NavBarItem.tsx",
+        "source": "src/components/navigation-bar/NavBarItem.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/navigation-bar/NavigationBar.tsx",
+        "source": "src/components/navigation-bar/NavigationBar.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "icon",
+      "on-icon-badge"
+    ]
+  },
+  "navigation-drawer-in": {
+    "name": "navigation-drawer-in",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/navigation-drawer/NavigationDrawerIn.tsx",
+        "source": "src/components/navigation-drawer/NavigationDrawerIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/navigation-drawer/NavigationDrawerOut.tsx",
+        "source": "src/components/navigation-drawer/NavigationDrawerOut.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/navigation-drawer/items/NavDrawerItem.tsx",
+        "source": "src/components/navigation-drawer/items/NavDrawerItem.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next"
+    ],
+    "registryDependencies": [
+      "badge"
+    ]
+  },
+  "navigation-drawer-out": {
+    "name": "navigation-drawer-out",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/navigation-drawer/NavigationDrawerIn.tsx",
+        "source": "src/components/navigation-drawer/NavigationDrawerIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/navigation-drawer/NavigationDrawerOut.tsx",
+        "source": "src/components/navigation-drawer/NavigationDrawerOut.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/navigation-drawer/items/NavDrawerItem.tsx",
+        "source": "src/components/navigation-drawer/items/NavDrawerItem.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next"
+    ],
+    "registryDependencies": [
+      "badge"
+    ]
+  },
+  "navigation-rail": {
+    "name": "navigation-rail",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/navigation-rail/NavRailItem.tsx",
+        "source": "src/components/navigation-rail/NavRailItem.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/navigation-rail/NavigationRail.tsx",
+        "source": "src/components/navigation-rail/NavigationRail.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "icon",
+      "on-icon-badge"
+    ]
+  },
+  "overflow-menu": {
+    "name": "overflow-menu",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/overflow-menu/OverflowMenu.tsx",
+        "source": "src/components/overflow-menu/OverflowMenu.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/overflow-menu/OverflowMenuItem.tsx",
+        "source": "src/components/overflow-menu/OverflowMenuItem.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next"
+    ],
+    "registryDependencies": [
+      "badge"
+    ]
+  },
+  "circle": {
+    "name": "circle",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/progress-bar/Circle.tsx",
+        "source": "src/components/progress-bar/Circle.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/progress-bar/Progress.tsx",
+        "source": "src/components/progress-bar/Progress.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "progress": {
+    "name": "progress",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/progress-bar/Circle.tsx",
+        "source": "src/components/progress-bar/Circle.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/progress-bar/Progress.tsx",
+        "source": "src/components/progress-bar/Progress.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "search": {
+    "name": "search",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/search/Search.tsx",
+        "source": "src/components/search/Search.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/search/SearchInput.tsx",
+        "source": "src/components/search/SearchInput.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/search/SearchItem.tsx",
+        "source": "src/components/search/SearchItem.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next"
+    ],
+    "registryDependencies": []
+  },
+  "search-input": {
+    "name": "search-input",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/search/Search.tsx",
+        "source": "src/components/search/Search.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/search/SearchInput.tsx",
+        "source": "src/components/search/SearchInput.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/search/SearchItem.tsx",
+        "source": "src/components/search/SearchItem.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next"
+    ],
+    "registryDependencies": []
+  },
+  "search-item": {
+    "name": "search-item",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/search/Search.tsx",
+        "source": "src/components/search/Search.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/search/SearchInput.tsx",
+        "source": "src/components/search/SearchInput.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/search/SearchItem.tsx",
+        "source": "src/components/search/SearchItem.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next"
+    ],
+    "registryDependencies": []
+  },
+  "bottom-sheet": {
+    "name": "bottom-sheet",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/sheets/BottomSheet.tsx",
+        "source": "src/components/sheets/BottomSheet.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/sheets/SideSheet.tsx",
+        "source": "src/components/sheets/SideSheet.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "react-icons"
+    ],
+    "registryDependencies": [
+      "icon-button"
+    ]
+  },
+  "side-sheet": {
+    "name": "side-sheet",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/sheets/BottomSheet.tsx",
+        "source": "src/components/sheets/BottomSheet.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/sheets/SideSheet.tsx",
+        "source": "src/components/sheets/SideSheet.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "react-icons"
+    ],
+    "registryDependencies": [
+      "icon-button"
+    ]
+  },
+  "slider": {
+    "name": "slider",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/sliders/Slider.tsx",
+        "source": "src/components/sliders/Slider.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/sliders/SliderDual.tsx",
+        "source": "src/components/sliders/SliderDual.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "slider-dual": {
+    "name": "slider-dual",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/sliders/Slider.tsx",
+        "source": "src/components/sliders/Slider.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/sliders/SliderDual.tsx",
+        "source": "src/components/sliders/SliderDual.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "snackbar": {
+    "name": "snackbar",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/snackbar/Snackbar.tsx",
+        "source": "src/components/snackbar/Snackbar.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/snackbar/SnackbarWrapper.tsx",
+        "source": "src/components/snackbar/SnackbarWrapper.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "snackbar-wrapper": {
+    "name": "snackbar-wrapper",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/snackbar/Snackbar.tsx",
+        "source": "src/components/snackbar/Snackbar.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/snackbar/SnackbarWrapper.tsx",
+        "source": "src/components/snackbar/SnackbarWrapper.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "stories": {
+    "name": "stories",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/stories/Stories.tsx",
+        "source": "src/components/stories/Stories.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/stories/items/BusinessItem.tsx",
+        "source": "src/components/stories/items/BusinessItem.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/stories/items/UserItem.tsx",
+        "source": "src/components/stories/items/UserItem.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next"
+    ],
+    "registryDependencies": [
+      "badge"
+    ]
+  },
+  "tabs-primary": {
+    "name": "tabs-primary",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/tabs/TabsPrimary.tsx",
+        "source": "src/components/tabs/TabsPrimary.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/tabs/TabsSecondary.tsx",
+        "source": "src/components/tabs/TabsSecondary.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "tabs-secondary": {
+    "name": "tabs-secondary",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/tabs/TabsPrimary.tsx",
+        "source": "src/components/tabs/TabsPrimary.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/tabs/TabsSecondary.tsx",
+        "source": "src/components/tabs/TabsSecondary.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "input-filled": {
+    "name": "input-filled",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/text-field/InputFilled.tsx",
+        "source": "src/components/text-field/InputFilled.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/InputOutlined.tsx",
+        "source": "src/components/text-field/InputOutlined.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/TextFieldFilled.tsx",
+        "source": "src/components/text-field/TextFieldFilled.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/TextFieldOutlined.tsx",
+        "source": "src/components/text-field/TextFieldOutlined.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "input-outlined": {
+    "name": "input-outlined",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/text-field/InputFilled.tsx",
+        "source": "src/components/text-field/InputFilled.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/InputOutlined.tsx",
+        "source": "src/components/text-field/InputOutlined.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/TextFieldFilled.tsx",
+        "source": "src/components/text-field/TextFieldFilled.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/TextFieldOutlined.tsx",
+        "source": "src/components/text-field/TextFieldOutlined.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "text-field-filled": {
+    "name": "text-field-filled",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/text-field/InputFilled.tsx",
+        "source": "src/components/text-field/InputFilled.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/InputOutlined.tsx",
+        "source": "src/components/text-field/InputOutlined.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/TextFieldFilled.tsx",
+        "source": "src/components/text-field/TextFieldFilled.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/TextFieldOutlined.tsx",
+        "source": "src/components/text-field/TextFieldOutlined.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "text-field-outlined": {
+    "name": "text-field-outlined",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/text-field/InputFilled.tsx",
+        "source": "src/components/text-field/InputFilled.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/InputOutlined.tsx",
+        "source": "src/components/text-field/InputOutlined.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/TextFieldFilled.tsx",
+        "source": "src/components/text-field/TextFieldFilled.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/text-field/TextFieldOutlined.tsx",
+        "source": "src/components/text-field/TextFieldOutlined.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "toggle-theme": {
+    "name": "toggle-theme",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/toggle-theme/ToggleTheme.tsx",
+        "source": "src/components/toggle-theme/ToggleTheme.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/toggle-theme/ToggleThemeMenu.tsx",
+        "source": "src/components/toggle-theme/ToggleThemeMenu.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next-themes",
+      "react-icons"
+    ],
+    "registryDependencies": [
+      "icon-button",
+      "overflow-menu"
+    ]
+  },
+  "toggle-theme-menu": {
+    "name": "toggle-theme-menu",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/toggle-theme/ToggleTheme.tsx",
+        "source": "src/components/toggle-theme/ToggleTheme.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/toggle-theme/ToggleThemeMenu.tsx",
+        "source": "src/components/toggle-theme/ToggleThemeMenu.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next-themes",
+      "react-icons"
+    ],
+    "registryDependencies": [
+      "icon-button",
+      "overflow-menu"
+    ]
+  },
+  "tooltip": {
+    "name": "tooltip",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/tooltips/Tooltip.tsx",
+        "source": "src/components/tooltips/Tooltip.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "top-app-bar": {
+    "name": "top-app-bar",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/top-app-bar/TopAppBar.tsx",
+        "source": "src/components/top-app-bar/TopAppBar.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/top-app-bar/items/CenterAppBar.tsx",
+        "source": "src/components/top-app-bar/items/CenterAppBar.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/top-app-bar/items/LargeAppBar.tsx",
+        "source": "src/components/top-app-bar/items/LargeAppBar.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/top-app-bar/items/MediumAppBar.tsx",
+        "source": "src/components/top-app-bar/items/MediumAppBar.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/top-app-bar/items/SmallAppBar.tsx",
+        "source": "src/components/top-app-bar/items/SmallAppBar.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "video": {
+    "name": "video",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/video/Video.tsx",
+        "source": "src/components/video/Video.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "perspective-image": {
+    "name": "perspective-image",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/perspective-image/PerspectiveCard.tsx",
+        "source": "src/components/perspective-image/PerspectiveCard.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/perspective-image/PerspectiveImage.tsx",
+        "source": "src/components/perspective-image/PerspectiveImage.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "amount": {
+    "name": "amount",
+    "category": "elements",
+    "type": "component",
+    "files": [
+      {
+        "path": "elements/amount.tsx",
+        "source": "src/elements/common/Amount.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "react-icons"
+    ],
+    "registryDependencies": [
+      "icon-button"
+    ]
+  },
+  "checkbox": {
+    "name": "checkbox",
+    "category": "elements",
+    "type": "component",
+    "files": [
+      {
+        "path": "elements/checkbox.tsx",
+        "source": "src/elements/common/Checkbox.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "icon": {
+    "name": "icon",
+    "category": "elements",
+    "type": "component",
+    "files": [
+      {
+        "path": "elements/icon.tsx",
+        "source": "src/elements/common/Icon.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "img": {
+    "name": "img",
+    "category": "elements",
+    "type": "component",
+    "files": [
+      {
+        "path": "elements/img.tsx",
+        "source": "src/elements/common/Img.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "loading": {
+    "name": "loading",
+    "category": "elements",
+    "type": "component",
+    "files": [
+      {
+        "path": "elements/loading.tsx",
+        "source": "src/elements/common/Loading.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "radio": {
+    "name": "radio",
+    "category": "elements",
+    "type": "component",
+    "files": [
+      {
+        "path": "elements/radio.tsx",
+        "source": "src/elements/common/Radio.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "switch": {
+    "name": "switch",
+    "category": "elements",
+    "type": "component",
+    "files": [
+      {
+        "path": "elements/switch.tsx",
+        "source": "src/elements/common/Switch.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "text-element": {
+    "name": "text-element",
+    "category": "elements",
+    "type": "component",
+    "files": [
+      {
+        "path": "elements/text-element.tsx",
+        "source": "src/elements/common/TextElement.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "fade-in": {
+    "name": "fade-in",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/fade/FadeIn.tsx",
+        "source": "src/anmt/fade/FadeIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottom.tsx",
+        "source": "src/anmt/fade/FadeInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomLeft.tsx",
+        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomRight.tsx",
+        "source": "src/anmt/fade/FadeInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInLeft.tsx",
+        "source": "src/anmt/fade/FadeInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInRight.tsx",
+        "source": "src/anmt/fade/FadeInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTop.tsx",
+        "source": "src/anmt/fade/FadeInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopLeft.tsx",
+        "source": "src/anmt/fade/FadeInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopRight.tsx",
+        "source": "src/anmt/fade/FadeInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "fade-in-props",
+      "use-visible"
+    ]
+  },
+  "fade-in-bottom": {
+    "name": "fade-in-bottom",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/fade/FadeIn.tsx",
+        "source": "src/anmt/fade/FadeIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottom.tsx",
+        "source": "src/anmt/fade/FadeInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomLeft.tsx",
+        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomRight.tsx",
+        "source": "src/anmt/fade/FadeInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInLeft.tsx",
+        "source": "src/anmt/fade/FadeInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInRight.tsx",
+        "source": "src/anmt/fade/FadeInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTop.tsx",
+        "source": "src/anmt/fade/FadeInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopLeft.tsx",
+        "source": "src/anmt/fade/FadeInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopRight.tsx",
+        "source": "src/anmt/fade/FadeInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "fade-in-props",
+      "use-visible"
+    ]
+  },
+  "fade-in-bottom-left": {
+    "name": "fade-in-bottom-left",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/fade/FadeIn.tsx",
+        "source": "src/anmt/fade/FadeIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottom.tsx",
+        "source": "src/anmt/fade/FadeInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomLeft.tsx",
+        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomRight.tsx",
+        "source": "src/anmt/fade/FadeInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInLeft.tsx",
+        "source": "src/anmt/fade/FadeInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInRight.tsx",
+        "source": "src/anmt/fade/FadeInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTop.tsx",
+        "source": "src/anmt/fade/FadeInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopLeft.tsx",
+        "source": "src/anmt/fade/FadeInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopRight.tsx",
+        "source": "src/anmt/fade/FadeInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "fade-in-props",
+      "use-visible"
+    ]
+  },
+  "fade-in-bottom-right": {
+    "name": "fade-in-bottom-right",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/fade/FadeIn.tsx",
+        "source": "src/anmt/fade/FadeIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottom.tsx",
+        "source": "src/anmt/fade/FadeInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomLeft.tsx",
+        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomRight.tsx",
+        "source": "src/anmt/fade/FadeInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInLeft.tsx",
+        "source": "src/anmt/fade/FadeInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInRight.tsx",
+        "source": "src/anmt/fade/FadeInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTop.tsx",
+        "source": "src/anmt/fade/FadeInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopLeft.tsx",
+        "source": "src/anmt/fade/FadeInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopRight.tsx",
+        "source": "src/anmt/fade/FadeInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "fade-in-props",
+      "use-visible"
+    ]
+  },
+  "fade-in-left": {
+    "name": "fade-in-left",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/fade/FadeIn.tsx",
+        "source": "src/anmt/fade/FadeIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottom.tsx",
+        "source": "src/anmt/fade/FadeInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomLeft.tsx",
+        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomRight.tsx",
+        "source": "src/anmt/fade/FadeInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInLeft.tsx",
+        "source": "src/anmt/fade/FadeInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInRight.tsx",
+        "source": "src/anmt/fade/FadeInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTop.tsx",
+        "source": "src/anmt/fade/FadeInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopLeft.tsx",
+        "source": "src/anmt/fade/FadeInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopRight.tsx",
+        "source": "src/anmt/fade/FadeInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "fade-in-props",
+      "use-visible"
+    ]
+  },
+  "fade-in-right": {
+    "name": "fade-in-right",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/fade/FadeIn.tsx",
+        "source": "src/anmt/fade/FadeIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottom.tsx",
+        "source": "src/anmt/fade/FadeInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomLeft.tsx",
+        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomRight.tsx",
+        "source": "src/anmt/fade/FadeInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInLeft.tsx",
+        "source": "src/anmt/fade/FadeInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInRight.tsx",
+        "source": "src/anmt/fade/FadeInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTop.tsx",
+        "source": "src/anmt/fade/FadeInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopLeft.tsx",
+        "source": "src/anmt/fade/FadeInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopRight.tsx",
+        "source": "src/anmt/fade/FadeInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "fade-in-props",
+      "use-visible"
+    ]
+  },
+  "fade-in-top": {
+    "name": "fade-in-top",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/fade/FadeIn.tsx",
+        "source": "src/anmt/fade/FadeIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottom.tsx",
+        "source": "src/anmt/fade/FadeInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomLeft.tsx",
+        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomRight.tsx",
+        "source": "src/anmt/fade/FadeInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInLeft.tsx",
+        "source": "src/anmt/fade/FadeInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInRight.tsx",
+        "source": "src/anmt/fade/FadeInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTop.tsx",
+        "source": "src/anmt/fade/FadeInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopLeft.tsx",
+        "source": "src/anmt/fade/FadeInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopRight.tsx",
+        "source": "src/anmt/fade/FadeInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "fade-in-props",
+      "use-visible"
+    ]
+  },
+  "fade-in-top-left": {
+    "name": "fade-in-top-left",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/fade/FadeIn.tsx",
+        "source": "src/anmt/fade/FadeIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottom.tsx",
+        "source": "src/anmt/fade/FadeInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomLeft.tsx",
+        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomRight.tsx",
+        "source": "src/anmt/fade/FadeInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInLeft.tsx",
+        "source": "src/anmt/fade/FadeInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInRight.tsx",
+        "source": "src/anmt/fade/FadeInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTop.tsx",
+        "source": "src/anmt/fade/FadeInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopLeft.tsx",
+        "source": "src/anmt/fade/FadeInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopRight.tsx",
+        "source": "src/anmt/fade/FadeInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "fade-in-props",
+      "use-visible"
+    ]
+  },
+  "fade-in-top-right": {
+    "name": "fade-in-top-right",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/fade/FadeIn.tsx",
+        "source": "src/anmt/fade/FadeIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottom.tsx",
+        "source": "src/anmt/fade/FadeInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomLeft.tsx",
+        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomRight.tsx",
+        "source": "src/anmt/fade/FadeInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInLeft.tsx",
+        "source": "src/anmt/fade/FadeInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInRight.tsx",
+        "source": "src/anmt/fade/FadeInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTop.tsx",
+        "source": "src/anmt/fade/FadeInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopLeft.tsx",
+        "source": "src/anmt/fade/FadeInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopRight.tsx",
+        "source": "src/anmt/fade/FadeInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "fade-in-props",
+      "use-visible"
+    ]
+  },
+  "move-mouse": {
+    "name": "move-mouse",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/move/MoveMouse.tsx",
+        "source": "src/anmt/move/MoveMouse.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollRandom.tsx",
+        "source": "src/anmt/move/MoveScrollRandom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollX.tsx",
+        "source": "src/anmt/move/MoveScrollX.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollY.tsx",
+        "source": "src/anmt/move/MoveScrollY.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "debounce",
+      "move-props",
+      "use-visible"
+    ]
+  },
+  "move-scroll-random": {
+    "name": "move-scroll-random",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/move/MoveMouse.tsx",
+        "source": "src/anmt/move/MoveMouse.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollRandom.tsx",
+        "source": "src/anmt/move/MoveScrollRandom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollX.tsx",
+        "source": "src/anmt/move/MoveScrollX.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollY.tsx",
+        "source": "src/anmt/move/MoveScrollY.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "debounce",
+      "move-props",
+      "use-visible"
+    ]
+  },
+  "move-scroll-x": {
+    "name": "move-scroll-x",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/move/MoveMouse.tsx",
+        "source": "src/anmt/move/MoveMouse.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollRandom.tsx",
+        "source": "src/anmt/move/MoveScrollRandom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollX.tsx",
+        "source": "src/anmt/move/MoveScrollX.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollY.tsx",
+        "source": "src/anmt/move/MoveScrollY.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "debounce",
+      "move-props",
+      "use-visible"
+    ]
+  },
+  "move-scroll-y": {
+    "name": "move-scroll-y",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/move/MoveMouse.tsx",
+        "source": "src/anmt/move/MoveMouse.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollRandom.tsx",
+        "source": "src/anmt/move/MoveScrollRandom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollX.tsx",
+        "source": "src/anmt/move/MoveScrollX.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollY.tsx",
+        "source": "src/anmt/move/MoveScrollY.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "debounce",
+      "move-props",
+      "use-visible"
+    ]
+  },
+  "scale-up": {
+    "name": "scale-up",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/scale/ScaleUp.tsx",
+        "source": "src/anmt/scale/ScaleUp.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottom.tsx",
+        "source": "src/anmt/scale/ScaleUpBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomRight.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpRight.tsx",
+        "source": "src/anmt/scale/ScaleUpRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTop.tsx",
+        "source": "src/anmt/scale/ScaleUpTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopRight.tsx",
+        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "scale-up-props",
+      "use-visible"
+    ]
+  },
+  "scale-up-bottom": {
+    "name": "scale-up-bottom",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/scale/ScaleUp.tsx",
+        "source": "src/anmt/scale/ScaleUp.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottom.tsx",
+        "source": "src/anmt/scale/ScaleUpBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomRight.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpRight.tsx",
+        "source": "src/anmt/scale/ScaleUpRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTop.tsx",
+        "source": "src/anmt/scale/ScaleUpTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopRight.tsx",
+        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "scale-up-props",
+      "use-visible"
+    ]
+  },
+  "scale-up-bottom-left": {
+    "name": "scale-up-bottom-left",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/scale/ScaleUp.tsx",
+        "source": "src/anmt/scale/ScaleUp.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottom.tsx",
+        "source": "src/anmt/scale/ScaleUpBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomRight.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpRight.tsx",
+        "source": "src/anmt/scale/ScaleUpRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTop.tsx",
+        "source": "src/anmt/scale/ScaleUpTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopRight.tsx",
+        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "scale-up-props",
+      "use-visible"
+    ]
+  },
+  "scale-up-bottom-right": {
+    "name": "scale-up-bottom-right",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/scale/ScaleUp.tsx",
+        "source": "src/anmt/scale/ScaleUp.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottom.tsx",
+        "source": "src/anmt/scale/ScaleUpBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomRight.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpRight.tsx",
+        "source": "src/anmt/scale/ScaleUpRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTop.tsx",
+        "source": "src/anmt/scale/ScaleUpTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopRight.tsx",
+        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "scale-up-props",
+      "use-visible"
+    ]
+  },
+  "scale-up-left": {
+    "name": "scale-up-left",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/scale/ScaleUp.tsx",
+        "source": "src/anmt/scale/ScaleUp.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottom.tsx",
+        "source": "src/anmt/scale/ScaleUpBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomRight.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpRight.tsx",
+        "source": "src/anmt/scale/ScaleUpRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTop.tsx",
+        "source": "src/anmt/scale/ScaleUpTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopRight.tsx",
+        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "scale-up-props",
+      "use-visible"
+    ]
+  },
+  "scale-up-right": {
+    "name": "scale-up-right",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/scale/ScaleUp.tsx",
+        "source": "src/anmt/scale/ScaleUp.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottom.tsx",
+        "source": "src/anmt/scale/ScaleUpBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomRight.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpRight.tsx",
+        "source": "src/anmt/scale/ScaleUpRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTop.tsx",
+        "source": "src/anmt/scale/ScaleUpTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopRight.tsx",
+        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "scale-up-props",
+      "use-visible"
+    ]
+  },
+  "scale-up-top": {
+    "name": "scale-up-top",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/scale/ScaleUp.tsx",
+        "source": "src/anmt/scale/ScaleUp.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottom.tsx",
+        "source": "src/anmt/scale/ScaleUpBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomRight.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpRight.tsx",
+        "source": "src/anmt/scale/ScaleUpRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTop.tsx",
+        "source": "src/anmt/scale/ScaleUpTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopRight.tsx",
+        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "scale-up-props",
+      "use-visible"
+    ]
+  },
+  "scale-up-top-left": {
+    "name": "scale-up-top-left",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/scale/ScaleUp.tsx",
+        "source": "src/anmt/scale/ScaleUp.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottom.tsx",
+        "source": "src/anmt/scale/ScaleUpBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomRight.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpRight.tsx",
+        "source": "src/anmt/scale/ScaleUpRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTop.tsx",
+        "source": "src/anmt/scale/ScaleUpTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopRight.tsx",
+        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "scale-up-props",
+      "use-visible"
+    ]
+  },
+  "scale-up-top-right": {
+    "name": "scale-up-top-right",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/scale/ScaleUp.tsx",
+        "source": "src/anmt/scale/ScaleUp.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottom.tsx",
+        "source": "src/anmt/scale/ScaleUpBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomRight.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpRight.tsx",
+        "source": "src/anmt/scale/ScaleUpRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTop.tsx",
+        "source": "src/anmt/scale/ScaleUpTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopRight.tsx",
+        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "scale-up-props",
+      "use-visible"
+    ]
+  },
+  "slide-in-bottom": {
+    "name": "slide-in-bottom",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/slide/SlideInBottom.tsx",
+        "source": "src/anmt/slide/SlideInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomLeft.tsx",
+        "source": "src/anmt/slide/SlideInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomRight.tsx",
+        "source": "src/anmt/slide/SlideInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInLeft.tsx",
+        "source": "src/anmt/slide/SlideInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInRight.tsx",
+        "source": "src/anmt/slide/SlideInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTop.tsx",
+        "source": "src/anmt/slide/SlideInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopLeft.tsx",
+        "source": "src/anmt/slide/SlideInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopRight.tsx",
+        "source": "src/anmt/slide/SlideInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "slide-in-props",
+      "use-visible"
+    ]
+  },
+  "slide-in-bottom-left": {
+    "name": "slide-in-bottom-left",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/slide/SlideInBottom.tsx",
+        "source": "src/anmt/slide/SlideInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomLeft.tsx",
+        "source": "src/anmt/slide/SlideInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomRight.tsx",
+        "source": "src/anmt/slide/SlideInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInLeft.tsx",
+        "source": "src/anmt/slide/SlideInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInRight.tsx",
+        "source": "src/anmt/slide/SlideInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTop.tsx",
+        "source": "src/anmt/slide/SlideInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopLeft.tsx",
+        "source": "src/anmt/slide/SlideInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopRight.tsx",
+        "source": "src/anmt/slide/SlideInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "slide-in-props",
+      "use-visible"
+    ]
+  },
+  "slide-in-bottom-right": {
+    "name": "slide-in-bottom-right",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/slide/SlideInBottom.tsx",
+        "source": "src/anmt/slide/SlideInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomLeft.tsx",
+        "source": "src/anmt/slide/SlideInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomRight.tsx",
+        "source": "src/anmt/slide/SlideInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInLeft.tsx",
+        "source": "src/anmt/slide/SlideInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInRight.tsx",
+        "source": "src/anmt/slide/SlideInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTop.tsx",
+        "source": "src/anmt/slide/SlideInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopLeft.tsx",
+        "source": "src/anmt/slide/SlideInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopRight.tsx",
+        "source": "src/anmt/slide/SlideInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "slide-in-props",
+      "use-visible"
+    ]
+  },
+  "slide-in-left": {
+    "name": "slide-in-left",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/slide/SlideInBottom.tsx",
+        "source": "src/anmt/slide/SlideInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomLeft.tsx",
+        "source": "src/anmt/slide/SlideInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomRight.tsx",
+        "source": "src/anmt/slide/SlideInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInLeft.tsx",
+        "source": "src/anmt/slide/SlideInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInRight.tsx",
+        "source": "src/anmt/slide/SlideInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTop.tsx",
+        "source": "src/anmt/slide/SlideInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopLeft.tsx",
+        "source": "src/anmt/slide/SlideInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopRight.tsx",
+        "source": "src/anmt/slide/SlideInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "slide-in-props",
+      "use-visible"
+    ]
+  },
+  "slide-in-right": {
+    "name": "slide-in-right",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/slide/SlideInBottom.tsx",
+        "source": "src/anmt/slide/SlideInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomLeft.tsx",
+        "source": "src/anmt/slide/SlideInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomRight.tsx",
+        "source": "src/anmt/slide/SlideInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInLeft.tsx",
+        "source": "src/anmt/slide/SlideInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInRight.tsx",
+        "source": "src/anmt/slide/SlideInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTop.tsx",
+        "source": "src/anmt/slide/SlideInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopLeft.tsx",
+        "source": "src/anmt/slide/SlideInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopRight.tsx",
+        "source": "src/anmt/slide/SlideInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "slide-in-props",
+      "use-visible"
+    ]
+  },
+  "slide-in-top": {
+    "name": "slide-in-top",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/slide/SlideInBottom.tsx",
+        "source": "src/anmt/slide/SlideInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomLeft.tsx",
+        "source": "src/anmt/slide/SlideInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomRight.tsx",
+        "source": "src/anmt/slide/SlideInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInLeft.tsx",
+        "source": "src/anmt/slide/SlideInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInRight.tsx",
+        "source": "src/anmt/slide/SlideInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTop.tsx",
+        "source": "src/anmt/slide/SlideInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopLeft.tsx",
+        "source": "src/anmt/slide/SlideInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopRight.tsx",
+        "source": "src/anmt/slide/SlideInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "slide-in-props",
+      "use-visible"
+    ]
+  },
+  "slide-in-top-left": {
+    "name": "slide-in-top-left",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/slide/SlideInBottom.tsx",
+        "source": "src/anmt/slide/SlideInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomLeft.tsx",
+        "source": "src/anmt/slide/SlideInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomRight.tsx",
+        "source": "src/anmt/slide/SlideInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInLeft.tsx",
+        "source": "src/anmt/slide/SlideInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInRight.tsx",
+        "source": "src/anmt/slide/SlideInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTop.tsx",
+        "source": "src/anmt/slide/SlideInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopLeft.tsx",
+        "source": "src/anmt/slide/SlideInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopRight.tsx",
+        "source": "src/anmt/slide/SlideInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "slide-in-props",
+      "use-visible"
+    ]
+  },
+  "slide-in-top-right": {
+    "name": "slide-in-top-right",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/slide/SlideInBottom.tsx",
+        "source": "src/anmt/slide/SlideInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomLeft.tsx",
+        "source": "src/anmt/slide/SlideInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomRight.tsx",
+        "source": "src/anmt/slide/SlideInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInLeft.tsx",
+        "source": "src/anmt/slide/SlideInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInRight.tsx",
+        "source": "src/anmt/slide/SlideInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTop.tsx",
+        "source": "src/anmt/slide/SlideInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopLeft.tsx",
+        "source": "src/anmt/slide/SlideInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopRight.tsx",
+        "source": "src/anmt/slide/SlideInTopRight.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "slide-in-props",
+      "use-visible"
+    ]
+  },
+  "tilt-bottom": {
+    "name": "tilt-bottom",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/tilt/TiltBottom.tsx",
+        "source": "src/anmt/tilt/TiltBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltMouse.tsx",
+        "source": "src/anmt/tilt/TiltMouse.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltScaleBottom.tsx",
+        "source": "src/anmt/tilt/TiltScaleBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltScaleTop.tsx",
+        "source": "src/anmt/tilt/TiltScaleTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltTop.tsx",
+        "source": "src/anmt/tilt/TiltTop.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "tilt-mouse-props",
+      "tilt-props",
+      "use-visible"
+    ]
+  },
+  "tilt-mouse": {
+    "name": "tilt-mouse",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/tilt/TiltBottom.tsx",
+        "source": "src/anmt/tilt/TiltBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltMouse.tsx",
+        "source": "src/anmt/tilt/TiltMouse.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltScaleBottom.tsx",
+        "source": "src/anmt/tilt/TiltScaleBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltScaleTop.tsx",
+        "source": "src/anmt/tilt/TiltScaleTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltTop.tsx",
+        "source": "src/anmt/tilt/TiltTop.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "tilt-mouse-props",
+      "tilt-props",
+      "use-visible"
+    ]
+  },
+  "tilt-top": {
+    "name": "tilt-top",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/tilt/TiltBottom.tsx",
+        "source": "src/anmt/tilt/TiltBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltMouse.tsx",
+        "source": "src/anmt/tilt/TiltMouse.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltScaleBottom.tsx",
+        "source": "src/anmt/tilt/TiltScaleBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltScaleTop.tsx",
+        "source": "src/anmt/tilt/TiltScaleTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltTop.tsx",
+        "source": "src/anmt/tilt/TiltTop.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "tilt-mouse-props",
+      "tilt-props",
+      "use-visible"
+    ]
+  },
+  "types": {
+    "name": "types",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/fade/FadeIn.tsx",
+        "source": "src/anmt/fade/FadeIn.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottom.tsx",
+        "source": "src/anmt/fade/FadeInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomLeft.tsx",
+        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInBottomRight.tsx",
+        "source": "src/anmt/fade/FadeInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInLeft.tsx",
+        "source": "src/anmt/fade/FadeInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInRight.tsx",
+        "source": "src/anmt/fade/FadeInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTop.tsx",
+        "source": "src/anmt/fade/FadeInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopLeft.tsx",
+        "source": "src/anmt/fade/FadeInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/fade/FadeInTopRight.tsx",
+        "source": "src/anmt/fade/FadeInTopRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveMouse.tsx",
+        "source": "src/anmt/move/MoveMouse.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollRandom.tsx",
+        "source": "src/anmt/move/MoveScrollRandom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollX.tsx",
+        "source": "src/anmt/move/MoveScrollX.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/move/MoveScrollY.tsx",
+        "source": "src/anmt/move/MoveScrollY.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUp.tsx",
+        "source": "src/anmt/scale/ScaleUp.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottom.tsx",
+        "source": "src/anmt/scale/ScaleUpBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpBottomRight.tsx",
+        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpRight.tsx",
+        "source": "src/anmt/scale/ScaleUpRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTop.tsx",
+        "source": "src/anmt/scale/ScaleUpTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopLeft.tsx",
+        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/scale/ScaleUpTopRight.tsx",
+        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottom.tsx",
+        "source": "src/anmt/slide/SlideInBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomLeft.tsx",
+        "source": "src/anmt/slide/SlideInBottomLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInBottomRight.tsx",
+        "source": "src/anmt/slide/SlideInBottomRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInLeft.tsx",
+        "source": "src/anmt/slide/SlideInLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInRight.tsx",
+        "source": "src/anmt/slide/SlideInRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTop.tsx",
+        "source": "src/anmt/slide/SlideInTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopLeft.tsx",
+        "source": "src/anmt/slide/SlideInTopLeft.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/slide/SlideInTopRight.tsx",
+        "source": "src/anmt/slide/SlideInTopRight.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltBottom.tsx",
+        "source": "src/anmt/tilt/TiltBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltMouse.tsx",
+        "source": "src/anmt/tilt/TiltMouse.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltScaleBottom.tsx",
+        "source": "src/anmt/tilt/TiltScaleBottom.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltScaleTop.tsx",
+        "source": "src/anmt/tilt/TiltScaleTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/tilt/TiltTop.tsx",
+        "source": "src/anmt/tilt/TiltTop.tsx",
+        "type": "component"
+      },
+      {
+        "path": "anmt/types.ts/types.ts",
+        "source": "src/anmt/types.ts",
+        "type": "component"
+      },
+      {
+        "path": "anmt/utils/debounce.ts",
+        "source": "src/anmt/utils/debounce.ts",
+        "type": "component"
+      },
+      {
+        "path": "anmt/utils/useVisible.tsx",
+        "source": "src/anmt/utils/useVisible.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "debounce",
+      "fade-in-props",
+      "move-props",
+      "scale-up-props",
+      "slide-in-props",
+      "tilt-mouse-props",
+      "tilt-props",
+      "use-visible"
+    ]
+  },
+  "debounce": {
+    "name": "debounce",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/utils/debounce.ts",
+        "source": "src/anmt/utils/debounce.ts",
+        "type": "component"
+      },
+      {
+        "path": "anmt/utils/useVisible.tsx",
+        "source": "src/anmt/utils/useVisible.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "use-visible": {
+    "name": "use-visible",
+    "category": "anmt",
+    "type": "component",
+    "files": [
+      {
+        "path": "anmt/utils/debounce.ts",
+        "source": "src/anmt/utils/debounce.ts",
+        "type": "component"
+      },
+      {
+        "path": "anmt/utils/useVisible.tsx",
+        "source": "src/anmt/utils/useVisible.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "utils": {
+    "name": "utils",
+    "category": "utils",
+    "type": "util",
+    "files": [
+      {
         "path": "lib/utils.ts",
-        "type": "util",
-        "url": "https://raw.githubusercontent.com/vladislavkors/materialme/main/packages/components/src/lib/utils.ts"
+        "source": "src/lib/utils.ts",
+        "type": "util"
       }
     ],
     "dependencies": [
       "clsx",
-      "class-variance-authority",
       "tailwind-merge"
+    ],
+    "registryDependencies": []
+  },
+  "bar-chart": {
+    "name": "bar-chart",
+    "category": "charts",
+    "type": "component",
+    "files": [
+      {
+        "path": "charts/bar-chart/BarChart.tsx",
+        "source": "src/charts/BarChart/BarChart.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next-themes",
+      "recharts",
+      "tailwindcss"
+    ],
+    "registryDependencies": [
+      "set-category-colors"
+    ]
+  },
+  "area-chart": {
+    "name": "area-chart",
+    "category": "charts",
+    "type": "component",
+    "files": [
+      {
+        "path": "charts/area-chart/AreaChart.tsx",
+        "source": "src/charts/AreaChart/AreaChart.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "next-themes",
+      "recharts",
+      "tailwindcss"
+    ],
+    "registryDependencies": [
+      "set-category-colors"
+    ]
+  },
+  "area": {
+    "name": "area",
+    "category": "charts",
+    "type": "component",
+    "files": [
+      {
+        "path": "charts/visx/Area.tsx",
+        "source": "src/charts/Visx/Area.tsx",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/Bar.tsx",
+        "source": "src/charts/Visx/Bar.tsx",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/MapVisx.tsx",
+        "source": "src/charts/Visx/MapVisx.tsx",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/denmark.ts",
+        "source": "src/charts/Visx/data/denmark.ts",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/generateData.ts",
+        "source": "src/charts/Visx/utils/generateData.ts",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/useForceUpdate.ts",
+        "source": "src/charts/Visx/utils/useForceUpdate.ts",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "bar": {
+    "name": "bar",
+    "category": "charts",
+    "type": "component",
+    "files": [
+      {
+        "path": "charts/visx/Area.tsx",
+        "source": "src/charts/Visx/Area.tsx",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/Bar.tsx",
+        "source": "src/charts/Visx/Bar.tsx",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/MapVisx.tsx",
+        "source": "src/charts/Visx/MapVisx.tsx",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/denmark.ts",
+        "source": "src/charts/Visx/data/denmark.ts",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/generateData.ts",
+        "source": "src/charts/Visx/utils/generateData.ts",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/useForceUpdate.ts",
+        "source": "src/charts/Visx/utils/useForceUpdate.ts",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "map-visx": {
+    "name": "map-visx",
+    "category": "charts",
+    "type": "component",
+    "files": [
+      {
+        "path": "charts/visx/Area.tsx",
+        "source": "src/charts/Visx/Area.tsx",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/Bar.tsx",
+        "source": "src/charts/Visx/Bar.tsx",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/MapVisx.tsx",
+        "source": "src/charts/Visx/MapVisx.tsx",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/denmark.ts",
+        "source": "src/charts/Visx/data/denmark.ts",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/generateData.ts",
+        "source": "src/charts/Visx/utils/generateData.ts",
+        "type": "component"
+      },
+      {
+        "path": "charts/visx/useForceUpdate.ts",
+        "source": "src/charts/Visx/utils/useForceUpdate.ts",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "set-color": {
+    "name": "set-color",
+    "category": "charts",
+    "type": "component",
+    "files": [
+      {
+        "path": "charts/helpers/setColor.tsx",
+        "source": "src/charts/helpers/utils/setColor.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "theme": {
+    "name": "theme",
+    "category": "utils",
+    "type": "style",
+    "files": [
+      {
+        "path": "styles/materialme.css",
+        "source": "src/styles/globals.css",
+        "type": "style"
+      }
+    ],
+    "dependencies": [
+      "tailwindcss",
+      "tw-animate-css"
     ],
     "registryDependencies": []
   }
