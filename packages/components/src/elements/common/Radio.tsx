@@ -53,7 +53,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
             disabled={disabled}
             aria-label={ariaLabel ?? (typeof label === "string" ? label : undefined)}
             className={cn(
-              "form-radio h-[20px] w-[20px] cursor-pointer appearance-none rounded-full border-none bg-surface-container-low text-secondary-container shadow-none checked:text-inverse-primary",
+              "form-radio h-5 w-5 cursor-pointer appearance-none rounded-full border-none bg-surface-container-low text-secondary-container shadow-none checked:bg-current checked:text-inverse-primary",
               color,
               className
             )}

@@ -14,6 +14,7 @@ export * from "./cards/Card";
 export * from "./cards/CardBody";
 export * from "./cards/CardFooter";
 export * from "./chips/Chips";
+export * from "./data-table/DataTable";
 export * from "./data-table/Table";
 export * from "./data-table/TableBody";
 export * from "./data-table/TableCell";

@@ -1,40 +1,74 @@
-import {FC, ReactNode} from "react";
+"use client";
 
-interface TooltipProps {
-    bottomLeft?: boolean;
-    bottomRight?: boolean;
-    children?: ReactNode;
-    text?: string;
-    topLeft?: boolean;
-    topRight?: boolean;
+import * as RadixTooltip from "@radix-ui/react-tooltip";
+import { ReactNode } from "react";
+
+import { cn } from "../../lib/utils";
+
+export interface TooltipProps {
+  bottomLeft?: boolean;
+  bottomRight?: boolean;
+  children?: ReactNode;
+  delayDuration?: number;
+  text?: string;
+  topLeft?: boolean;
+  topRight?: boolean;
 }
 
-const Tooltip: FC<TooltipProps> = ({
+function resolvePlacement({
+  bottomLeft,
+  bottomRight,
+  topLeft,
+  topRight,
+}: Pick<
+  TooltipProps,
+  "bottomLeft" | "bottomRight" | "topLeft" | "topRight"
+>) {
+  if (topRight) return { side: "top" as const, align: "end" as const };
+  if (topLeft) return { side: "top" as const, align: "start" as const };
+  if (bottomRight) return { side: "bottom" as const, align: "end" as const };
+  if (bottomLeft) return { side: "bottom" as const, align: "start" as const };
+  return { side: "top" as const, align: "center" as const };
+}
+
+function Tooltip({
+  bottomLeft,
+  bottomRight,
+  children,
+  delayDuration = 200,
+  text,
+  topLeft,
+  topRight,
+}: TooltipProps) {
+  const { side, align } = resolvePlacement({
     bottomLeft,
     bottomRight,
-    children,
-    text,
     topLeft,
     topRight,
-}: TooltipProps) => {
-    return (
-        <div className="group relative flex w-fit cursor-pointer ">
-            {children}
-            <div
-                className={`pointer-events-none absolute 
-          
-          ${topRight && "-right-0 bottom-full"}
-          ${topLeft && "-left-0 bottom-full"}
-          ${bottomRight && "-right-0 top-full"}
-          ${bottomLeft && "-left-0 top-full"}   
-          
-          z-40 my-1 max-w-[200px] rounded-[12px] bg-surface-container-highest p-[12px]  opacity-0 group-hover:opacity-100 `}>
-                <div className="flex w-max max-w-[200px] text-body-small text-on-surface">
-                    {text}
-                </div>
-            </div>
-        </div>
-    );
-};
+  });
 
-export {Tooltip};
+  return (
+    <RadixTooltip.Provider delayDuration={delayDuration}>
+      <RadixTooltip.Root>
+        <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
+        <RadixTooltip.Portal>
+          <RadixTooltip.Content
+            side={side}
+            align={align}
+            sideOffset={4}
+            className={cn(
+              "z-40 max-w-[200px] rounded-[12px] bg-surface-container-highest p-3",
+              "text-body-small text-on-surface animate-fade-in"
+            )}
+          >
+            {text}
+          </RadixTooltip.Content>
+        </RadixTooltip.Portal>
+      </RadixTooltip.Root>
+    </RadixTooltip.Provider>
+  );
+}
+
+Tooltip.displayName = "Tooltip";
+
+export { Tooltip };

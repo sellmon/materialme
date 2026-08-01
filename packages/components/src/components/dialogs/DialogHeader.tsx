@@ -1,3 +1,6 @@
+"use client";
+
+import * as RadixDialog from "@radix-ui/react-dialog";
 import { ReactNode } from "react";
 
 import { cn } from "../../lib/utils";
@@ -11,22 +14,28 @@ export interface DialogHeaderProps {
 
 function DialogHeader({ className, headline, icon, text }: DialogHeaderProps) {
   return (
-    <div className={cn("flex flex-col gap-[16px]", className)}>
+    <div className={cn("flex flex-col gap-4", className)}>
       {icon ? (
-        <div className="flex items-center justify-center px-[24px] text-on-surface">
+        <div className="flex items-center justify-center px-6 text-on-surface">
           {icon}
         </div>
       ) : null}
       {headline ? (
-        <h2 className="flex items-center justify-center px-[24px] text-center text-headline-small text-on-surface">
+        <RadixDialog.Title className="flex items-center justify-center px-6 text-center text-headline-small text-on-surface">
           {headline}
-        </h2>
-      ) : null}
+        </RadixDialog.Title>
+      ) : (
+        <RadixDialog.Title className="sr-only">Dialog</RadixDialog.Title>
+      )}
       {text ? (
-        <p className="flex items-center justify-center px-[24px] text-center text-body-medium text-on-surface-variant">
+        <RadixDialog.Description className="flex items-center justify-center px-6 text-center text-body-medium text-on-surface-variant">
           {text}
-        </p>
-      ) : null}
+        </RadixDialog.Description>
+      ) : (
+        <RadixDialog.Description className="sr-only">
+          Dialog content
+        </RadixDialog.Description>
+      )}
     </div>
   );
 }

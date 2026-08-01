@@ -40,6 +40,10 @@ const NPM_PACKAGES = new Set([
   "@visx/responsive",
   "@visx/scale",
   "@visx/shape",
+  "@radix-ui/react-dialog",
+  "@radix-ui/react-dropdown-menu",
+  "@radix-ui/react-tooltip",
+  "@tanstack/react-table",
   "clsx",
   "tailwind-merge",
   "tailwindcss",
@@ -166,16 +170,21 @@ function sourceToTargetPath(sourceAbsPath, exportName) {
 
 function parseImportStatements(content, fromFile) {
   const imports = [];
-  const regex = /import\s+(?:type\s+)?(?:\{([^}]+)\}|(\w+))\s+from\s+["']([^"']+)["']/g;
+  const regex =
+    /import\s+(?:type\s+)?(?:(\*\s+as\s+(\w+))|\{([^}]+)\}|(\w+))\s+from\s+["']([^"']+)["']/g;
   let match;
 
   while ((match = regex.exec(content)) !== null) {
-    const names = match[1]
-      ? match[1].split(",").map((s) => s.trim().split(/\s+as\s+/)[0].trim()).filter(Boolean)
-      : [match[2]].filter(Boolean);
+    const names = match[3]
+      ? match[3]
+          .split(",")
+          .map((s) => s.trim().split(/\s+as\s+/)[0].trim())
+          .filter(Boolean)
+      : [match[2] || match[4]].filter(Boolean);
 
-    const resolved = resolveImport(match[3], fromFile);
-    imports.push({ names, path: match[3], resolved });
+    const importPath = match[5];
+    const resolved = resolveImport(importPath, fromFile);
+    imports.push({ names, path: importPath, resolved });
   }
 
   return imports;

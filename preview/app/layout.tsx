@@ -4,8 +4,8 @@ import {Providers} from "./providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "MaterialMe — Button Preview",
-    description: "Preview Material You button components",
+    title: "MaterialMe — Component Gallery",
+    description: "Preview Material You components in light and dark themes",
 };
 
 export default function RootLayout({

@@ -20,9 +20,9 @@ const inputFilledStyles = {
   },
   label: {
     default: [
-      "pointer-events-none absolute top-1.5 cursor-text text-body-small text-on-surface-variant transition-all",
-      "peer-placeholder-shown:top-4.25 peer-placeholder-shown:text-body-medium",
-      "peer-focus:top-1.5 peer-focus:text-body-small",
+      "pointer-events-none absolute top-[6px] cursor-text text-body-small text-on-surface-variant transition-all",
+      "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-body-medium",
+      "peer-focus:top-[6px] peer-focus:text-body-small",
     ],
     withLeft: "left-12 px-3",
     withoutLeft: "left-3",

@@ -1,24 +1,35 @@
-import {FC, ReactNode} from "react";
+import { ReactNode } from "react";
 
-interface SnackbarProps {
-    isVisible: boolean;
-    text: string;
-    button?: ReactNode;
+import { cn } from "../../lib/utils";
+
+export interface SnackbarProps {
+  button?: ReactNode;
+  className?: string;
+  isVisible: boolean;
+  text: string;
 }
 
-const Snackbar: FC<SnackbarProps> = ({
-    isVisible,
-    text,
-    button,
-}: SnackbarProps) => {
-    if (!isVisible) return null;
+function Snackbar({ button, className, isVisible, text }: SnackbarProps) {
+  if (!isVisible) return null;
 
-    return (
-        <div className="flex max-h-[68px] min-h-[48px] w-full max-w-[900px] animate-transition-bottom items-center justify-between rounded-[8px] bg-inverse-surface pl-[16px] pr-[12px] text-body-medium text-inverse-on-surface sm:min-w-[800] sm:gap-[48px] sm:py-0">
-            <div className="flex py-[8px]">{text}</div>
-            <div className="flex flex-row">{button}</div>
+  return (
+    <div
+      className={cn(
+        "flex max-h-[68px] min-h-12 w-full max-w-[900px] animate-transition-bottom items-center justify-between rounded-small bg-inverse-surface py-1 pl-4 pr-3 text-body-medium text-inverse-on-surface sm:min-w-[600px] sm:gap-12 sm:py-0",
+        className
+      )}
+      role="status"
+    >
+      <div className="flex py-2">{text}</div>
+      {button ? (
+        <div className="flex flex-row items-center text-inverse-primary [&_button]:text-inverse-primary">
+          {button}
         </div>
-    );
-};
+      ) : null}
+    </div>
+  );
+}
 
-export {Snackbar};
+Snackbar.displayName = "Snackbar";
+
+export { Snackbar };

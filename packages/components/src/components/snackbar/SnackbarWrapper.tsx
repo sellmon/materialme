@@ -1,23 +1,28 @@
-import {FC, ReactNode} from "react";
+import { ReactNode } from "react";
 
-interface SnackbarWrapperProps {
-    children: ReactNode;
+import { cn } from "../../lib/utils";
+
+export interface SnackbarWrapperProps {
+  children?: ReactNode;
+  className?: string;
 }
 
-const SnackbarWrapper: FC<SnackbarWrapperProps> = ({
-    children,
-}: SnackbarWrapperProps) => {
-    return (
-        <div
-            id="wrapper"
-            className="fixed inset-x-[16px] inset-y-0 top-auto z-30 flex justify-center">
-            <div className="flex w-full justify-center">
-                <div className="absolute bottom-[16px] flex w-full flex-col justify-center gap-[12px] sm:min-w-[600px] sm:max-w-[800px]">
-                    {children}
-                </div>
-            </div>
-        </div>
-    );
-};
+function SnackbarWrapper({ children, className }: SnackbarWrapperProps) {
+  return (
+    <div
+      id="wrapper"
+      className={cn(
+        "pointer-events-none fixed inset-x-4 bottom-4 z-30 flex justify-center",
+        className
+      )}
+    >
+      <div className="pointer-events-auto flex w-full max-w-[800px] flex-col justify-center gap-3 sm:min-w-[600px]">
+        {children}
+      </div>
+    </div>
+  );
+}
 
-export {SnackbarWrapper};
+SnackbarWrapper.displayName = "SnackbarWrapper";
+
+export { SnackbarWrapper };

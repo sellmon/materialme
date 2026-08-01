@@ -1,57 +1,74 @@
-import {FC, MouseEventHandler, ReactNode} from "react";
+"use client";
 
-import {Badge} from "../badge/Badge";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import {
+  MouseEvent as ReactMouseEvent,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
 
-interface OverflowMenuItemProps {
-    badge?: boolean;
-    badgeText?: string;
-    children?: ReactNode;
-    id?: string;
-    label?: string;
-    leftElement?: ReactNode;
-    onClick?: MouseEventHandler<HTMLDivElement>;
-    rightElement?: ReactNode;
+import { cn } from "../../lib/utils";
+import { Badge } from "../badge/Badge";
+
+export interface OverflowMenuItemProps {
+  badge?: boolean;
+  badgeText?: string;
+  children?: ReactNode;
+  disabled?: boolean;
+  id?: string;
+  label?: string;
+  leftElement?: ReactNode;
+  onClick?: MouseEventHandler<HTMLDivElement>;
+  onSelect?: (event: Event) => void;
+  rightElement?: ReactNode;
 }
 
-const OverflowMenuItem: FC<OverflowMenuItemProps> = ({
-    badge,
-    badgeText,
-    children,
-    id,
-    label,
-    leftElement,
-    onClick,
-    rightElement,
-}: OverflowMenuItemProps) => {
-    return (
-        <div onClick={onClick} className="flex min-w-max" key={id}>
-            <div className="flex h-[48px] w-full min-w-[112px] cursor-pointer flex-row items-center justify-between pl-[12px] pr-[24px] text-label-large text-on-surface hover:bg-surface-container-highest">
-                <div
-                    className={`${
-                        leftElement && "pr-[12px] text-on-surface-variant"
-                    }`}>
-                    {leftElement}
-                </div>
-                <p className="flex w-full min-w-max text-left">
-                    {label || children}
-                </p>
-                {rightElement && (
-                    <div
-                        className={`flex pl-[28px] text-body-small text-on-surface-variant`}>
-                        {rightElement}
-                    </div>
-                )}
-                {badge && (
-                    <div
-                        className={`${
-                            badge && "pl-[28px] text-on-surface-variant"
-                        }`}>
-                        <Badge text={badgeText || "New"} />
-                    </div>
-                )}
-            </div>
-        </div>
-    );
-};
+function OverflowMenuItem({
+  badge,
+  badgeText,
+  children,
+  disabled,
+  id,
+  label,
+  leftElement,
+  onClick,
+  onSelect,
+  rightElement,
+}: OverflowMenuItemProps) {
+  return (
+    <DropdownMenu.Item
+      id={id}
+      disabled={disabled}
+      onSelect={(event) => {
+        onSelect?.(event);
+        onClick?.(event as unknown as ReactMouseEvent<HTMLDivElement>);
+      }}
+      className={cn(
+        "flex h-12 w-full min-w-[112px] cursor-pointer items-center justify-between px-3 pr-6 text-label-large text-on-surface outline-none",
+        "hover:bg-surface-container-highest focus:bg-surface-container-highest",
+        "data-[disabled]:pointer-events-none data-[disabled]:opacity-40"
+      )}
+    >
+      {leftElement ? (
+        <span className="pr-3 text-on-surface-variant">{leftElement}</span>
+      ) : null}
+      <span className="flex w-full min-w-max text-left">
+        {label || children}
+      </span>
+      {rightElement ? (
+        <span className="flex pl-7 text-body-small text-on-surface-variant">
+          {rightElement}
+        </span>
+      ) : null}
+      {badge ? (
+        <span className="pl-7 text-on-surface-variant">
+          <Badge text={badgeText || "New"} />
+        </span>
+      ) : null}
+    </DropdownMenu.Item>
+  );
+}
 
-export {OverflowMenuItem};
+OverflowMenuItem.displayName = "OverflowMenuItem";
+
+export { OverflowMenuItem };

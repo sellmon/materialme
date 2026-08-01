@@ -107,7 +107,35 @@ export async function initCommand(): Promise<void> {
   const utilsFilePath = path.join(projectRoot, "lib", "utils.ts");
   if (!(await fs.pathExists(utilsFilePath))) {
     const utilsContent = `import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { extendTailwindMerge } from "tailwind-merge";
+
+const typography = [
+  "display-large",
+  "display-medium",
+  "display-small",
+  "headline-large",
+  "headline-medium",
+  "headline-small",
+  "title-large",
+  "title-medium",
+  "title-small",
+  "label-large",
+  "label-medium",
+  "label-small",
+  "body-large",
+  "body-medium",
+  "body-small",
+  "caption",
+  "overline",
+] as const;
+
+const twMerge = extendTailwindMerge({
+  extend: {
+    classGroups: {
+      "font-size": [{ text: [...typography] }],
+    },
+  },
+});
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

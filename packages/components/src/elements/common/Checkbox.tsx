@@ -55,7 +55,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             disabled={disabled}
             aria-label={ariaLabel ?? (typeof label === "string" ? label : undefined)}
             className={cn(
-              "h-[20px] w-[20px] cursor-pointer rounded-[6px] border-0 bg-surface-container-highest shadow-none transition-all duration-150",
+              "form-checkbox h-5 w-5 cursor-pointer rounded-[6px] border-0 bg-surface-container-highest shadow-none transition-all duration-150 checked:bg-current",
               color,
               className
             )}

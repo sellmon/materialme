@@ -1,12 +1,7 @@
 "use client";
 
-import {
-  MouseEvent,
-  ReactNode,
-  useEffect,
-  useId,
-  useRef,
-} from "react";
+import * as RadixDialog from "@radix-ui/react-dialog";
+import { ReactNode } from "react";
 
 import { cn } from "../../lib/utils";
 import { DialogBody } from "./DialogBody";
@@ -21,59 +16,25 @@ export interface DialogProps {
 }
 
 function DialogRoot({ children, className, isVisible, onClose }: DialogProps) {
-  const titleId = useId();
-  const panelRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    panelRef.current?.focus();
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [isVisible, onClose]);
-
-  if (!isVisible) return null;
-
-  const handleScrimClick = (event: MouseEvent<HTMLDivElement>) => {
-    if (event.target === event.currentTarget) {
-      onClose();
-    }
-  };
-
   return (
-    <div
-      className="fixed inset-0 z-20 flex items-center justify-center bg-black/50"
-      onClick={handleScrimClick}
+    <RadixDialog.Root
+      open={isVisible}
+      onOpenChange={(open) => {
+        if (!open) onClose();
+      }}
     >
-      <div
-        ref={panelRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        tabIndex={-1}
-        className={cn(
-          "z-10 flex w-11/12 min-w-[280px] max-w-[580px] animate-fade-in flex-col gap-[16px] rounded-[28px] bg-surface-container pt-[24px] outline-none",
-          className
-        )}
-        data-dialog-title={titleId}
-        onClick={(event) => event.stopPropagation()}
-      >
-        {children}
-      </div>
-    </div>
+      <RadixDialog.Portal>
+        <RadixDialog.Overlay className="fixed inset-0 z-20 bg-black/50 animate-fade-in" />
+        <RadixDialog.Content
+          className={cn(
+            "fixed left-1/2 top-1/2 z-30 flex w-11/12 min-w-[280px] max-w-[580px] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-[28px] bg-surface-container pt-6 outline-none animate-fade-in",
+            className
+          )}
+        >
+          {children}
+        </RadixDialog.Content>
+      </RadixDialog.Portal>
+    </RadixDialog.Root>
   );
 }
 

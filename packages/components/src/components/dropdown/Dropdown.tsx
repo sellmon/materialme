@@ -1,67 +1,47 @@
 "use client";
 
-import { ReactNode, useEffect, useRef, useState } from "react";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { ReactNode } from "react";
 
 import { cn } from "../../lib/utils";
 import { DropdownItem } from "./DropdownItem";
 
+
 export interface DropdownProps {
+  apart?: boolean;
   children: ReactNode;
   className?: string;
   menu?: ReactNode;
-  apart?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  open?: boolean;
 }
 
-function DropdownRoot({ children, className, menu, apart }: DropdownProps) {
-  const [isActive, setIsActive] = useState(false);
-  const wrapper = useRef<HTMLDivElement>(null);
-  const dropdown = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!isActive) return;
-
-    const handlePointerDown = (event: MouseEvent) => {
-      const target = event.target as Node;
-      if (
-        wrapper.current?.contains(target) ||
-        dropdown.current?.contains(target)
-      ) {
-        return;
-      }
-      setIsActive(false);
-    };
-
-    document.addEventListener("mousedown", handlePointerDown);
-    return () => document.removeEventListener("mousedown", handlePointerDown);
-  }, [isActive]);
-
+function DropdownRoot({
+  apart,
+  children,
+  className,
+  menu,
+  onOpenChange,
+  open,
+}: DropdownProps) {
   return (
-    <div
-      ref={wrapper}
-      onClick={() => setIsActive((open) => !open)}
-      className={cn(
-        "relative flex w-fit cursor-pointer appearance-none",
-        className
-      )}
-    >
-      {children}
-      <div
-        ref={dropdown}
-        className={cn(
-          "absolute top-full z-30 mb-[4px] flex w-full flex-col",
-          !isActive && "hidden"
-        )}
-      >
-        <div
+    <DropdownMenu.Root open={open} onOpenChange={onOpenChange}>
+      <DropdownMenu.Trigger asChild className={className}>
+        {children}
+      </DropdownMenu.Trigger>
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content
+          align="start"
+          sideOffset={apart ? 4 : 0}
           className={cn(
-            "z-50 flex max-h-[310px] min-w-max animate-transition-top flex-col overflow-hidden overflow-y-auto rounded-b-[8px] bg-surface-container py-[8px] shadow-mm-1",
-            apart && "mt-[4px] rounded-[8px]"
+            "z-50 flex max-h-[310px] min-w-max flex-col overflow-hidden overflow-y-auto rounded-b-small bg-surface-container py-2 shadow-mm-1 animate-transition-top",
+            apart && "rounded-small"
           )}
         >
           {menu}
-        </div>
-      </div>
-    </div>
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
+    </DropdownMenu.Root>
   );
 }
 

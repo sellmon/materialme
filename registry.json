@@ -332,11 +332,16 @@
       "utils"
     ]
   },
-  "table": {
-    "name": "table",
+  "data-table": {
+    "name": "data-table",
     "category": "components",
     "type": "component",
     "files": [
+      {
+        "path": "components/data-table/DataTable.tsx",
+        "source": "src/components/data-table/DataTable.tsx",
+        "type": "component"
+      },
       {
         "path": "components/data-table/Table.tsx",
         "source": "src/components/data-table/Table.tsx",
@@ -373,8 +378,65 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
-    "registryDependencies": []
+    "dependencies": [
+      "@tanstack/react-table"
+    ],
+    "registryDependencies": [
+      "utils"
+    ]
+  },
+  "table": {
+    "name": "table",
+    "category": "components",
+    "type": "component",
+    "files": [
+      {
+        "path": "components/data-table/DataTable.tsx",
+        "source": "src/components/data-table/DataTable.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/Table.tsx",
+        "source": "src/components/data-table/Table.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableBody.tsx",
+        "source": "src/components/data-table/TableBody.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableCell.tsx",
+        "source": "src/components/data-table/TableCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHead.tsx",
+        "source": "src/components/data-table/TableHead.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableHeaderCell.tsx",
+        "source": "src/components/data-table/TableHeaderCell.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TableRow.tsx",
+        "source": "src/components/data-table/TableRow.tsx",
+        "type": "component"
+      },
+      {
+        "path": "components/data-table/TextContainer.tsx",
+        "source": "src/components/data-table/TextContainer.tsx",
+        "type": "component"
+      }
+    ],
+    "dependencies": [
+      "@tanstack/react-table"
+    ],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "table-body": {
     "name": "table-body",
@@ -382,6 +444,11 @@
     "type": "component",
     "files": [
       {
+        "path": "components/data-table/DataTable.tsx",
+        "source": "src/components/data-table/DataTable.tsx",
+        "type": "component"
+      },
+      {
         "path": "components/data-table/Table.tsx",
         "source": "src/components/data-table/Table.tsx",
         "type": "component"
@@ -417,8 +484,12 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
-    "registryDependencies": []
+    "dependencies": [
+      "@tanstack/react-table"
+    ],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "table-cell": {
     "name": "table-cell",
@@ -426,6 +497,11 @@
     "type": "component",
     "files": [
       {
+        "path": "components/data-table/DataTable.tsx",
+        "source": "src/components/data-table/DataTable.tsx",
+        "type": "component"
+      },
+      {
         "path": "components/data-table/Table.tsx",
         "source": "src/components/data-table/Table.tsx",
         "type": "component"
@@ -461,8 +537,12 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
-    "registryDependencies": []
+    "dependencies": [
+      "@tanstack/react-table"
+    ],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "table-head": {
     "name": "table-head",
@@ -470,6 +550,11 @@
     "type": "component",
     "files": [
       {
+        "path": "components/data-table/DataTable.tsx",
+        "source": "src/components/data-table/DataTable.tsx",
+        "type": "component"
+      },
+      {
         "path": "components/data-table/Table.tsx",
         "source": "src/components/data-table/Table.tsx",
         "type": "component"
@@ -505,8 +590,12 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
-    "registryDependencies": []
+    "dependencies": [
+      "@tanstack/react-table"
+    ],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "table-header-cell": {
     "name": "table-header-cell",
@@ -514,6 +603,11 @@
     "type": "component",
     "files": [
       {
+        "path": "components/data-table/DataTable.tsx",
+        "source": "src/components/data-table/DataTable.tsx",
+        "type": "component"
+      },
+      {
         "path": "components/data-table/Table.tsx",
         "source": "src/components/data-table/Table.tsx",
         "type": "component"
@@ -549,8 +643,12 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
-    "registryDependencies": []
+    "dependencies": [
+      "@tanstack/react-table"
+    ],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "table-row": {
     "name": "table-row",
@@ -558,6 +656,11 @@
     "type": "component",
     "files": [
       {
+        "path": "components/data-table/DataTable.tsx",
+        "source": "src/components/data-table/DataTable.tsx",
+        "type": "component"
+      },
+      {
         "path": "components/data-table/Table.tsx",
         "source": "src/components/data-table/Table.tsx",
         "type": "component"
@@ -593,8 +696,12 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
-    "registryDependencies": []
+    "dependencies": [
+      "@tanstack/react-table"
+    ],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "text-container": {
     "name": "text-container",
@@ -602,6 +709,11 @@
     "type": "component",
     "files": [
       {
+        "path": "components/data-table/DataTable.tsx",
+        "source": "src/components/data-table/DataTable.tsx",
+        "type": "component"
+      },
+      {
         "path": "components/data-table/Table.tsx",
         "source": "src/components/data-table/Table.tsx",
         "type": "component"
@@ -637,8 +749,12 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
-    "registryDependencies": []
+    "dependencies": [
+      "@tanstack/react-table"
+    ],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "dialog": {
     "name": "dialog",
@@ -666,7 +782,9 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      "@radix-ui/react-dialog"
+    ],
     "registryDependencies": [
       "utils"
     ]
@@ -697,7 +815,9 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      "@radix-ui/react-dialog"
+    ],
     "registryDependencies": [
       "utils"
     ]
@@ -728,7 +848,9 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      "@radix-ui/react-dialog"
+    ],
     "registryDependencies": [
       "utils"
     ]
@@ -759,7 +881,9 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      "@radix-ui/react-dialog"
+    ],
     "registryDependencies": [
       "utils"
     ]
@@ -794,7 +918,9 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      "@radix-ui/react-dropdown-menu"
+    ],
     "registryDependencies": [
       "utils"
     ]
@@ -815,7 +941,9 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      "@radix-ui/react-dropdown-menu"
+    ],
     "registryDependencies": [
       "utils"
     ]
@@ -1028,7 +1156,9 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      "@radix-ui/react-dropdown-menu"
+    ],
     "registryDependencies": [
       "badge",
       "utils"
@@ -1253,7 +1383,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "snackbar-wrapper": {
     "name": "snackbar-wrapper",
@@ -1272,7 +1404,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "stories": {
     "name": "stories",
@@ -1525,8 +1659,12 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
-    "registryDependencies": []
+    "dependencies": [
+      "@radix-ui/react-tooltip"
+    ],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "top-app-bar": {
     "name": "top-app-bar",
@@ -3566,9 +3704,9 @@
       "@visx/group",
       "@visx/geo",
       "d3-geo",
+      "topojson-client",
       "@visx/visx",
-      "d3",
-      "topojson-client"
+      "d3"
     ],
     "registryDependencies": []
   },
@@ -3618,9 +3756,9 @@
       "@visx/group",
       "@visx/geo",
       "d3-geo",
+      "topojson-client",
       "@visx/visx",
-      "d3",
-      "topojson-client"
+      "d3"
     ],
     "registryDependencies": []
   },
@@ -3670,9 +3808,9 @@
       "@visx/group",
       "@visx/geo",
       "d3-geo",
+      "topojson-client",
       "@visx/visx",
-      "d3",
-      "topojson-client"
+      "d3"
     ],
     "registryDependencies": []
   },

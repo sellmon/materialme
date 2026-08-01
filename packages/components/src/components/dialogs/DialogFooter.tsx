@@ -11,7 +11,7 @@ function DialogFooter({ children, className }: DialogFooterProps) {
   return (
     <div
       className={cn(
-        "mb-[24px] mt-[8px] flex items-center justify-end gap-[8px] px-[24px]",
+        "mb-6 mt-2 flex items-center justify-end gap-2 px-6",
         className
       )}
     >

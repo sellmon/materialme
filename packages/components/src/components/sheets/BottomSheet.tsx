@@ -69,8 +69,8 @@ function BottomSheet({
         onClick={(event) => event.stopPropagation()}
       >
         <div className="z-10 flex w-full flex-col overflow-y-auto rounded-extra-large bg-surface-container px-[24px] pb-[28px] scrollbar-hide">
-          {dragHandle ? (
-            <div className="flex items-center justify-center pt-[12px]">
+          <div className="flex items-center justify-center pt-[12px]">
+            {dragHandle ? (
               <button
                 type="button"
                 aria-label="Close"
@@ -79,8 +79,8 @@ function BottomSheet({
               >
                 <span className="flex h-[4px] w-[32px] rounded-full bg-surface-container-highest" />
               </button>
-            </div>
-          ) : null}
+            ) : null}
+          </div>
           {children}
         </div>
       </div>

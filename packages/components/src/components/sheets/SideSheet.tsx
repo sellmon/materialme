@@ -72,20 +72,22 @@ function SideSheet({
       >
         <div className="z-10 flex w-full flex-col px-[12px] pb-[28px]">
           {(title || closeButton) && (
-            <div className="mb-[16px] flex items-center justify-between gap-[12px]">
+            <div className="flex items-center justify-center">
               {title ? (
-                <h2 className="text-title-medium text-on-surface">{title}</h2>
-              ) : (
-                <span />
-              )}
+                <h2 className="flex w-full justify-start text-title-medium text-on-surface">
+                  {title}
+                </h2>
+              ) : null}
               {closeButton ? (
-                <IconButton
-                  aria-label="Close"
-                  icon={<MdClose size={24} />}
-                  className="rounded-extra-large"
-                  variant="tonal"
-                  onClick={onClose}
-                />
+                <div className="flex w-full justify-end">
+                  <IconButton
+                    aria-label="Close"
+                    icon={<MdClose size={24} />}
+                    className="rounded-extra-large"
+                    variant="tonal"
+                    onClick={onClose}
+                  />
+                </div>
               ) : null}
             </div>
           )}
