@@ -1,34 +1,52 @@
-import {ButtonHTMLAttributes, FC, MouseEventHandler, ReactNode} from "react";
+"use client";
 
-import {Icon} from "../../../elements";
+import {
+  ButtonHTMLAttributes,
+  forwardRef,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
 
-import {MdAdd} from "react-icons/md";
+import { Icon } from "../../../elements";
+import { cn } from "../../../lib/utils";
 
-interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string;
-    disabled?: boolean;
-    icon?: ReactNode;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
-    variant?: "filled" | "tonal" | "outlined" | "standard";
+export interface IconButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  icon: ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  variant?: "filled" | "tonal" | "outlined" | "standard";
 }
 
-const IconButton: FC<IconButtonProps> = ({
-    className,
-    disabled,
-    icon = <MdAdd size={24} />,
-    onClick,
-    variant = "filled",
-    ...props
-}: IconButtonProps) => {
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  (
+    {
+      "aria-label": ariaLabel,
+      className,
+      disabled,
+      icon,
+      onClick,
+      type = "button",
+      variant = "filled",
+      ...props
+    },
+    ref
+  ) => {
     return (
-        <button
-            className={`iconBtn ${variant} ${className || ""}`}
-            disabled={disabled}
-            onClick={onClick}
-            {...props}>
-            <Icon icon={icon} />
-        </button>
+      <button
+        ref={ref}
+        type={type}
+        aria-label={ariaLabel}
+        className={cn("iconBtn", `iconBtn-${variant}`, className)}
+        disabled={disabled}
+        onClick={onClick}
+        {...props}
+      >
+        <Icon icon={icon} />
+      </button>
     );
-};
+  }
+);
 
-export {IconButton};
+IconButton.displayName = "IconButton";
+
+export { IconButton };

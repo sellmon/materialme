@@ -6,7 +6,7 @@ Components are copied into your repo (not installed as an npm UI package), with 
 
 ## Quick start
 
-In a Next.js / React project with Tailwind CSS v4:
+Requires **React 19** and **Next.js 15+**, with Tailwind CSS v4:
 
 ```bash
 # Initialize (components.json, lib/utils, theme)

@@ -1,3 +1,5 @@
+"use client";
+
 import {Color, colorValues, setCategoryColors} from "../helpers/utils/setColor";
 
 import {useTheme} from "next-themes";

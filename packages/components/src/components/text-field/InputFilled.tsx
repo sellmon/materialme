@@ -1,117 +1,79 @@
+"use client";
+
 import {
-    ChangeEventHandler,
-    FC,
-    FormEventHandler,
-    ReactNode,
-    useId,
+  forwardRef,
+  InputHTMLAttributes,
+  ReactNode,
+  useId,
 } from "react";
 
-interface InputFilledProps {
-    id?: string;
-    cols?: number;
-    leftElement?: ReactNode;
-    name?: string;
-    onChange?: ChangeEventHandler<HTMLInputElement>;
-    onSubmit?: FormEventHandler<HTMLInputElement>;
-    placeholder?: string;
-    rightElement?: ReactNode;
-    rows?: number;
-    type?: string;
-    value?: string;
+import { cn } from "../../lib/utils";
+
+export interface InputFilledProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
+  leftElement?: ReactNode;
+  rightElement?: ReactNode;
 }
 
-const InputFilled: FC<InputFilledProps> = ({
-    id,
-    leftElement,
-    name,
-    onChange,
-    onSubmit,
-    placeholder = "Placeholder",
-    rightElement,
-    rows,
-    type,
-    value,
-    ...props
-}: InputFilledProps) => {
-    const formId = useId();
+const InputFilled = forwardRef<HTMLInputElement, InputFilledProps>(
+  (
+    {
+      className,
+      id,
+      leftElement,
+      name,
+      placeholder = "Placeholder",
+      rightElement,
+      type = "text",
+      ...props
+    },
+    ref
+  ) => {
+    const reactId = useId();
+    const inputId = id ?? reactId;
 
     return (
-        <div className="relative flex w-full rounded-t-[8px]">
-            {leftElement && (
-                <div className="absolute flex h-[56px] w-[56px] items-center justify-center">
-                    <div className="text-on-surface-variant">{leftElement}</div>
-                </div>
-            )}
-            <input
-                id={id || formId}
-                onChange={onChange}
-                onSubmit={onSubmit}
-                name={name}
-                value={value}
-                style={{boxShadow: "none"}}
-                type={type || "text"}
-                autoComplete={"off"}
-                className={`
-          peer
-          flex
-          h-[56px]
-          w-full
-          rounded-t-[8px]
-          border-x-0
-          border-b-2
-          border-t-0
-          border-on-surface-variant
-          bg-surface-container
-          px-[12px]
-          pt-[24px]
-          text-body-medium
-          text-on-surface
-          placeholder-transparent
-          focus:border-primary
-          focus:outline-none
-          ${leftElement ? "pl-[60px]" : ""}
-        `}
-                placeholder={placeholder}
-                {...props}
-            />
-            <label
-                htmlFor={id || formId}
-                className={`
-          pointer-events-none
-          absolute
-          -top-[-6px]
-          cursor-text
-          text-body-small
-          text-on-surface-variant
-          transition-all
-          peer-placeholder-shown:top-[17px]
-          peer-placeholder-shown:text-body-medium
-          peer-placeholder-shown:text-on-surface-variant
-          peer-focus:-top-[-6px]
-          peer-focus:text-body-small
-          peer-focus:text-on-surface-variant
-          ${leftElement ? "left-[48px] px-[12px]" : "left-[12px]"}
-        `}>
-                {placeholder}
-            </label>
-            {rightElement && (
-                <div
-                    className="
-        absolute
-        right-[8px]
-        flex
-        h-[56px]
-        w-[56px]
-        items-center
-        justify-end
-        text-on-surface">
-                    <div>{rightElement}</div>
-                </div>
-            )}
-        </div>
+      <div className="relative flex w-full rounded-t-[8px]">
+        {leftElement ? (
+          <div className="absolute flex h-[56px] w-[56px] items-center justify-center text-on-surface-variant">
+            {leftElement}
+          </div>
+        ) : null}
+        <input
+          ref={ref}
+          id={inputId}
+          name={name}
+          type={type}
+          autoComplete="off"
+          placeholder={placeholder}
+          className={cn(
+            "peer flex h-[56px] w-full rounded-t-[8px] border-x-0 border-b-2 border-t-0 border-on-surface-variant bg-surface-container px-[12px] pt-[24px] text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-primary focus:outline-none",
+            leftElement && "pl-[60px]",
+            className
+          )}
+          {...props}
+        />
+        <label
+          htmlFor={inputId}
+          className={cn(
+            "pointer-events-none absolute -top-[-6px] cursor-text text-body-small text-on-surface-variant transition-all",
+            "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-body-medium",
+            "peer-focus:-top-[-6px] peer-focus:text-body-small",
+            leftElement ? "left-[48px] px-[12px]" : "left-[12px]"
+          )}
+        >
+          {placeholder}
+        </label>
+        {rightElement ? (
+          <div className="absolute right-[8px] flex h-[56px] w-[56px] items-center justify-end text-on-surface">
+            {rightElement}
+          </div>
+        ) : null}
+      </div>
     );
-};
+  }
+);
 
-InputFilled.propTypes = {};
+InputFilled.displayName = "InputFilled";
 
-export {InputFilled};
+export { InputFilled };

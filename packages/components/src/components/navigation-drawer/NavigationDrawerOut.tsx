@@ -1,3 +1,5 @@
+"use client";
+
 import {FC, ReactNode, useId} from "react";
 
 import {NavDrawerItem} from "./items/NavDrawerItem";

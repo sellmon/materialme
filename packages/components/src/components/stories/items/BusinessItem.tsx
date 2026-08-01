@@ -1,3 +1,5 @@
+"use client";
+
 import {FC, MouseEventHandler} from "react";
 
 import Image from "next/image";

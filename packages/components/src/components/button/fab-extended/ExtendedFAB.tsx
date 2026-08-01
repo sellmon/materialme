@@ -1,36 +1,53 @@
-import {ButtonHTMLAttributes, FC, MouseEventHandler, ReactNode} from "react";
+"use client";
 
-import {Icon} from "../../../elements";
+import {
+  ButtonHTMLAttributes,
+  forwardRef,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
 
-import {cn} from "../../../lib/utils";
+import { Icon } from "../../../elements";
+import { cn } from "../../../lib/utils";
 
-interface ExtendedFABProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children?: ReactNode;
-    className?: string;
-    icon?: ReactNode;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
-    text?: string;
-    variant?: "surface" | "secondary" | "tertiary";
+export interface ExtendedFABProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: ReactNode;
+  icon?: ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  text?: string;
+  variant?: "surface" | "secondary" | "tertiary";
 }
 
-const ExtendedFAB: FC<ExtendedFABProps> = ({
-    children,
-    className,
-    icon,
-    onClick,
-    text = "Extended FAB",
-    variant = "surface",
-    ...props
-}: ExtendedFABProps) => {
+const ExtendedFAB = forwardRef<HTMLButtonElement, ExtendedFABProps>(
+  (
+    {
+      children,
+      className,
+      icon,
+      onClick,
+      text,
+      type = "button",
+      variant = "surface",
+      ...props
+    },
+    ref
+  ) => {
     return (
-        <button
-            className={cn(`fabExtended ${variant} ${className || ""}`)}
-            onClick={onClick}
-            {...props}>
-            <Icon icon={icon} />
-            {children || text}
-        </button>
+      <button
+        ref={ref}
+        type={type}
+        className={cn("fabExtended", `fab-${variant}`, className)}
+        onClick={onClick}
+        {...props}
+      >
+        {icon ? <Icon icon={icon} /> : null}
+        {children ?? text}
+      </button>
     );
-};
+  }
+);
 
-export {ExtendedFAB};
+ExtendedFAB.displayName = "ExtendedFAB";
+
+export { ExtendedFAB };

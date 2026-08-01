@@ -1,57 +1,90 @@
-import {FC, ReactNode, useState} from "react";
+"use client";
 
-import {Icon} from "../../../elements";
+import { ReactNode, useId, useState } from "react";
 
-import {MdCheck} from "react-icons/md";
+import { Icon } from "../../../elements";
+import { cn } from "../../../lib/utils";
 
-interface SegmentedButtonItem {
-    id?: string;
-    header?: string;
-    content?: ReactNode;
+export interface SegmentedButtonItem {
+  id: string;
+  header: string;
+  content?: ReactNode;
 }
 
-interface SegmentedButtonsProps {
-    buttons: SegmentedButtonItem[];
-    className?: string;
-    icon?: ReactNode;
+export interface SegmentedButtonsProps {
+  buttons: SegmentedButtonItem[];
+  className?: string;
+  defaultValue?: string;
+  icon?: ReactNode;
+  onValueChange?: (id: string) => void;
+  value?: string;
 }
 
-const SegmentedButtons: FC<SegmentedButtonsProps> = ({
-    buttons,
-    className,
-    icon,
-}: SegmentedButtonsProps) => {
-    const [selectedId, setSelectedId] = useState(buttons[0].id);
-    const selectedButton = buttons.find((buttons) => buttons.id === selectedId);
+function SegmentedButtons({
+  buttons,
+  className,
+  defaultValue,
+  icon,
+  onValueChange,
+  value,
+}: SegmentedButtonsProps) {
+  const reactId = useId();
+  const [uncontrolled, setUncontrolled] = useState(
+    defaultValue ?? buttons[0]?.id
+  );
+  const selectedId = value ?? uncontrolled;
+  const selectedButton = buttons.find((button) => button.id === selectedId);
 
-    return (
-        <section className={`flex w-full flex-col ${className || ""}`}>
-            <div
-                className={`mx-[12px] flex h-[60px] w-fit flex-row overflow-x-auto rounded-full border border-outline scrollbar-hide sm:mx-[20px]`}>
-                {buttons.map((button) => (
-                    <button
-                        key={button.id}
-                        onClick={() => setSelectedId(button.id)}
-                        className={`flex h-full min-w-max max-w-[160px] flex-auto items-center justify-center gap-[8px] px-[28px] text-center text-label-large ${
-                            button.id === selectedId
-                                ? "border-outline bg-surface-container text-on-surface"
-                                : "bg-surface text-on-surface hover:bg-surface-container"
-                        }`}>
-                        {button.id === selectedId && (
-                            <Icon iconLeft={icon || <MdCheck size={18} />} />
-                        )}
-                        <div className="flex w-fit flex-row">
-                            {button.header}
-                        </div>
-                    </button>
-                ))}
-            </div>
+  const select = (id: string) => {
+    if (value === undefined) {
+      setUncontrolled(id);
+    }
+    onValueChange?.(id);
+  };
 
-            <div className="flex w-full flex-col gap-[16px] pt-[16px] text-body-medium text-on-surface">
-                {selectedButton !== undefined && selectedButton.content}
-            </div>
-        </section>
-    );
-};
+  return (
+    <section className={cn("flex w-full flex-col", className)}>
+      <div
+        role="tablist"
+        className="mx-[12px] flex h-[60px] w-fit flex-row overflow-x-auto rounded-full border border-outline scrollbar-hide sm:mx-[20px]"
+      >
+        {buttons.map((button) => {
+          const selected = button.id === selectedId;
+          const tabId = `${reactId}-${button.id}`;
 
-export {SegmentedButtons};
+          return (
+            <button
+              key={button.id}
+              id={tabId}
+              type="button"
+              role="tab"
+              aria-selected={selected}
+              onClick={() => select(button.id)}
+              className={cn(
+                "flex h-full min-w-max max-w-[160px] flex-auto items-center justify-center gap-[8px] px-[28px] text-center text-label-large",
+                selected
+                  ? "border-outline bg-surface-container text-on-surface"
+                  : "bg-surface text-on-surface hover:bg-surface-container"
+              )}
+            >
+              {selected ? <Icon iconLeft={icon} /> : null}
+              <span className="flex w-fit flex-row">{button.header}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div
+        role="tabpanel"
+        aria-labelledby={selectedId ? `${reactId}-${selectedId}` : undefined}
+        className="flex w-full flex-col gap-[16px] pt-[16px] text-body-medium text-on-surface"
+      >
+        {selectedButton?.content}
+      </div>
+    </section>
+  );
+}
+
+SegmentedButtons.displayName = "SegmentedButtons";
+
+export { SegmentedButtons };

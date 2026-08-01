@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useEffect, useRef} from "react";
 
 import {MoveProps, useVisible} from "../index";
@@ -42,7 +44,7 @@ const MoveScrollY: React.FC<MoveProps> = ({
     }, [visible, duration, radius]);
 
     return React.cloneElement(
-        React.Children.only(children) as React.ReactElement,
+        React.Children.only(children) as React.ReactElement<Record<string, unknown>>,
         {
             ref,
         }

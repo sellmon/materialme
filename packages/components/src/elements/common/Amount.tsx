@@ -1,45 +1,74 @@
-import {FC, MouseEventHandler, useState} from "react";
+"use client";
 
-import {IconButton} from "../../components/index";
-import {MdAdd, MdRemove} from "react-icons/md";
+import { useState } from "react";
 
-interface AmountProps {
-    amount?: number;
-    minusAmount?: MouseEventHandler<HTMLButtonElement>;
-    plusAmount?: MouseEventHandler<HTMLButtonElement>;
+import { MdAdd, MdRemove } from "react-icons/md";
+
+import { IconButton } from "../../components/button/icon-button/IconButton";
+import { cn } from "../../lib/utils";
+
+export interface AmountProps {
+  className?: string;
+  defaultValue?: number;
+  max?: number;
+  min?: number;
+  onChange?: (value: number) => void;
+  value?: number;
 }
 
-const Amount: FC<AmountProps> = ({}: AmountProps) => {
-    const [amount, setAmount] = useState(1);
+function Amount({
+  className,
+  defaultValue = 1,
+  max,
+  min = 0,
+  onChange,
+  value,
+}: AmountProps) {
+  const isControlled = value !== undefined;
+  const [uncontrolled, setUncontrolled] = useState(defaultValue);
+  const amount = isControlled ? value : uncontrolled;
 
-    function minusAmount() {
-        setAmount(amount - 1);
+  const setAmount = (next: number) => {
+    const clamped = Math.max(min, max === undefined ? next : Math.min(max, next));
+    if (!isControlled) {
+      setUncontrolled(clamped);
     }
+    onChange?.(clamped);
+  };
 
-    function plusAmount() {
-        setAmount(amount + 1);
-    }
+  return (
+    <div
+      className={cn(
+        "flex w-fit flex-row gap-[4px] rounded-[8px] bg-surface-container-high",
+        className
+      )}
+    >
+      <IconButton
+        aria-label="Decrease"
+        icon={<MdRemove size={18} />}
+        variant="standard"
+        className="m-[2px] rounded-[6px] p-[6px]"
+        onClick={() => setAmount(amount - 1)}
+        disabled={amount <= min}
+      />
+      <div
+        className="flex min-w-[24px] items-center justify-center px-[2px] text-body-medium text-on-surface"
+        aria-live="polite"
+      >
+        {amount}
+      </div>
+      <IconButton
+        aria-label="Increase"
+        icon={<MdAdd size={18} />}
+        variant="standard"
+        className="m-[2px] rounded-[6px] p-[6px]"
+        onClick={() => setAmount(amount + 1)}
+        disabled={max !== undefined && amount >= max}
+      />
+    </div>
+  );
+}
 
-    return (
-        <div className="flex w-fit flex-row gap-[4px] rounded-[8px] bg-surface-container-high">
-            <IconButton
-                icon={<MdRemove size={18} />}
-                variant={"standard"}
-                className={"m-[2px] rounded-[6px] p-[6px] "}
-                onClick={minusAmount}
-                disabled={amount === 0}
-            />
-            <div className="flex min-w-[24px] items-center justify-center px-[2px] text-body-medium text-on-surface">
-                {amount}
-            </div>
-            <IconButton
-                icon={<MdAdd size={18} />}
-                variant={"standard"}
-                className={"m-[2px] rounded-[6px] p-[6px]"}
-                onClick={plusAmount}
-            />
-        </div>
-    );
-};
+Amount.displayName = "Amount";
 
-export {Amount};
+export { Amount };

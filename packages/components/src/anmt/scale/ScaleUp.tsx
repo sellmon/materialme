@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useEffect, useRef} from "react";
 
 import {ScaleUpProps, useVisible} from "../index";
@@ -51,7 +53,7 @@ const ScaleUp: React.FC<ScaleUpProps> = ({
     }, [visible]);
 
     return React.cloneElement(
-        React.Children.only(children) as React.ReactElement,
+        React.Children.only(children) as React.ReactElement<Record<string, unknown>>,
         {
             ref,
         }

@@ -1,82 +1,80 @@
-import {FC, ReactNode, useEffect, useRef, useState} from "react";
+"use client";
 
-import {event} from "next/dist/build/output/log";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
-import {OverflowMenuItem} from "./OverflowMenuItem";
+import { cn } from "../../lib/utils";
+import { OverflowMenuItem } from "./OverflowMenuItem";
 
-interface OverflowMenuProps {
-    bottomLeft?: boolean;
-    bottomRight?: boolean;
-    children?: ReactNode;
-    menu?: ReactNode;
-    overflow?: string;
-    topLeft?: boolean;
-    topRight?: boolean;
+export interface OverflowMenuProps {
+  bottomLeft?: boolean;
+  bottomRight?: boolean;
+  children?: ReactNode;
+  menu?: ReactNode;
+  overflow?: string;
+  topLeft?: boolean;
+  topRight?: boolean;
 }
 
-interface OverflowMenuComponent extends FC<OverflowMenuProps> {
-    Item: typeof OverflowMenuItem;
-}
+function OverflowMenuRoot({
+  bottomLeft,
+  bottomRight,
+  children,
+  menu,
+  overflow = "overflow-y-auto",
+  topLeft,
+  topRight,
+}: OverflowMenuProps) {
+  const [isActive, setIsActive] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-const OverflowMenu: OverflowMenuComponent = ({
-    bottomLeft,
-    bottomRight,
-    children,
-    menu,
-    overflow = "overflow-y-auto",
-    topLeft,
-    topRight,
-}: OverflowMenuProps) => {
-    const [isActive, setIsActive] = useState(false);
-    const wrapperRef = useRef<HTMLDivElement>(null);
-    const menuRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!isActive) return;
 
-    const handleClick = () => {
-        setIsActive(!isActive);
+    const handlePointerDown = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (
+        wrapperRef.current?.contains(target) ||
+        menuRef.current?.contains(target)
+      ) {
+        return;
+      }
+      setIsActive(false);
     };
 
-    useEffect(() => {
-        const wrapperId = wrapperRef.current;
-        const menuId = menuRef.current;
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [isActive]);
 
-        document.addEventListener("click", (event) => {
-            if (
-                wrapperId &&
-                menuId &&
-                !wrapperId.contains(event.target as Node) &&
-                !menuId.contains(event.target as Node)
-            ) {
-                setIsActive(false);
-            }
-        });
+  return (
+    <div
+      ref={wrapperRef}
+      onClick={() => setIsActive((open) => !open)}
+      className="relative flex w-fit cursor-pointer"
+    >
+      {children}
+      <div
+        ref={menuRef}
+        className={cn(
+          "absolute z-20 my-[8px] flex max-h-[310px] min-w-max max-w-[280px] flex-col animate-fade-in rounded-[8px] bg-surface-container-high py-[8px] shadow-mm-1",
+          overflow,
+          !isActive && "hidden",
+          topRight && "bottom-full right-0",
+          topLeft && "bottom-full left-0",
+          bottomRight && "right-0 top-full",
+          bottomLeft && "left-0 top-full"
+        )}
+      >
+        {menu}
+      </div>
+    </div>
+  );
+}
 
-        return () => {
-            document.removeEventListener("click", event);
-        };
-    }, [isActive]);
+OverflowMenuRoot.displayName = "OverflowMenu";
 
-    return (
-        <div
-            ref={wrapperRef}
-            onClick={handleClick}
-            className="relative flex w-fit cursor-pointer">
-            {children}
-            <div
-                ref={menuRef}
-                className={`absolute ${!isActive ? "hidden" : ""}
-      
-          ${topRight ? "bottom-full right-0" : ""}
-          ${topLeft ? "bottom-full left-0" : ""}
-          ${bottomRight ? "right-0 top-full" : ""}
-          ${bottomLeft ? "left-0 top-full" : ""}
-      
-          z-20 my-[8px] flex max-h-[310px] min-w-max max-w-[280px] flex-col ${overflow} animate-fade-in rounded-[8px] bg-surface-container-high py-[8px] shadow-mm-1`}>
-                {menu}
-            </div>
-        </div>
-    );
-};
+const OverflowMenu = Object.assign(OverflowMenuRoot, {
+  Item: OverflowMenuItem,
+});
 
-OverflowMenu.Item = OverflowMenuItem;
-
-export {OverflowMenu};
+export { OverflowMenu };

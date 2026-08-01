@@ -1,19 +1,18 @@
-import {FC, ReactNode} from "react";
+import { ReactNode } from "react";
 
-interface DialogBodyProps {
-    children?: ReactNode;
-    className?: string;
+import { cn } from "../../lib/utils";
+
+export interface DialogBodyProps {
+  children?: ReactNode;
+  className?: string;
 }
 
-const DialogBody: FC<DialogBodyProps> = ({
-    children,
-    className,
-}: DialogBodyProps) => {
-    return (
-        <div className={`flex w-full px-[24px] ${className || ""}`}>
-            {children}
-        </div>
-    );
-};
+function DialogBody({ children, className }: DialogBodyProps) {
+  return (
+    <div className={cn("flex w-full px-[24px]", className)}>{children}</div>
+  );
+}
 
-export {DialogBody};
+DialogBody.displayName = "DialogBody";
+
+export { DialogBody };

@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useEffect, useRef} from "react";
 
 import {FadeInProps, useVisible} from "../index";
@@ -50,7 +52,7 @@ const FadeInLeft: React.FC<FadeInProps> = ({
     }, [visible]);
 
     return React.cloneElement(
-        React.Children.only(children) as React.ReactElement,
+        React.Children.only(children) as React.ReactElement<Record<string, unknown>>,
         {
             ref,
         }

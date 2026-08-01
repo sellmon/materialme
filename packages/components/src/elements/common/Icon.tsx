@@ -1,22 +1,26 @@
-import React from "react";
+import { ReactNode } from "react";
+
+import { cn } from "../../lib/utils";
 
 export interface IconProps {
-    iconLeft?: React.ReactNode | undefined;
-    icon?: React.ReactNode | undefined;
-    iconRight?: React.ReactNode | undefined;
-    className?: string;
+  children?: ReactNode;
+  className?: string;
+  icon?: ReactNode;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
 }
 
-const Icon = ({iconLeft, icon, iconRight, className}: IconProps) => {
-    return (
-        <>
-            {iconLeft && <div className={`${className || ""}`}>{iconLeft}</div>}
-            {icon && <div className={`${className || ""}`}>{icon}</div>}
-            {iconRight && (
-                <div className={`${className || ""}`}>{iconRight}</div>
-            )}
-        </>
-    );
-};
+function Icon({ children, className, icon, iconLeft, iconRight }: IconProps) {
+  const content = children ?? icon ?? iconLeft ?? iconRight;
+  if (!content) return null;
 
-export {Icon};
+  return (
+    <span className={cn("inline-flex shrink-0 items-center", className)} aria-hidden>
+      {content}
+    </span>
+  );
+}
+
+Icon.displayName = "Icon";
+
+export { Icon };

@@ -1,68 +1,101 @@
-import {FC, MouseEventHandler, ReactNode, useEffect, useId} from "react";
+"use client";
 
-import {IconButton} from "../index";
-import {MdClose} from "react-icons/md";
+import {
+  MouseEvent,
+  ReactNode,
+  useEffect,
+} from "react";
 
-interface BottomSheetProps {
-    isVisible?: boolean;
-    onClose?: MouseEventHandler<HTMLDivElement>;
-    title?: string;
-    children?: ReactNode;
-    closeButton?: ReactNode;
+import { MdClose } from "react-icons/md";
+
+import { cn } from "../../lib/utils";
+import { IconButton } from "../button/icon-button/IconButton";
+
+export interface SideSheetProps {
+  children?: ReactNode;
+  className?: string;
+  closeButton?: boolean;
+  isVisible?: boolean;
+  onClose?: () => void;
+  title?: string;
 }
 
-const SideSheet: FC<BottomSheetProps> = ({
-    isVisible,
-    onClose,
-    title,
-    closeButton,
-    children,
-}: BottomSheetProps) => {
-    const sideSheet = useId();
+function SideSheet({
+  children,
+  className,
+  closeButton = true,
+  isVisible,
+  onClose,
+  title,
+}: SideSheetProps) {
+  useEffect(() => {
+    if (!isVisible) return;
 
-    useEffect(() => {
-        document.body.style.overflow = isVisible ? "hidden" : "visible";
-    }, [isVisible]);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
-    if (!isVisible) return null;
-
-    const handleClose: MouseEventHandler<HTMLDivElement> = (e) => {
-        const target = e.target as HTMLElement;
-        if (onClose) {
-            target?.id === sideSheet && onClose(e);
-        }
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose?.();
+      }
     };
 
-    return (
-        <div
-            id={sideSheet}
-            onClick={handleClose}
-            className="fixed inset-0 z-40 flex bg-black/20">
-            <div className="fixed right-0 top-0 z-50 flex h-screen min-w-[360px] max-w-[380px] transform animate-transition-right flex-col overflow-y-auto rounded-l-large bg-surface-container bg-white px-[12px] py-[24px] scrollbar-hide sm:min-w-[440px] sm:max-w-[540px]">
-                <div className="z-10 flex w-full flex-col bg-surface-container px-[12px] pb-[28px] scrollbar-hide">
-                    <div className="flex items-center justify-center">
-                        {title && (
-                            <div className="flex w-full justify-start text-title-medium">
-                                {title}
-                            </div>
-                        )}
-                        {closeButton && (
-                            <div
-                                className="flex w-full justify-end"
-                                onClick={onClose}>
-                                <IconButton
-                                    icon={<MdClose size={24} />}
-                                    className="rounded-extra-large"
-                                    variant="tonal"
-                                />
-                            </div>
-                        )}
-                    </div>
-                    {children}
-                </div>
-            </div>
-        </div>
-    );
-};
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isVisible, onClose]);
 
-export {SideSheet};
+  if (!isVisible) return null;
+
+  const handleScrimClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target === event.currentTarget) {
+      onClose?.();
+    }
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-40 flex bg-black/20"
+      onClick={handleScrimClick}
+    >
+      <aside
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        className={cn(
+          "fixed right-0 top-0 z-50 flex h-screen min-w-[360px] max-w-[380px] animate-transition-right flex-col overflow-y-auto rounded-l-large bg-surface-container px-[12px] py-[24px] scrollbar-hide sm:min-w-[440px] sm:max-w-[540px]",
+          className
+        )}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="z-10 flex w-full flex-col px-[12px] pb-[28px]">
+          {(title || closeButton) && (
+            <div className="mb-[16px] flex items-center justify-between gap-[12px]">
+              {title ? (
+                <h2 className="text-title-medium text-on-surface">{title}</h2>
+              ) : (
+                <span />
+              )}
+              {closeButton ? (
+                <IconButton
+                  aria-label="Close"
+                  icon={<MdClose size={24} />}
+                  className="rounded-extra-large"
+                  variant="tonal"
+                  onClick={onClose}
+                />
+              ) : null}
+            </div>
+          )}
+          {children}
+        </div>
+      </aside>
+    </div>
+  );
+}
+
+SideSheet.displayName = "SideSheet";
+
+export { SideSheet };

@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useEffect, useRef, useState} from "react";
 
 import {TiltProps, useVisible} from "../index";
@@ -52,7 +54,7 @@ const TiltScaleTop = ({
     }, [tiltActive, visible]);
 
     return React.cloneElement(
-        React.Children.only(children) as React.ReactElement,
+        React.Children.only(children) as React.ReactElement<Record<string, unknown>>,
         {
             ref,
             style: {

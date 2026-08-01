@@ -1,60 +1,64 @@
-import React, {FC, ReactNode, useEffect, useRef, useState} from "react";
+"use client";
 
-import {event} from "next/dist/build/output/log";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
-interface SearchProps {
-    children: ReactNode;
-    result?: ReactNode;
+import { cn } from "../../lib/utils";
+
+export interface SearchProps {
+  children: ReactNode;
+  className?: string;
+  result?: ReactNode;
 }
 
-const Search: FC<SearchProps> = ({children, result}: SearchProps) => {
-    const [isActive, setIsActive] = useState(false);
-    const wrapper = useRef<HTMLDivElement>(null);
-    const results = useRef<HTMLDivElement>(null);
+function Search({ children, className, result }: SearchProps) {
+  const [isActive, setIsActive] = useState(false);
+  const wrapper = useRef<HTMLDivElement>(null);
+  const results = useRef<HTMLDivElement>(null);
 
-    const handleClick = () => {
-        setIsActive(true);
+  useEffect(() => {
+    if (!isActive) return;
+
+    const handlePointerDown = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (
+        wrapper.current?.contains(target) ||
+        results.current?.contains(target)
+      ) {
+        return;
+      }
+      setIsActive(false);
     };
 
-    useEffect(() => {
-        const wrapperRef = wrapper.current;
-        const resultRef = results.current;
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [isActive]);
 
-        document.addEventListener("click", (event) => {
-            if (
-                wrapperRef &&
-                resultRef &&
-                !wrapperRef.contains(event.target as Node) &&
-                !resultRef.contains(event.target as Node)
-            ) {
-                setIsActive(false);
-            }
-        });
-
-        return () => {
-            document.removeEventListener("click", event);
-        };
-    }, [isActive]);
-
-    return (
-        <div
-            ref={wrapper}
-            onClick={handleClick}
-            className={`relative z-[30] flex h-fit w-full min-w-[280px] max-w-[720px] cursor-pointer ${
-                isActive ? "rounded-t-[32px]" : "rounded-full"
-            } bg-surface-container-low`}>
-            {children}
-            <div
-                ref={results}
-                className={`${!isActive ? "hidden" : ""} 
-          absolute -left-0 top-full  mb-[4px] flex w-full flex-col `}>
-                <div
-                    className={`flex max-h-[310px] animate-transition-top flex-col overflow-hidden overflow-y-auto rounded-b-[32px] bg-surface-container-low py-[8px]`}>
-                    <>{result}</>
-                </div>
-            </div>
+  return (
+    <div
+      ref={wrapper}
+      onClick={() => setIsActive(true)}
+      className={cn(
+        "relative z-[30] flex h-fit w-full min-w-[280px] max-w-[720px] cursor-pointer bg-surface-container-low",
+        isActive ? "rounded-t-[32px]" : "rounded-full",
+        className
+      )}
+    >
+      {children}
+      <div
+        ref={results}
+        className={cn(
+          "absolute -left-0 top-full mb-[4px] flex w-full flex-col",
+          !isActive && "hidden"
+        )}
+      >
+        <div className="flex max-h-[310px] animate-transition-top flex-col overflow-hidden overflow-y-auto rounded-b-[32px] bg-surface-container-low py-[8px]">
+          {result}
         </div>
-    );
-};
+      </div>
+    </div>
+  );
+}
 
-export {Search};
+Search.displayName = "Search";
+
+export { Search };

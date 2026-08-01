@@ -1,42 +1,32 @@
-import {ButtonHTMLAttributes, FC, MouseEventHandler, ReactNode} from "react";
+"use client";
 
-import {Icon} from "../../../elements";
+import { ButtonHTMLAttributes, forwardRef } from "react";
 
-import {cn} from "../../../lib/utils";
+import { cn } from "../../../lib/utils";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children?: ReactNode;
-    className?: string;
-    disabled?: boolean;
-    iconLeft?: ReactNode;
-    iconRight?: ReactNode;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
-    text?: string;
-    variant?: "filled" | "tonal" | "outlined" | "elevated" | "text";
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "filled" | "tonal" | "outlined" | "elevated" | "text";
 }
 
-const Button: FC<ButtonProps> = ({
-    children,
-    className,
-    disabled,
-    iconLeft,
-    iconRight,
-    variant = "filled",
-    onClick,
-    text = "Button",
-    ...props
-}: ButtonProps) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    { children, className, disabled, variant = "filled", type = "button", ...props },
+    ref
+  ) => {
     return (
-        <button
-            className={cn(`btn ${variant} ${className || ""}`)}
-            disabled={disabled}
-            onClick={onClick}
-            {...props}>
-            <Icon iconLeft={iconLeft} />
-            {children || text}
-            <Icon iconRight={iconRight} />
-        </button>
+      <button
+        ref={ref}
+        type={type}
+        className={cn("btn", `btn-${variant}`, className)}
+        disabled={disabled}
+        {...props}
+      >
+        {children}
+      </button>
     );
-};
+  }
+);
 
-export {Button};
+Button.displayName = "Button";
+
+export { Button };

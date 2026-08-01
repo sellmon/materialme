@@ -141,7 +141,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "icon"
+      "utils"
     ]
   },
   "extended-fab": {
@@ -157,7 +157,8 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "icon"
+      "icon",
+      "utils"
     ]
   },
   "blob": {
@@ -185,11 +186,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "react-icons"
-    ],
+    "dependencies": [],
     "registryDependencies": [
-      "icon"
+      "icon",
+      "utils"
     ]
   },
   "icon-button": {
@@ -203,11 +203,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "react-icons"
-    ],
+    "dependencies": [],
     "registryDependencies": [
-      "icon"
+      "icon",
+      "utils"
     ]
   },
   "segmented-buttons": {
@@ -221,11 +220,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "react-icons"
-    ],
+    "dependencies": [],
     "registryDependencies": [
-      "icon"
+      "icon",
+      "utils"
     ]
   },
   "card": {
@@ -664,7 +662,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "dialog-body": {
     "name": "dialog-body",
@@ -693,7 +693,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "dialog-footer": {
     "name": "dialog-footer",
@@ -722,7 +724,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "dialog-header": {
     "name": "dialog-header",
@@ -751,7 +755,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "divider": {
     "name": "divider",
@@ -783,10 +789,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "next"
-    ],
-    "registryDependencies": []
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "dropdown-item": {
     "name": "dropdown-item",
@@ -804,10 +810,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "next"
-    ],
-    "registryDependencies": []
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "gallery": {
     "name": "gallery",
@@ -946,7 +952,8 @@
       "next"
     ],
     "registryDependencies": [
-      "badge"
+      "badge",
+      "utils"
     ]
   },
   "navigation-drawer-out": {
@@ -974,7 +981,8 @@
       "next"
     ],
     "registryDependencies": [
-      "badge"
+      "badge",
+      "utils"
     ]
   },
   "navigation-rail": {
@@ -1015,11 +1023,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "next"
-    ],
+    "dependencies": [],
     "registryDependencies": [
-      "badge"
+      "badge",
+      "utils"
     ]
   },
   "circle": {
@@ -1081,10 +1088,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "next"
-    ],
-    "registryDependencies": []
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "search-input": {
     "name": "search-input",
@@ -1107,10 +1114,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "next"
-    ],
-    "registryDependencies": []
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "search-item": {
     "name": "search-item",
@@ -1133,10 +1140,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "next"
-    ],
-    "registryDependencies": []
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "bottom-sheet": {
     "name": "bottom-sheet",
@@ -1158,7 +1165,8 @@
       "react-icons"
     ],
     "registryDependencies": [
-      "icon-button"
+      "icon-button",
+      "utils"
     ]
   },
   "side-sheet": {
@@ -1181,7 +1189,8 @@
       "react-icons"
     ],
     "registryDependencies": [
-      "icon-button"
+      "icon-button",
+      "utils"
     ]
   },
   "slider": {
@@ -1353,7 +1362,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "input-outlined": {
     "name": "input-outlined",
@@ -1382,7 +1393,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "text-field-filled": {
     "name": "text-field-filled",
@@ -1411,7 +1424,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "text-field-outlined": {
     "name": "text-field-outlined",
@@ -1440,7 +1455,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "toggle-theme": {
     "name": "toggle-theme",
@@ -1588,7 +1605,8 @@
       "react-icons"
     ],
     "registryDependencies": [
-      "icon-button"
+      "icon-button",
+      "utils"
     ]
   },
   "checkbox": {
@@ -1603,7 +1621,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "icon": {
     "name": "icon",
@@ -1617,7 +1637,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "img": {
     "name": "img",
@@ -1631,7 +1653,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "loading": {
     "name": "loading",
@@ -1645,7 +1669,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "radio": {
     "name": "radio",
@@ -1659,7 +1685,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "switch": {
     "name": "switch",
@@ -1673,7 +1701,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "text-element": {
     "name": "text-element",
@@ -1687,7 +1717,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "fade-in": {
     "name": "fade-in",
@@ -1742,7 +1774,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "fade-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -1799,7 +1831,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "fade-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -1856,7 +1888,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "fade-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -1913,7 +1945,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "fade-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -1970,7 +2002,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "fade-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2027,7 +2059,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "fade-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2084,7 +2116,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "fade-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2141,7 +2173,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "fade-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2198,7 +2230,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "fade-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2231,7 +2263,7 @@
     "dependencies": [],
     "registryDependencies": [
       "debounce",
-      "move-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2264,7 +2296,7 @@
     "dependencies": [],
     "registryDependencies": [
       "debounce",
-      "move-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2297,7 +2329,7 @@
     "dependencies": [],
     "registryDependencies": [
       "debounce",
-      "move-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2330,7 +2362,7 @@
     "dependencies": [],
     "registryDependencies": [
       "debounce",
-      "move-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2387,7 +2419,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "scale-up-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2444,7 +2476,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "scale-up-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2501,7 +2533,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "scale-up-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2558,7 +2590,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "scale-up-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2615,7 +2647,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "scale-up-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2672,7 +2704,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "scale-up-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2729,7 +2761,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "scale-up-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2786,7 +2818,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "scale-up-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2843,7 +2875,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "scale-up-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2895,7 +2927,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "slide-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2947,7 +2979,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "slide-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -2999,7 +3031,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "slide-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -3051,7 +3083,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "slide-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -3103,7 +3135,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "slide-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -3155,7 +3187,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "slide-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -3207,7 +3239,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "slide-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -3259,7 +3291,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "slide-in-props",
+      "types",
       "use-visible"
     ]
   },
@@ -3296,8 +3328,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "tilt-mouse-props",
-      "tilt-props",
+      "types",
       "use-visible"
     ]
   },
@@ -3334,8 +3365,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "tilt-mouse-props",
-      "tilt-props",
+      "types",
       "use-visible"
     ]
   },
@@ -3372,8 +3402,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
-      "tilt-mouse-props",
-      "tilt-props",
+      "types",
       "use-visible"
     ]
   },
@@ -3383,207 +3412,13 @@
     "type": "component",
     "files": [
       {
-        "path": "anmt/fade/FadeIn.tsx",
-        "source": "src/anmt/fade/FadeIn.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/fade/FadeInBottom.tsx",
-        "source": "src/anmt/fade/FadeInBottom.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/fade/FadeInBottomLeft.tsx",
-        "source": "src/anmt/fade/FadeInBottomLeft.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/fade/FadeInBottomRight.tsx",
-        "source": "src/anmt/fade/FadeInBottomRight.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/fade/FadeInLeft.tsx",
-        "source": "src/anmt/fade/FadeInLeft.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/fade/FadeInRight.tsx",
-        "source": "src/anmt/fade/FadeInRight.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/fade/FadeInTop.tsx",
-        "source": "src/anmt/fade/FadeInTop.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/fade/FadeInTopLeft.tsx",
-        "source": "src/anmt/fade/FadeInTopLeft.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/fade/FadeInTopRight.tsx",
-        "source": "src/anmt/fade/FadeInTopRight.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/move/MoveMouse.tsx",
-        "source": "src/anmt/move/MoveMouse.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/move/MoveScrollRandom.tsx",
-        "source": "src/anmt/move/MoveScrollRandom.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/move/MoveScrollX.tsx",
-        "source": "src/anmt/move/MoveScrollX.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/move/MoveScrollY.tsx",
-        "source": "src/anmt/move/MoveScrollY.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/scale/ScaleUp.tsx",
-        "source": "src/anmt/scale/ScaleUp.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/scale/ScaleUpBottom.tsx",
-        "source": "src/anmt/scale/ScaleUpBottom.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/scale/ScaleUpBottomLeft.tsx",
-        "source": "src/anmt/scale/ScaleUpBottomLeft.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/scale/ScaleUpBottomRight.tsx",
-        "source": "src/anmt/scale/ScaleUpBottomRight.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/scale/ScaleUpLeft.tsx",
-        "source": "src/anmt/scale/ScaleUpLeft.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/scale/ScaleUpRight.tsx",
-        "source": "src/anmt/scale/ScaleUpRight.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/scale/ScaleUpTop.tsx",
-        "source": "src/anmt/scale/ScaleUpTop.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/scale/ScaleUpTopLeft.tsx",
-        "source": "src/anmt/scale/ScaleUpTopLeft.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/scale/ScaleUpTopRight.tsx",
-        "source": "src/anmt/scale/ScaleUpTopRight.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/slide/SlideInBottom.tsx",
-        "source": "src/anmt/slide/SlideInBottom.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/slide/SlideInBottomLeft.tsx",
-        "source": "src/anmt/slide/SlideInBottomLeft.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/slide/SlideInBottomRight.tsx",
-        "source": "src/anmt/slide/SlideInBottomRight.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/slide/SlideInLeft.tsx",
-        "source": "src/anmt/slide/SlideInLeft.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/slide/SlideInRight.tsx",
-        "source": "src/anmt/slide/SlideInRight.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/slide/SlideInTop.tsx",
-        "source": "src/anmt/slide/SlideInTop.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/slide/SlideInTopLeft.tsx",
-        "source": "src/anmt/slide/SlideInTopLeft.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/slide/SlideInTopRight.tsx",
-        "source": "src/anmt/slide/SlideInTopRight.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/tilt/TiltBottom.tsx",
-        "source": "src/anmt/tilt/TiltBottom.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/tilt/TiltMouse.tsx",
-        "source": "src/anmt/tilt/TiltMouse.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/tilt/TiltScaleBottom.tsx",
-        "source": "src/anmt/tilt/TiltScaleBottom.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/tilt/TiltScaleTop.tsx",
-        "source": "src/anmt/tilt/TiltScaleTop.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/tilt/TiltTop.tsx",
-        "source": "src/anmt/tilt/TiltTop.tsx",
-        "type": "component"
-      },
-      {
-        "path": "anmt/types.ts/types.ts",
+        "path": "anmt/types.ts",
         "source": "src/anmt/types.ts",
-        "type": "component"
-      },
-      {
-        "path": "anmt/utils/debounce.ts",
-        "source": "src/anmt/utils/debounce.ts",
-        "type": "component"
-      },
-      {
-        "path": "anmt/utils/useVisible.tsx",
-        "source": "src/anmt/utils/useVisible.tsx",
         "type": "component"
       }
     ],
     "dependencies": [],
-    "registryDependencies": [
-      "debounce",
-      "fade-in-props",
-      "move-props",
-      "scale-up-props",
-      "slide-in-props",
-      "tilt-mouse-props",
-      "tilt-props",
-      "use-visible"
-    ]
+    "registryDependencies": []
   },
   "debounce": {
     "name": "debounce",
@@ -3657,7 +3492,7 @@
       "tailwindcss"
     ],
     "registryDependencies": [
-      "set-category-colors"
+      "set-color"
     ]
   },
   "area-chart": {
@@ -3677,7 +3512,7 @@
       "tailwindcss"
     ],
     "registryDependencies": [
-      "set-category-colors"
+      "set-color"
     ]
   },
   "area": {
@@ -3716,7 +3551,20 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      "@visx/event",
+      "@visx/gradient",
+      "@visx/grid",
+      "@visx/scale",
+      "@visx/shape",
+      "@visx/axis",
+      "@visx/group",
+      "@visx/geo",
+      "d3-geo",
+      "@visx/visx",
+      "d3",
+      "topojson-client"
+    ],
     "registryDependencies": []
   },
   "bar": {
@@ -3755,7 +3603,20 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      "@visx/event",
+      "@visx/gradient",
+      "@visx/grid",
+      "@visx/scale",
+      "@visx/shape",
+      "@visx/axis",
+      "@visx/group",
+      "@visx/geo",
+      "d3-geo",
+      "@visx/visx",
+      "d3",
+      "topojson-client"
+    ],
     "registryDependencies": []
   },
   "map-visx": {
@@ -3794,7 +3655,20 @@
         "type": "component"
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      "@visx/event",
+      "@visx/gradient",
+      "@visx/grid",
+      "@visx/scale",
+      "@visx/shape",
+      "@visx/axis",
+      "@visx/group",
+      "@visx/geo",
+      "d3-geo",
+      "@visx/visx",
+      "d3",
+      "topojson-client"
+    ],
     "registryDependencies": []
   },
   "set-color": {

@@ -1,3 +1,5 @@
+"use client";
+
 import {FC, ReactNode, useState} from "react";
 
 interface TabsProps {

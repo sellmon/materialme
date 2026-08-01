@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable react/jsx-handler-names */
 import React, {useState} from "react";
 

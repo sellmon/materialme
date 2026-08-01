@@ -1,22 +1,25 @@
-import {FC, ReactNode} from "react";
+import { ReactNode } from "react";
 
-interface DialogFooterProps {
-    children?: ReactNode;
-    className?: string;
+import { cn } from "../../lib/utils";
+
+export interface DialogFooterProps {
+  children?: ReactNode;
+  className?: string;
 }
 
-const DialogFooter: FC<DialogFooterProps> = ({
-    children,
-    className,
-}: DialogFooterProps) => {
-    return (
-        <div
-            className={`mb-[24px] mt-[8px] flex items-center justify-end gap-[8px] px-[24px] ${
-                className || ""
-            }`}>
-            {children}
-        </div>
-    );
-};
+function DialogFooter({ children, className }: DialogFooterProps) {
+  return (
+    <div
+      className={cn(
+        "mb-[24px] mt-[8px] flex items-center justify-end gap-[8px] px-[24px]",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+}
 
-export {DialogFooter};
+DialogFooter.displayName = "DialogFooter";
+
+export { DialogFooter };

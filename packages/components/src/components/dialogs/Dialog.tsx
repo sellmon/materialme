@@ -1,64 +1,88 @@
-import {FC, ReactNode, useEffect, useId} from "react";
+"use client";
 
-import {DialogBody} from "./DialogBody";
-import {DialogFooter} from "./DialogFooter";
-import {DialogHeader} from "./DialogHeader";
+import {
+  MouseEvent,
+  ReactNode,
+  useEffect,
+  useId,
+  useRef,
+} from "react";
 
-interface DialogProps {
-    body?: ReactNode;
-    button?: ReactNode;
-    children?: ReactNode;
-    headline?: string;
-    icon?: ReactNode;
-    isVisible: boolean;
-    onClose: () => void;
-    text?: string;
+import { cn } from "../../lib/utils";
+import { DialogBody } from "./DialogBody";
+import { DialogFooter } from "./DialogFooter";
+import { DialogHeader } from "./DialogHeader";
+
+export interface DialogProps {
+  children?: ReactNode;
+  className?: string;
+  isVisible: boolean;
+  onClose: () => void;
 }
 
-interface DialogComponent extends FC<DialogProps> {
-    Header: typeof DialogHeader;
-    Body: typeof DialogBody;
-    Footer: typeof DialogFooter;
-}
+function DialogRoot({ children, className, isVisible, onClose }: DialogProps) {
+  const titleId = useId();
+  const panelRef = useRef<HTMLDivElement>(null);
 
-const Dialog: DialogComponent = ({
-    children,
-    isVisible,
-    onClose,
-}: DialogProps) => {
-    const scrim = useId();
+  useEffect(() => {
+    if (!isVisible) return;
 
-    useEffect(() => {
-        if (isVisible) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "unset";
-        }
-    }, [isVisible]);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
-    if (!isVisible) return null;
-
-    const handleClose = (e: any) => {
-        e.target.id === scrim && onClose();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
     };
 
-    return (
-        <div
-            id={scrim}
-            onClick={handleClose}
-            className={`fixed inset-0 z-20 flex bg-black/50`}>
-            <div className="z-50 flex  flex-col items-center justify-center overflow-hidden">
-                <div className="absolute left-1/2 top-1/2 z-10 flex w-11/12 min-w-[280px] max-w-[580px] -translate-x-1/2 -translate-y-1/2 animate-fade-in flex-col gap-[16px] rounded-[28px] bg-surface-container pt-[24px]">
-                    {/*header*/}
-                    {children}
-                </div>
-            </div>
-        </div>
-    );
-};
+    document.addEventListener("keydown", onKeyDown);
+    panelRef.current?.focus();
 
-Dialog.Header = DialogHeader;
-Dialog.Body = DialogBody;
-Dialog.Footer = DialogFooter;
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isVisible, onClose]);
 
-export {Dialog};
+  if (!isVisible) return null;
+
+  const handleScrimClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-20 flex items-center justify-center bg-black/50"
+      onClick={handleScrimClick}
+    >
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        tabIndex={-1}
+        className={cn(
+          "z-10 flex w-11/12 min-w-[280px] max-w-[580px] animate-fade-in flex-col gap-[16px] rounded-[28px] bg-surface-container pt-[24px] outline-none",
+          className
+        )}
+        data-dialog-title={titleId}
+        onClick={(event) => event.stopPropagation()}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+DialogRoot.displayName = "Dialog";
+
+const Dialog = Object.assign(DialogRoot, {
+  Header: DialogHeader,
+  Body: DialogBody,
+  Footer: DialogFooter,
+});
+
+export { Dialog };

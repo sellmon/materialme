@@ -1,77 +1,72 @@
-import {FC, ReactNode, useEffect, useRef, useState} from "react";
+"use client";
 
-import {event} from "next/dist/build/output/log";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
-import {DropdownItem} from "./DropdownItem";
+import { cn } from "../../lib/utils";
+import { DropdownItem } from "./DropdownItem";
 
-interface DropdownProps {
-    children: ReactNode;
-    className?: ReactNode;
-    menu?: ReactNode;
-    apart?: boolean;
+export interface DropdownProps {
+  children: ReactNode;
+  className?: string;
+  menu?: ReactNode;
+  apart?: boolean;
 }
 
-interface DropdownComponent extends FC<DropdownProps> {
-    Item: typeof DropdownItem;
-}
+function DropdownRoot({ children, className, menu, apart }: DropdownProps) {
+  const [isActive, setIsActive] = useState(false);
+  const wrapper = useRef<HTMLDivElement>(null);
+  const dropdown = useRef<HTMLDivElement>(null);
 
-const Dropdown: DropdownComponent = ({
-    children,
-    className,
-    menu,
-    apart,
-}: DropdownProps) => {
-    const [isActive, setIsActive] = useState<boolean>(false);
-    const wrapper = useRef<HTMLDivElement>(null);
-    const dropdown = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!isActive) return;
 
-    const handleClick = () => {
-        setIsActive(!isActive);
+    const handlePointerDown = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (
+        wrapper.current?.contains(target) ||
+        dropdown.current?.contains(target)
+      ) {
+        return;
+      }
+      setIsActive(false);
     };
 
-    useEffect(() => {
-        const wrapperRef = wrapper.current;
-        const dropdownRef = dropdown.current;
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [isActive]);
 
-        document.addEventListener("click", (event: MouseEvent) => {
-            if (
-                wrapperRef &&
-                dropdownRef &&
-                !wrapperRef.contains(event.target as Node) &&
-                !dropdownRef.contains(event.target as Node)
-            ) {
-                setIsActive(false);
-            }
-        });
-
-        return () => {
-            document.removeEventListener("click", event);
-        };
-    }, [isActive]);
-
-    return (
+  return (
+    <div
+      ref={wrapper}
+      onClick={() => setIsActive((open) => !open)}
+      className={cn(
+        "relative flex w-fit cursor-pointer appearance-none",
+        className
+      )}
+    >
+      {children}
+      <div
+        ref={dropdown}
+        className={cn(
+          "absolute top-full z-30 mb-[4px] flex w-full flex-col",
+          !isActive && "hidden"
+        )}
+      >
         <div
-            ref={wrapper}
-            onClick={handleClick}
-            className={`relative flex w-fit cursor-pointer appearance-none ${
-                className || ""
-            }`}>
-            {children}
-            <div
-                ref={dropdown}
-                className={`${!isActive ? "hidden" : ""}
-          absolute top-full z-30 mb-[4px] flex w-full flex-col`}>
-                <div
-                    className={`z-50 flex max-h-[310px] min-w-max animate-transition-top flex-col overflow-hidden overflow-y-auto rounded-b-[8px] bg-surface-container py-[8px] shadow-mm-1 ${
-                        apart && "mt-[4px] rounded-[8px]"
-                    }`}>
-                    <>{menu}</>
-                </div>
-            </div>
+          className={cn(
+            "z-50 flex max-h-[310px] min-w-max animate-transition-top flex-col overflow-hidden overflow-y-auto rounded-b-[8px] bg-surface-container py-[8px] shadow-mm-1",
+            apart && "mt-[4px] rounded-[8px]"
+          )}
+        >
+          {menu}
         </div>
-    );
-};
+      </div>
+    </div>
+  );
+}
 
-Dropdown.Item = DropdownItem;
+DropdownRoot.displayName = "Dropdown";
 
-export {Dropdown};
+const Dropdown = Object.assign(DropdownRoot, { Item: DropdownItem });
+
+export { Dropdown };

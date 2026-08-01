@@ -28,14 +28,38 @@ const NPM_PACKAGES = new Set([
   "next-themes",
   "recharts",
   "d3",
+  "d3-geo",
   "@visx/visx",
+  "@visx/axis",
+  "@visx/curve",
+  "@visx/event",
+  "@visx/geo",
+  "@visx/gradient",
+  "@visx/grid",
+  "@visx/group",
+  "@visx/responsive",
+  "@visx/scale",
+  "@visx/shape",
   "clsx",
   "tailwind-merge",
+  "tailwindcss",
   "react-icons",
   "react-fast-marquee",
   "@react-spring/web",
   "topojson-client",
 ]);
+
+const REGISTRY_NAME_ALIASES = {
+  "fade-in-props": "types",
+  "slide-in-props": "types",
+  "move-props": "types",
+  "scale-up-props": "types",
+  "tilt-props": "types",
+  "tilt-mouse-props": "types",
+  "set-category-colors": "set-color",
+  "color-values": "set-color",
+  color: "set-color",
+};
 
 function toKebabCase(name) {
   return name
@@ -118,6 +142,9 @@ function sourceToTargetPath(sourceAbsPath, exportName) {
 
   if (category === "anmt") {
     const parts = rel.split("/");
+    if (parts.length === 2) {
+      return `anmt/${fileName}`;
+    }
     const subfolder = parts[1] ?? "misc";
     return `anmt/${subfolder}/${fileName}`;
   }
@@ -154,19 +181,29 @@ function parseImportStatements(content, fromFile) {
   return imports;
 }
 
+function normalizeRegistryName(name) {
+  const kebab = toKebabCase(name);
+  if (name.endsWith("Props")) return "types";
+  return REGISTRY_NAME_ALIASES[kebab] ?? kebab;
+}
+
 function barrelImportToRegistryNames(resolvedPath, importedNames) {
   const rel = path.relative(UI_PATH, resolvedPath).replace(/\\/g, "/");
 
   if (rel === "elements/index.ts" || rel === "elements") {
-    return importedNames.map((n) => toKebabCase(n));
+    return importedNames.map((n) => normalizeRegistryName(n));
   }
 
   if (rel === "components/index.ts") {
-    return importedNames.map((n) => toKebabCase(n));
+    return importedNames.map((n) => normalizeRegistryName(n));
+  }
+
+  if (rel === "anmt/types.ts") {
+    return ["types"];
   }
 
   if (rel === "anmt/index.ts" || rel.startsWith("anmt/")) {
-    return importedNames.map((n) => toKebabCase(n));
+    return importedNames.map((n) => normalizeRegistryName(n));
   }
 
   return [];
@@ -218,8 +255,13 @@ function getComponentDir(sourceFile) {
   if (parts[0] === "elements") {
     return path.join(UI_PATH, parts[0], parts[1] ?? parts[0]);
   }
-  if (parts[0] === "anmt" && parts.length >= 3) {
-    return path.join(UI_PATH, parts[0], parts[1]);
+  if (parts[0] === "anmt") {
+    if (parts[1] === "types.ts" || parts[1] === "types") {
+      return path.dirname(sourceFile);
+    }
+    if (parts.length >= 3) {
+      return path.join(UI_PATH, parts[0], parts[1]);
+    }
   }
   if (parts[0] === "charts") {
     if (parts[1] === "helpers") {
@@ -240,7 +282,7 @@ function getComponentDir(sourceFile) {
 function collectFilesInComponentDir(sourceFile) {
   const rel = path.relative(UI_PATH, sourceFile).replace(/\\/g, "/");
 
-  if (rel.startsWith("elements/")) {
+  if (rel.startsWith("elements/") || rel === "anmt/types.ts" || rel === "lib/utils.ts") {
     return [sourceFile];
   }
 
@@ -314,7 +356,17 @@ function buildRegistryEntry(exportInfo) {
       }
 
       if (!relatedFiles.includes(internalPath)) {
-        registryDeps.add(fileToRegistryName(internalPath));
+        registryDeps.add(normalizeRegistryName(fileToRegistryName(internalPath)));
+      }
+    }
+  }
+
+  // Ensure cn() helper is pulled in when used
+  for (const file of relatedFiles) {
+    const content = readFileSafe(file) ?? "";
+    if (content.includes("lib/utils") || content.includes("/utils")) {
+      if (/from\s+["'][^"']*lib\/utils["']/.test(content) || /from\s+["'][^"']*\/utils["']/.test(content)) {
+        registryDeps.add("utils");
       }
     }
   }
@@ -322,15 +374,22 @@ function buildRegistryEntry(exportInfo) {
   const name = toKebabCase(exportName);
   const files = relatedFiles.map((file) => {
     const relSource = path.relative(COMPONENTS_ROOT, file).replace(/\\/g, "/");
+    const fileCategory = getCategory(file);
     return {
       path: sourceToTargetPath(file, parseNamedExport(file) ?? path.basename(file, path.extname(file))),
       source: relSource,
-      type: getCategory(file) === "utils" ? "util" : "component",
+      type: fileCategory === "utils" ? "util" : "component",
     };
   });
 
   registryDeps.delete(name);
-  registryDeps.delete("utils");
+
+  // Visx charts need their runtime stack declared even when imports are deep
+  if (sourceFile.includes(`${path.sep}charts${path.sep}Visx${path.sep}`)) {
+    allDeps.add("@visx/visx");
+    allDeps.add("d3");
+    allDeps.add("topojson-client");
+  }
 
   return {
     name,

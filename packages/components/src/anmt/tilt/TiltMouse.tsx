@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useEffect, useRef} from "react";
 
 import {TiltMouseProps, useVisible} from "../index";
@@ -48,7 +50,7 @@ const TiltMouse: React.FC<TiltMouseProps> = ({
     }, [visible]);
 
     return React.cloneElement(
-        React.Children.only(children) as React.ReactElement,
+        React.Children.only(children) as React.ReactElement<Record<string, unknown>>,
         {
             ref,
         }

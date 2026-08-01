@@ -525,36 +525,52 @@
 
   /* COMMON BUTTONS */
   .btn {
-    @apply relative flex h-[40px] w-max cursor-pointer items-center justify-center gap-[8px] overflow-hidden rounded-full px-[16px] py-[10px] text-label-large disabled:cursor-not-allowed disabled:opacity-30;
+    @apply relative inline-flex h-[40px] w-max cursor-pointer items-center justify-center gap-[8px] overflow-hidden rounded-full px-[16px] py-[10px] text-label-large whitespace-nowrap disabled:cursor-not-allowed disabled:opacity-30;
   }
 
-  .filled {
+  .btn svg {
+    @apply pointer-events-none size-[18px] shrink-0;
+  }
+
+  .btn-filled {
     @apply bg-primary text-on-primary hover:bg-primary-hover;
   }
 
-  .tonal {
+  .btn-tonal {
     @apply bg-secondary text-on-secondary hover:bg-secondary-hover;
   }
 
-  .outlined {
+  .btn-outlined {
     @apply border border-on-secondary text-on-secondary hover:bg-secondary-container;
   }
 
-  .elevated {
+  .btn-elevated {
     @apply bg-surface-container-low text-on-secondary shadow-mm-1 hover:bg-secondary-hover hover:backdrop-blur-sm;
   }
 
-  .text {
+  .btn-text {
     @apply text-on-secondary hover:bg-secondary-hover hover:backdrop-blur-sm;
-  }
-
-  .standard {
-    @apply cursor-pointer text-on-surface hover:bg-surface-container-highest hover:text-on-surface;
   }
 
   /* ICON BUTTONS */
   .iconBtn {
     @apply m-[0px] flex max-h-[40px] max-w-[40px] items-center justify-center gap-[12px] rounded-full p-[8px] disabled:cursor-not-allowed disabled:opacity-30;
+  }
+
+  .iconBtn-filled {
+    @apply bg-primary text-on-primary hover:bg-primary-hover;
+  }
+
+  .iconBtn-tonal {
+    @apply bg-secondary text-on-secondary hover:bg-secondary-hover;
+  }
+
+  .iconBtn-outlined {
+    @apply border border-on-secondary text-on-secondary hover:bg-secondary-container;
+  }
+
+  .iconBtn-standard {
+    @apply cursor-pointer text-on-surface hover:bg-surface-container-highest hover:text-on-surface;
   }
 
   /* FABs */
@@ -574,15 +590,15 @@
     @apply flex h-[56px] w-max items-center justify-center gap-[12px] rounded-large px-[16px] py-[16px] text-label-large;
   }
 
-  .surface {
+  .fab-surface {
     @apply bg-primary-container text-on-primary-container hover:bg-primary-container-hover disabled:opacity-30;
   }
 
-  .secondary {
+  .fab-secondary {
     @apply bg-secondary-container text-on-secondary-container hover:bg-secondary-container-hover disabled:opacity-30;
   }
 
-  .tertiary {
+  .fab-tertiary {
     @apply bg-tertiary-container text-on-tertiary-container hover:bg-tertiary-container-hover disabled:opacity-30;
   }
 

@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useEffect, useRef} from "react";
 
 import {FadeInProps, useVisible} from "../index";
@@ -19,7 +21,7 @@ const FadeIn: React.FC<FadeInProps> = ({
             const actionPoint = element.offsetHeight * trigger;
             const elementTop = top + window.scrollY - actionPoint;
             const translateX =
-                window.innerHeight - ref.current.offsetHeight + window.scrollY;
+                window.innerHeight - element.offsetHeight + window.scrollY;
             const transition = Math.max(
                 0,
                 Math.min(elementTop - translateX, maxTranslate)
@@ -49,7 +51,7 @@ const FadeIn: React.FC<FadeInProps> = ({
     }, [visible]);
 
     return React.cloneElement(
-        React.Children.only(children) as React.ReactElement,
+        React.Children.only(children) as React.ReactElement<Record<string, unknown>>,
         {
             ref,
         }

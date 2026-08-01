@@ -15,8 +15,8 @@ const THEME_CSS_URL =
 const DEFAULT_CONFIG: Omit<ComponentConfig, "aliases"> = {
   style: "default",
   tailwind: {
-    config: "tailwind.config.js",
-    css: "src/app/globals.css",
+    config: "postcss.config.mjs",
+    css: "app/globals.css",
     baseColor: "slate",
   },
 };

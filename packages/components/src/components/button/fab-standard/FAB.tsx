@@ -1,33 +1,57 @@
-import {ButtonHTMLAttributes, FC, MouseEventHandler, ReactNode} from "react";
+"use client";
 
-import {Icon} from "../../../elements";
+import {
+  ButtonHTMLAttributes,
+  forwardRef,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
 
-import {MdAdd} from "react-icons/md";
+import { Icon } from "../../../elements";
+import { cn } from "../../../lib/utils";
 
-interface FABProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string;
-    icon?: ReactNode;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
-    size?: "fabSmall" | "fab" | "fabLarge";
-    variant?: "surface" | "secondary" | "tertiary";
+export interface FABProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  icon: ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  size?: "small" | "medium" | "large";
+  variant?: "surface" | "secondary" | "tertiary";
 }
 
-const FAB: FC<FABProps> = ({
-    className,
-    icon = <MdAdd size={24} />,
-    onClick,
-    size = "fab",
-    variant = "surface",
-    ...props
-}: FABProps) => {
-    return (
-        <button
-            className={`${size} ${variant} ${className || ""}`}
-            onClick={onClick}
-            {...props}>
-            <Icon icon={icon} />
-        </button>
-    );
-};
+const sizeClass = {
+  small: "fabSmall",
+  medium: "fab",
+  large: "fabLarge",
+} as const;
 
-export {FAB};
+const FAB = forwardRef<HTMLButtonElement, FABProps>(
+  (
+    {
+      "aria-label": ariaLabel,
+      className,
+      icon,
+      onClick,
+      size = "medium",
+      type = "button",
+      variant = "surface",
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <button
+        ref={ref}
+        type={type}
+        aria-label={ariaLabel}
+        className={cn(sizeClass[size], `fab-${variant}`, className)}
+        onClick={onClick}
+        {...props}
+      >
+        <Icon icon={icon} />
+      </button>
+    );
+  }
+);
+
+FAB.displayName = "FAB";
+
+export { FAB };

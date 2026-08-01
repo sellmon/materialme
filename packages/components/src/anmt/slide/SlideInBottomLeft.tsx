@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useEffect, useRef} from "react";
 
 import {SlideInProps, useVisible} from "../index";
@@ -44,7 +46,7 @@ const SlideInBottomLeft: React.FC<SlideInProps> = ({
     }, [visible]);
 
     return React.cloneElement(
-        React.Children.only(children) as React.ReactElement,
+        React.Children.only(children) as React.ReactElement<Record<string, unknown>>,
         {
             ref,
         }

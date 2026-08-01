@@ -1,9 +1,9 @@
+"use client";
+
 import React, {
     FC,
-    LegacyRef,
     MutableRefObject,
     ReactNode,
-    RefObject,
     useCallback,
     useEffect,
     useRef,
@@ -32,11 +32,11 @@ const SliderDual: FC<SliderDualProps> = ({
     const [maxVal, setMaxVal] = useState<number>(max || 0);
     const minValRef: MutableRefObject<number | undefined> = useRef(min || 0);
     const maxValRef: MutableRefObject<number | undefined> = useRef(max || 0);
-    const rangeLeft: LegacyRef<HTMLInputElement> = useRef(null);
-    const rangeRight: LegacyRef<HTMLInputElement> = useRef(null);
-    const progress: RefObject<HTMLDivElement> = useRef(null);
-    const tooltipLeft: RefObject<HTMLDivElement> = useRef(null);
-    const tooltipRight: RefObject<HTMLDivElement> = useRef(null);
+    const rangeLeft = useRef<HTMLInputElement | null>(null);
+    const rangeRight = useRef<HTMLInputElement | null>(null);
+    const progress = useRef<HTMLDivElement | null>(null);
+    const tooltipLeft = useRef<HTMLDivElement | null>(null);
+    const tooltipRight = useRef<HTMLDivElement | null>(null);
 
     // Convert value to %
     const getPercent = useCallback(

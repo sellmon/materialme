@@ -59,21 +59,18 @@ export default function Home() {
 
                 <Section title="Common Button — with icons">
                     <div className="flex flex-wrap gap-[12px]">
-                        <Button
-                            variant="filled"
-                            iconLeft={<MdStar size={18} />}>
+                        <Button variant="filled">
+                            <MdStar />
                             Icon left
                         </Button>
-                        <Button
-                            variant="outlined"
-                            iconRight={<MdShare size={18} />}>
+                        <Button variant="outlined">
                             Icon right
+                            <MdShare />
                         </Button>
-                        <Button
-                            variant="tonal"
-                            iconLeft={<MdEdit size={18} />}
-                            iconRight={<MdFavorite size={18} />}>
+                        <Button variant="tonal">
+                            <MdEdit />
                             Both icons
+                            <MdFavorite />
                         </Button>
                     </div>
                 </Section>
@@ -93,17 +90,28 @@ export default function Home() {
 
                 <Section title="Icon Button">
                     <div className="flex flex-wrap items-center gap-[12px]">
-                        <IconButton variant="filled" icon={<MdAdd size={24} />} />
-                        <IconButton variant="tonal" icon={<MdEdit size={24} />} />
                         <IconButton
+                            aria-label="Add"
+                            variant="filled"
+                            icon={<MdAdd size={24} />}
+                        />
+                        <IconButton
+                            aria-label="Edit"
+                            variant="tonal"
+                            icon={<MdEdit size={24} />}
+                        />
+                        <IconButton
+                            aria-label="Favorite"
                             variant="outlined"
                             icon={<MdFavorite size={24} />}
                         />
                         <IconButton
+                            aria-label="Share"
                             variant="standard"
                             icon={<MdShare size={24} />}
                         />
                         <IconButton
+                            aria-label="Add disabled"
                             variant="filled"
                             disabled
                             icon={<MdAdd size={24} />}
@@ -113,9 +121,24 @@ export default function Home() {
 
                 <Section title="FAB">
                     <div className="flex flex-wrap items-end gap-[16px]">
-                        <FAB size="fabSmall" variant="surface" />
-                        <FAB size="fab" variant="secondary" />
-                        <FAB size="fabLarge" variant="tertiary" />
+                        <FAB
+                            aria-label="Create small"
+                            size="small"
+                            variant="surface"
+                            icon={<MdAdd size={20} />}
+                        />
+                        <FAB
+                            aria-label="Create"
+                            size="medium"
+                            variant="secondary"
+                            icon={<MdAdd size={24} />}
+                        />
+                        <FAB
+                            aria-label="Create large"
+                            size="large"
+                            variant="tertiary"
+                            icon={<MdAdd size={36} />}
+                        />
                     </div>
                 </Section>
 
