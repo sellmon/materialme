@@ -1,54 +1,54 @@
 # Material Me
 
-CLI для установки компонентов в ваш проект — по аналогии с [shadcn/ui](https://ui.shadcn.com).
+CLI to install components into your project — similar to [shadcn/ui](https://ui.shadcn.com).
 
-Компоненты копируются в репозиторий (не ставятся как npm UI-пакет), с зависимостями и переписыванием импортов.
+Components are copied into your repo (not installed as an npm UI package), with dependency install and import rewriting.
 
-## Быстрый старт
+## Quick start
 
-В Next.js / React проекте с Tailwind CSS v4:
+In a Next.js / React project with Tailwind CSS v4:
 
 ```bash
-# Инициализация (components.json, lib/utils, тема)
+# Initialize (components.json, lib/utils, theme)
 npx materialme-cli@latest init
 
-# Список компонентов
+# List components
 npx materialme-cli@latest list
 
-# Установка
+# Install
 npx materialme-cli@latest add button
 npx materialme-cli@latest add button badge icon
 npx materialme-cli@latest add fade-in-top bar-chart
 ```
 
-После `init` в проекте появится:
+After `init`, your project will have:
 
-- `components.json` — конфиг (registry + aliases)
+- `components.json` — config (registry + aliases)
 - `lib/utils.ts` — `cn()` helper
-- `styles/materialme.css` — тема Material Me (подключается в ваш CSS)
+- `styles/materialme.css` — Material Me theme (imported into your CSS)
 
-## Категории
+## Categories
 
-| Категория   | Описание                      | Пример            |
-|------------|-------------------------------|-------------------|
-| components | UI Material Design            | `button`, `dialog` |
-| elements   | Базовые элементы              | `icon`, `checkbox` |
-| anmt       | Анимации                      | `fade-in-top`     |
-| charts     | Графики                       | `bar-chart`       |
-| utils      | Утилиты / тема                | `utils`, `theme`  |
+| Category   | Description                   | Example            |
+|-----------|-------------------------------|--------------------|
+| components | Material Design UI            | `button`, `dialog` |
+| elements   | Primitive elements            | `icon`, `checkbox` |
+| anmt       | Animations                    | `fade-in-top`      |
+| charts     | Charts                        | `bar-chart`        |
+| utils      | Utilities / theme             | `utils`, `theme`   |
 
-## Как это работает
+## How it works
 
-1. CLI читает `registry.json` с CDN:  
+1. The CLI reads `registry.json` from the CDN:  
    `https://cdn.jsdelivr.net/gh/sellmon/materialme@main/registry.json`
-2. Для каждого компонента скачивает исходники из  
+2. For each component, it downloads sources from  
    `packages/components/src/...`
-3. Переписывает импорты под ваши aliases (`@/components`, `@/lib/utils`, …)
-4. Ставит npm-зависимости компонента
+3. It rewrites imports to match your aliases (`@/components`, `@/lib/utils`, …)
+4. It installs the component’s npm dependencies
 
-Офлайн: в `components.json` укажите локальный `sourcePath` на `packages/components`.
+Offline: set a local `sourcePath` in `components.json` pointing at `packages/components`.
 
-## Конфигурация (`components.json`)
+## Configuration (`components.json`)
 
 ```json
 {
@@ -65,7 +65,7 @@ npx materialme-cli@latest add fade-in-top bar-chart
 }
 ```
 
-Убедитесь, что в `tsconfig.json` есть:
+Make sure `tsconfig.json` includes:
 
 ```json
 {
@@ -77,13 +77,13 @@ npx materialme-cli@latest add fade-in-top bar-chart
 }
 ```
 
-## Разработка монорепо
+## Monorepo development
 
 ```bash
-# Пересобрать registry.json из packages/components
+# Rebuild registry.json from packages/components
 pnpm build:registry
 
-# Собрать CLI
+# Build the CLI
 pnpm build:cli
 
 # Preview
@@ -93,8 +93,8 @@ cd preview && pnpm dev
 ```
 materialme/
 ├── packages/cli/          # npm: materialme-cli (bin: materialme)
-├── packages/components/   # исходники компонентов
-├── registry.json          # индекс для CLI
+├── packages/components/   # component sources
+├── registry.json          # CLI index
 ├── scripts/               # sync + build-registry
 └── preview/               # Next.js preview
 ```

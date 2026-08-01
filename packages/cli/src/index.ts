@@ -17,7 +17,7 @@ async function main() {
       await listCommand(args[0]);
       break;
     default:
-      console.log(`Material Me CLI — install material-ts components like shadcn/ui
+      console.log(`Material Me CLI — install components like shadcn/ui
 
 Usage:
   materialme init              Initialize project
