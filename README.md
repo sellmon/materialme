@@ -39,8 +39,8 @@ npx materialme-cli@latest add fade-in-top bar-chart
 
 ## Как это работает
 
-1. CLI читает `registry.json` с GitHub:  
-   `https://raw.githubusercontent.com/sellmon/materialme/main/registry.json`
+1. CLI читает `registry.json` с CDN:  
+   `https://cdn.jsdelivr.net/gh/sellmon/materialme@main/registry.json`
 2. Для каждого компонента скачивает исходники из  
    `packages/components/src/...`
 3. Переписывает импорты под ваши aliases (`@/components`, `@/lib/utils`, …)
@@ -60,8 +60,8 @@ npx materialme-cli@latest add fade-in-top bar-chart
     "charts": "@/components/charts",
     "lib": "@/lib"
   },
-  "registry": "https://raw.githubusercontent.com/sellmon/materialme/main/registry.json",
-  "registryBaseUrl": "https://raw.githubusercontent.com/sellmon/materialme/main/packages/components"
+  "registry": "https://cdn.jsdelivr.net/gh/sellmon/materialme@main/registry.json",
+  "registryBaseUrl": "https://cdn.jsdelivr.net/gh/sellmon/materialme@main/packages/components"
 }
 ```
 

@@ -3,10 +3,10 @@ import path from "path";
 import { RegistryIndex, RegistryComponent } from "../types.js";
 
 const DEFAULT_REGISTRY_URL =
-  "https://raw.githubusercontent.com/sellmon/materialme/main/registry.json";
+  "https://cdn.jsdelivr.net/gh/sellmon/materialme@main/registry.json";
 
 export const DEFAULT_REGISTRY_BASE_URL =
-  "https://raw.githubusercontent.com/sellmon/materialme/main/packages/components";
+  "https://cdn.jsdelivr.net/gh/sellmon/materialme@main/packages/components";
 
 export async function fetchRegistryIndex(
   registryUrl?: string,

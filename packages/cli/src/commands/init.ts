@@ -7,10 +7,10 @@ import {
 } from "../registry/index.js";
 
 const DEFAULT_REGISTRY_URL =
-  "https://raw.githubusercontent.com/sellmon/materialme/main/registry.json";
+  "https://cdn.jsdelivr.net/gh/sellmon/materialme@main/registry.json";
 
 const THEME_CSS_URL =
-  "https://raw.githubusercontent.com/sellmon/materialme/main/packages/components/src/styles/globals.css";
+  "https://cdn.jsdelivr.net/gh/sellmon/materialme@main/packages/components/src/styles/globals.css";
 
 const DEFAULT_CONFIG: Omit<ComponentConfig, "aliases"> = {
   style: "default",
