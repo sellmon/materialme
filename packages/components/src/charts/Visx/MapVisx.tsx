@@ -206,7 +206,12 @@ export default function GeoCustom({
             </Zoom>
             <label>
                 projection:{" "}
-                <select onChange={(event) => setProjection(event.target.value)}>
+                <select
+                    onChange={(event) =>
+                        setProjection(
+                            event.target.value as keyof typeof PROJECTIONS
+                        )
+                    }>
                     {Object.keys(PROJECTIONS).map((projectionName) => (
                         <option key={projectionName} value={projectionName}>
                             {projectionName}
@@ -214,20 +219,20 @@ export default function GeoCustom({
                     ))}
                 </select>
             </label>
-            <style jsx>{`
+            <style>{`
                 .container {
                     position: relative;
                 }
 
-                svg {
+                .container svg {
                     cursor: grab;
                 }
 
-                svg.dragging {
+                .container svg.dragging {
                     cursor: grabbing;
                 }
 
-                .btn {
+                .container .btn {
                     margin: 0;
                     text-align: center;
                     border: none;
@@ -237,32 +242,28 @@ export default function GeoCustom({
                     border-top: 1px solid #8993f9;
                 }
 
-                .btn-lg {
+                .container .btn-lg {
                     font-size: 12px;
                     line-height: 1;
                     padding: 4px;
                 }
 
-                .btn-zoom {
+                .container .btn-zoom {
                     width: 26px;
                     font-size: 22px;
                 }
 
-                .btn-bottom {
+                .container .btn-bottom {
                     margin-bottom: 1rem;
                 }
 
-                .controls {
+                .container .controls {
                     position: absolute;
                     bottom: 20px;
                     right: 15px;
                     display: flex;
                     flex-direction: column;
                     align-items: flex-end;
-                }
-
-                label {
-                    font-size: 12px;
                 }
             `}</style>
         </>

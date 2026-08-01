@@ -2,11 +2,11 @@
 
 CLI to install components into your project — similar to [shadcn/ui](https://ui.shadcn.com).
 
-Components are copied into your repo (not installed as an npm UI package), with dependency install and import rewriting.
+**Distribution is CLI-only.** Components are copied into your repo (not published as an npm UI package). `@materialme/components` in this monorepo is a private workspace package used by the preview app and as the registry source.
 
 ## Quick start
 
-Requires **React 19** and **Next.js 15+**, with Tailwind CSS v4:
+Requires **React 19** and Tailwind CSS v4 (Next.js optional — components use plain `img` / `a`):
 
 ```bash
 # Initialize (components.json, lib/utils, theme)
@@ -86,17 +86,30 @@ pnpm build:registry
 # Build the CLI
 pnpm build:cli
 
-# Preview
-cd preview && pnpm dev
+# Typecheck components
+pnpm exec tsc -p tsconfig.json --noEmit
+
+# Preview gallery
+pnpm dev
 ```
 
 ```
 materialme/
-├── packages/cli/          # npm: materialme-cli (bin: materialme)
-├── packages/components/   # component sources
-├── registry.json          # CLI index
+├── packages/cli/          # published: materialme-cli (bin: materialme)
+├── packages/components/   # private sources → registry (not npm UI)
+├── registry.json          # CLI index (CDN)
 ├── scripts/               # sync + build-registry
-└── preview/               # Next.js preview
+└── preview/               # Next.js gallery (workspace consumer)
+```
+
+## Overlay API
+
+Overlays use controlled `open` / `onOpenChange` (Radix-style). Legacy `isVisible` / `onClose` still work as aliases.
+
+```tsx
+<Dialog open={open} onOpenChange={setOpen}>…</Dialog>
+<BottomSheet open={open} onOpenChange={setOpen} dragHandle>…</BottomSheet>
+<Snackbar open={open} text="Saved" />
 ```
 
 ## License

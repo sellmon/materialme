@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from "react";
+import { HTMLAttributes, ReactNode, forwardRef } from "react";
 
 import { Icon } from "../../elements";
 import { cn } from "../../lib/utils";
@@ -11,29 +11,47 @@ const badgeStyles = {
 export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   icon?: ReactNode;
+  /** Prefer `leftElement` — kept for compatibility */
   iconLeft?: ReactNode;
+  /** Prefer `rightElement` — kept for compatibility */
   iconRight?: ReactNode;
+  leftElement?: ReactNode;
+  rightElement?: ReactNode;
   text?: string;
 }
 
-function Badge({
-  children,
-  className,
-  icon,
-  iconLeft,
-  iconRight,
-  text,
-  ...props
-}: BadgeProps) {
-  return (
-    <div className={cn(badgeStyles.default, className)} {...props}>
-      {iconLeft ? <Icon icon={iconLeft} /> : null}
-      {text || children}
-      {icon ? <Icon icon={icon} /> : null}
-      {iconRight ? <Icon icon={iconRight} /> : null}
-    </div>
-  );
-}
+const Badge = forwardRef<HTMLDivElement, BadgeProps>(
+  (
+    {
+      children,
+      className,
+      icon,
+      iconLeft,
+      iconRight,
+      leftElement,
+      rightElement,
+      text,
+      ...props
+    },
+    ref
+  ) => {
+    const start = leftElement ?? iconLeft;
+    const end = rightElement ?? iconRight;
+
+    return (
+      <div
+        ref={ref}
+        className={cn(badgeStyles.default, className)}
+        {...props}
+      >
+        {start ? <Icon icon={start} /> : null}
+        {text || children}
+        {icon ? <Icon icon={icon} /> : null}
+        {end ? <Icon icon={end} /> : null}
+      </div>
+    );
+  }
+);
 
 Badge.displayName = "Badge";
 

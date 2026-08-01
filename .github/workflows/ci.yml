@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck components
+        run: pnpm exec tsc -p tsconfig.json --noEmit
+
+      - name: Build CLI
+        run: pnpm build:cli
+
+      - name: Registry drift check
+        run: |
+          pnpm build:registry
+          git diff --exit-code registry.json || (
+            echo "registry.json is out of date. Run pnpm build:registry and commit."
+            exit 1
+          )
+
+      - name: Build preview
+        run: |
+          rm -rf preview/.next
+          pnpm --filter preview build

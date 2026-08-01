@@ -15,7 +15,7 @@ const textFieldOutlinedStyles = {
     "absolute flex h-14 w-14 items-center justify-center text-on-surface-variant",
   field: {
     default:
-      "peer flex w-full rounded-small border border-outline bg-inherit px-3 pr-12 pt-6.5 text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-outline-variant focus:outline-none sm:pt-7",
+      "peer flex w-full rounded-small border border-outline bg-inherit px-3 pb-2 pr-12 pt-6.5 text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-outline-variant focus:outline-none sm:pt-7",
     withLeft: "pl-15",
   },
   label: {

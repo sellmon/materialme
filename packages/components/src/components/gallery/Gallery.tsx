@@ -1,19 +1,25 @@
-import {FC, ReactNode} from "react";
+import { ReactNode } from "react";
 
-interface GalleryProps {
-    children?: ReactNode;
-    className?: string;
+import { cn } from "../../lib/utils";
+import { ImageRow } from "./ImageRow";
+
+export interface GalleryProps {
+  children?: ReactNode;
+  className?: string;
 }
 
-const Gallery: FC<GalleryProps> = ({children, className}: GalleryProps) => {
-    return (
-        <div
-            className={`flex h-full w-full flex-col gap-[8px] ${
-                className || ""
-            }`}>
-            {children}
-        </div>
-    );
-};
+function GalleryRoot({ children, className }: GalleryProps) {
+  return (
+    <div className={cn("flex h-full w-full flex-col gap-[8px]", className)}>
+      {children}
+    </div>
+  );
+}
 
-export {Gallery};
+GalleryRoot.displayName = "Gallery";
+
+const Gallery = Object.assign(GalleryRoot, {
+  Row: ImageRow,
+});
+
+export { Gallery };

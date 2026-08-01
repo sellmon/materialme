@@ -17,5 +17,10 @@
     "packages/components/src/**/*.ts",
     "packages/components/src/**/*.tsx"
   ],
-  "exclude": ["node_modules", "**/dist", "**/.next"]
+  "exclude": [
+    "node_modules",
+    "**/dist",
+    "**/.next",
+    "packages/components/src/charts/Visx"
+  ]
 }

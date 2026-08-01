@@ -1,53 +1,78 @@
 "use client";
 
-import {FC, ReactNode, useId} from "react";
+import {
+  MouseEvent,
+  ReactNode,
+  useCallback,
+  useId,
+  useRef,
+} from "react";
 
-import {NavDrawerItem} from "./items/NavDrawerItem";
+import { cn } from "../../lib/utils";
+import { type OpenStateProps, resolveOpenState } from "../../lib/open-state";
+import { useFocusTrap } from "../../lib/use-focus-trap";
+import { NavDrawerItem } from "./items/NavDrawerItem";
 
-interface NavDrawerOutProps {
-    isVisible?: boolean;
-    children?: ReactNode;
-    onClose?: () => void;
-    className?: string;
+export interface NavigationDrawerOutProps extends OpenStateProps {
+  children?: ReactNode;
+  className?: string;
 }
 
-interface NavigationDrawerComponent extends FC<NavDrawerOutProps> {
-    Item: typeof NavDrawerItem;
-}
-
-const NavigationDrawerOut: NavigationDrawerComponent = ({
+function NavigationDrawerOutRoot({
+  children,
+  className,
+  open,
+  onOpenChange,
+  isVisible,
+  onClose,
+}: NavigationDrawerOutProps) {
+  const scrimId = useId();
+  const panelRef = useRef<HTMLElement>(null);
+  const { open: resolvedOpen, setOpen } = resolveOpenState({
+    open,
+    onOpenChange,
     isVisible,
     onClose,
-    children,
-    className,
-}: NavDrawerOutProps) => {
-    const scrim = useId();
-    if (!isVisible) return null;
+  });
 
-    const handleClose = (e: any) => {
-        if (onClose) {
-            e.target.id === scrim && onClose();
-        }
-    };
+  const close = useCallback(() => setOpen(false), [setOpen]);
+  useFocusTrap(resolvedOpen, panelRef, close);
 
-    return (
-        <>
-            <div
-                id={scrim}
-                onClick={handleClose}
-                className="fixed inset-0 z-40 flex bg-scrim"></div>
+  if (!resolvedOpen) return null;
 
-            <nav
-                onClick={onClose}
-                className={`fixed left-0 top-0 z-50 flex h-screen min-w-[300px] max-w-[360px] transform animate-transition-left flex-col overflow-y-auto rounded-r-[16px] bg-surface px-[12px] py-[28px] scrollbar-hide ${
-                    className || ""
-                }`}>
-                {children}
-            </nav>
-        </>
-    );
-};
+  const handleScrimClick = (event: MouseEvent<HTMLDivElement>) => {
+    if ((event.target as HTMLElement).id === scrimId) {
+      close();
+    }
+  };
 
-NavigationDrawerOut.Item = NavDrawerItem;
+  return (
+    <>
+      <div
+        id={scrimId}
+        onClick={handleScrimClick}
+        className="fixed inset-0 z-40 flex bg-scrim"
+      />
+      <nav
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        tabIndex={-1}
+        className={cn(
+          "fixed left-0 top-0 z-50 flex h-screen min-w-[300px] max-w-[360px] transform animate-transition-left flex-col overflow-y-auto rounded-r-[16px] bg-surface px-[12px] py-[28px] outline-none scrollbar-hide",
+          className
+        )}
+      >
+        {children}
+      </nav>
+    </>
+  );
+}
 
-export {NavigationDrawerOut};
+NavigationDrawerOutRoot.displayName = "NavigationDrawerOut";
+
+const NavigationDrawerOut = Object.assign(NavigationDrawerOutRoot, {
+  Item: NavDrawerItem,
+});
+
+export { NavigationDrawerOut };

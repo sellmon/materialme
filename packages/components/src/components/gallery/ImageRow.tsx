@@ -1,16 +1,18 @@
-import {FC, ReactNode} from "react";
+import { ReactNode } from "react";
 
-interface ImageRowProps {
-    children?: ReactNode;
-    className?: string;
+import { cn } from "../../lib/utils";
+
+export interface ImageRowProps {
+  children?: ReactNode;
+  className?: string;
 }
 
-const ImageRow: FC<ImageRowProps> = ({children, className}: ImageRowProps) => {
-    return (
-        <div className={`flex flex-row gap-[8px] ${className || ""}`}>
-            {children}
-        </div>
-    );
-};
+function ImageRow({ children, className }: ImageRowProps) {
+  return (
+    <div className={cn("flex flex-row gap-[8px]", className)}>{children}</div>
+  );
+}
 
-export {ImageRow};
+ImageRow.displayName = "ImageRow";
+
+export { ImageRow };

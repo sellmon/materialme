@@ -15,7 +15,7 @@ const inputFilledStyles = {
     "absolute flex h-14 w-14 items-center justify-center text-on-surface-variant",
   input: {
     default:
-      "peer flex h-14 w-full rounded-t-small border-x-0 border-b-2 border-t-0 border-on-surface-variant bg-surface-container px-3 pt-6 text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-primary focus:outline-none",
+      "peer flex h-14 w-full rounded-t-small border-x-0 border-b-2 border-t-0 border-on-surface-variant bg-surface-container px-3 pb-2 pt-6 text-body-medium text-on-surface shadow-none placeholder-transparent focus:border-primary focus:outline-none",
     withLeft: "pl-15",
   },
   label: {

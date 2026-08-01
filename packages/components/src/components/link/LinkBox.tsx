@@ -1,46 +1,56 @@
 "use client";
 
-import {FC, ReactNode} from "react";
+import { AnchorHTMLAttributes, ReactNode, forwardRef } from "react";
 
-import Link from "next/link";
+import { cn } from "../../lib/utils";
 
-interface LinkBoxProps {
-    children?: ReactNode;
-    className?: string;
-    color?: string;
-    href: string;
-    padding?: string;
-    passHref?: boolean;
-    size?: string;
-    target?: string;
+export interface LinkBoxProps
+  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children" | "color"> {
+  children?: ReactNode;
+  color?: string;
+  padding?: string;
+  size?: string;
 }
 
-const LinkBox: FC<LinkBoxProps> = ({
-    children,
-    className,
-    color,
-    href,
-    padding,
-    size,
-    passHref,
-    target = "_blank",
-}: LinkBoxProps) => {
+const LinkBox = forwardRef<HTMLAnchorElement, LinkBoxProps>(
+  (
+    {
+      children,
+      className,
+      color,
+      href,
+      padding,
+      size,
+      target = "_blank",
+      rel,
+      ...props
+    },
+    ref
+  ) => {
     return (
-        <span
-            className={`mx-[0px] my-[0px] w-fit gap-2 truncate rounded-md
-
-      ${size || "text-body-small"}
-      ${color || "text-primary"}
-      ${padding || "py-[0px]"}
-
-      rounded-small py-[8px] hover:underline hover:decoration-[1px] hover:underline-offset-[2px] ${
-          className || ""
-      }`}>
-            <Link href={href} passHref={passHref} target={target}>
-                {children}
-            </Link>
-        </span>
+      <span
+        className={cn(
+          "mx-0 my-0 w-fit gap-2 truncate rounded-small py-2 hover:underline hover:decoration-[1px] hover:underline-offset-[2px]",
+          size || "text-body-small",
+          color || "text-primary",
+          padding,
+          className
+        )}
+      >
+        <a
+          ref={ref}
+          href={href}
+          target={target}
+          rel={rel ?? (target === "_blank" ? "noopener noreferrer" : undefined)}
+          {...props}
+        >
+          {children}
+        </a>
+      </span>
     );
-};
+  }
+);
 
-export {LinkBox};
+LinkBox.displayName = "LinkBox";
+
+export { LinkBox };

@@ -1,6 +1,6 @@
 "use client";
 
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode, forwardRef } from "react";
 
 import { cn } from "../../lib/utils";
 
@@ -15,26 +15,32 @@ export interface ChipsProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   rightElement?: ReactNode;
 }
 
-function Chips({
-  children,
-  className,
-  leftElement,
-  rightElement,
-  type = "button",
-  ...props
-}: ChipsProps) {
-  return (
-    <button
-      type={type}
-      className={cn(chipsStyles.default, className)}
-      {...props}
-    >
-      {leftElement}
-      {children}
-      {rightElement}
-    </button>
-  );
-}
+const Chips = forwardRef<HTMLButtonElement, ChipsProps>(
+  (
+    {
+      children,
+      className,
+      leftElement,
+      rightElement,
+      type = "button",
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <button
+        ref={ref}
+        type={type}
+        className={cn(chipsStyles.default, className)}
+        {...props}
+      >
+        {leftElement}
+        {children}
+        {rightElement}
+      </button>
+    );
+  }
+);
 
 Chips.displayName = "Chips";
 

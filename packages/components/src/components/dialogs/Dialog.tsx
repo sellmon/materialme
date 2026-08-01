@@ -4,25 +4,33 @@ import * as RadixDialog from "@radix-ui/react-dialog";
 import { ReactNode } from "react";
 
 import { cn } from "../../lib/utils";
+import { type OpenStateProps, resolveOpenState } from "../../lib/open-state";
 import { DialogBody } from "./DialogBody";
 import { DialogFooter } from "./DialogFooter";
 import { DialogHeader } from "./DialogHeader";
 
-export interface DialogProps {
+export interface DialogProps extends OpenStateProps {
   children?: ReactNode;
   className?: string;
-  isVisible: boolean;
-  onClose: () => void;
 }
 
-function DialogRoot({ children, className, isVisible, onClose }: DialogProps) {
+function DialogRoot({
+  children,
+  className,
+  open,
+  onOpenChange,
+  isVisible,
+  onClose,
+}: DialogProps) {
+  const { open: resolvedOpen, setOpen } = resolveOpenState({
+    open,
+    onOpenChange,
+    isVisible,
+    onClose,
+  });
+
   return (
-    <RadixDialog.Root
-      open={isVisible}
-      onOpenChange={(open) => {
-        if (!open) onClose();
-      }}
-    >
+    <RadixDialog.Root open={resolvedOpen} onOpenChange={setOpen}>
       <RadixDialog.Portal>
         <RadixDialog.Overlay className="fixed inset-0 z-20 bg-black/50 animate-fade-in" />
         <RadixDialog.Content

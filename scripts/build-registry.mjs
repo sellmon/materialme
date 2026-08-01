@@ -29,7 +29,6 @@ const NPM_PACKAGES = new Set([
   "recharts",
   "d3",
   "d3-geo",
-  "@visx/visx",
   "@visx/axis",
   "@visx/curve",
   "@visx/event",
@@ -37,9 +36,14 @@ const NPM_PACKAGES = new Set([
   "@visx/gradient",
   "@visx/grid",
   "@visx/group",
+  "@visx/legend",
+  "@visx/mock-data",
   "@visx/responsive",
   "@visx/scale",
   "@visx/shape",
+  "@visx/tooltip",
+  "@visx/vendor",
+  "@visx/zoom",
   "@radix-ui/react-dialog",
   "@radix-ui/react-dropdown-menu",
   "@radix-ui/react-tooltip",
@@ -160,7 +164,9 @@ function sourceToTargetPath(sourceAbsPath, exportName) {
   }
 
   if (category === "utils") {
-    return `lib/utils.ts`;
+    const parts = rel.split("/");
+    const fileName = parts[parts.length - 1] ?? "utils.ts";
+    return `lib/${fileName}`;
   }
 
   const parts = rel.split("/");
@@ -291,7 +297,11 @@ function getComponentDir(sourceFile) {
 function collectFilesInComponentDir(sourceFile) {
   const rel = path.relative(UI_PATH, sourceFile).replace(/\\/g, "/");
 
-  if (rel.startsWith("elements/") || rel === "anmt/types.ts" || rel === "lib/utils.ts") {
+  if (
+    rel.startsWith("elements/") ||
+    rel.startsWith("lib/") ||
+    rel === "anmt/types.ts"
+  ) {
     return [sourceFile];
   }
 
@@ -393,10 +403,10 @@ function buildRegistryEntry(exportInfo) {
 
   registryDeps.delete(name);
 
-  // Visx charts need their runtime stack declared even when imports are deep
+  // Visx charts pull nested utils/json that the import scanner may miss
   if (sourceFile.includes(`${path.sep}charts${path.sep}Visx${path.sep}`)) {
-    allDeps.add("@visx/visx");
     allDeps.add("d3");
+    allDeps.add("d3-geo");
     allDeps.add("topojson-client");
   }
 
@@ -440,6 +450,22 @@ function discoverEntries() {
       exportName: "utils",
       category: "utils",
     });
+  }
+
+  // Other lib helpers (open-state, use-focus-trap, …) as separate utils entries
+  const libDir = path.join(UI_PATH, "lib");
+  if (fs.existsSync(libDir)) {
+    for (const file of fs.readdirSync(libDir)) {
+      if (!/\.tsx?$/.test(file) || file === "utils.ts") continue;
+      const abs = path.join(libDir, file);
+      if (seen.has(abs)) continue;
+      seen.add(abs);
+      entries.push({
+        sourceFile: abs,
+        exportName: path.basename(file, path.extname(file)),
+        category: "utils",
+      });
+    }
   }
 
   const chartDirs = ["BarChart", "AreaChart"];

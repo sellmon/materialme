@@ -27,13 +27,13 @@
       }
     ],
     "dependencies": [
-      "next",
       "react-icons"
     ],
     "registryDependencies": [
       "badge",
       "dot-badge",
-      "on-icon-badge"
+      "on-icon-badge",
+      "utils"
     ]
   },
   "badge": {
@@ -786,6 +786,7 @@
       "@radix-ui/react-dialog"
     ],
     "registryDependencies": [
+      "open-state",
       "utils"
     ]
   },
@@ -819,6 +820,7 @@
       "@radix-ui/react-dialog"
     ],
     "registryDependencies": [
+      "open-state",
       "utils"
     ]
   },
@@ -852,6 +854,7 @@
       "@radix-ui/react-dialog"
     ],
     "registryDependencies": [
+      "open-state",
       "utils"
     ]
   },
@@ -885,6 +888,7 @@
       "@radix-ui/react-dialog"
     ],
     "registryDependencies": [
+      "open-state",
       "utils"
     ]
   },
@@ -965,7 +969,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "image-row": {
     "name": "image-row",
@@ -984,7 +990,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "list": {
     "name": "list",
@@ -1011,10 +1019,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "next"
-    ],
-    "registryDependencies": []
+    "dependencies": [],
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "nav-bar-item": {
     "name": "nav-bar-item",
@@ -1081,11 +1089,11 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "next"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "badge",
+      "open-state",
+      "use-focus-trap",
       "utils"
     ]
   },
@@ -1110,11 +1118,11 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "next"
-    ],
+    "dependencies": [],
     "registryDependencies": [
       "badge",
+      "open-state",
+      "use-focus-trap",
       "utils"
     ]
   },
@@ -1301,6 +1309,8 @@
     ],
     "registryDependencies": [
       "icon-button",
+      "open-state",
+      "use-focus-trap",
       "utils"
     ]
   },
@@ -1325,6 +1335,8 @@
     ],
     "registryDependencies": [
       "icon-button",
+      "open-state",
+      "use-focus-trap",
       "utils"
     ]
   },
@@ -1345,7 +1357,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "slider-dual": {
     "name": "slider-dual",
@@ -1364,7 +1378,9 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": []
+    "registryDependencies": [
+      "utils"
+    ]
   },
   "snackbar": {
     "name": "snackbar",
@@ -1384,6 +1400,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
+      "open-state",
       "utils"
     ]
   },
@@ -1405,6 +1422,7 @@
     ],
     "dependencies": [],
     "registryDependencies": [
+      "open-state",
       "utils"
     ]
   },
@@ -1429,11 +1447,10 @@
         "type": "component"
       }
     ],
-    "dependencies": [
-      "next"
-    ],
+    "dependencies": [],
     "registryDependencies": [
-      "badge"
+      "badge",
+      "utils"
     ]
   },
   "tabs-primary": {
@@ -3618,6 +3635,34 @@
     ],
     "registryDependencies": []
   },
+  "open-state": {
+    "name": "open-state",
+    "category": "utils",
+    "type": "util",
+    "files": [
+      {
+        "path": "lib/open-state.ts",
+        "source": "src/lib/open-state.ts",
+        "type": "util"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "use-focus-trap": {
+    "name": "use-focus-trap",
+    "category": "utils",
+    "type": "util",
+    "files": [
+      {
+        "path": "lib/use-focus-trap.ts",
+        "source": "src/lib/use-focus-trap.ts",
+        "type": "util"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
   "bar-chart": {
     "name": "bar-chart",
     "category": "charts",
@@ -3700,12 +3745,16 @@
       "@visx/grid",
       "@visx/scale",
       "@visx/shape",
+      "@visx/tooltip",
+      "@visx/vendor",
       "@visx/axis",
       "@visx/group",
+      "@visx/legend",
       "@visx/geo",
+      "@visx/zoom",
       "d3-geo",
       "topojson-client",
-      "@visx/visx",
+      "@visx/mock-data",
       "d3"
     ],
     "registryDependencies": []
@@ -3752,12 +3801,16 @@
       "@visx/grid",
       "@visx/scale",
       "@visx/shape",
+      "@visx/tooltip",
+      "@visx/vendor",
       "@visx/axis",
       "@visx/group",
+      "@visx/legend",
       "@visx/geo",
+      "@visx/zoom",
       "d3-geo",
       "topojson-client",
-      "@visx/visx",
+      "@visx/mock-data",
       "d3"
     ],
     "registryDependencies": []
@@ -3804,12 +3857,16 @@
       "@visx/grid",
       "@visx/scale",
       "@visx/shape",
+      "@visx/tooltip",
+      "@visx/vendor",
       "@visx/axis",
       "@visx/group",
+      "@visx/legend",
       "@visx/geo",
+      "@visx/zoom",
       "d3-geo",
       "topojson-client",
-      "@visx/visx",
+      "@visx/mock-data",
       "d3"
     ],
     "registryDependencies": []

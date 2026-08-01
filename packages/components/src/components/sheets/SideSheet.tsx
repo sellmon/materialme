@@ -3,20 +3,21 @@
 import {
   MouseEvent,
   ReactNode,
-  useEffect,
+  useCallback,
+  useRef,
 } from "react";
 
 import { MdClose } from "react-icons/md";
 
 import { cn } from "../../lib/utils";
+import { type OpenStateProps, resolveOpenState } from "../../lib/open-state";
+import { useFocusTrap } from "../../lib/use-focus-trap";
 import { IconButton } from "../button/icon-button/IconButton";
 
-export interface SideSheetProps {
+export interface SideSheetProps extends OpenStateProps {
   children?: ReactNode;
   className?: string;
   closeButton?: boolean;
-  isVisible?: boolean;
-  onClose?: () => void;
   title?: string;
 }
 
@@ -24,34 +25,28 @@ function SideSheet({
   children,
   className,
   closeButton = true,
+  open,
+  onOpenChange,
   isVisible,
   onClose,
   title,
 }: SideSheetProps) {
-  useEffect(() => {
-    if (!isVisible) return;
+  const panelRef = useRef<HTMLElement>(null);
+  const { open: resolvedOpen, setOpen } = resolveOpenState({
+    open,
+    onOpenChange,
+    isVisible,
+    onClose,
+  });
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+  const close = useCallback(() => setOpen(false), [setOpen]);
+  useFocusTrap(resolvedOpen, panelRef, close);
 
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose?.();
-      }
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [isVisible, onClose]);
-
-  if (!isVisible) return null;
+  if (!resolvedOpen) return null;
 
   const handleScrimClick = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
-      onClose?.();
+      close();
     }
   };
 
@@ -61,11 +56,13 @@ function SideSheet({
       onClick={handleScrimClick}
     >
       <aside
+        ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-label={title}
+        tabIndex={-1}
         className={cn(
-          "fixed right-0 top-0 z-50 flex h-screen min-w-[360px] max-w-[380px] animate-transition-right flex-col overflow-y-auto rounded-l-large bg-surface-container px-[12px] py-[24px] scrollbar-hide sm:min-w-[440px] sm:max-w-[540px]",
+          "fixed right-0 top-0 z-50 flex h-screen min-w-[360px] max-w-[380px] animate-transition-right flex-col overflow-y-auto rounded-l-large bg-surface-container px-[12px] py-[24px] outline-none scrollbar-hide sm:min-w-[440px] sm:max-w-[540px]",
           className
         )}
         onClick={(event) => event.stopPropagation()}
@@ -85,7 +82,7 @@ function SideSheet({
                     icon={<MdClose size={24} />}
                     className="rounded-extra-large"
                     variant="tonal"
-                    onClick={onClose}
+                    onClick={close}
                   />
                 </div>
               ) : null}

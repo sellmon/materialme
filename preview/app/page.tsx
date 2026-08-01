@@ -4,11 +4,14 @@ import { useState } from "react";
 import {
   Amount,
   AreaChart,
+  AreaVisx,
   Avatar,
   AvatarStack,
   Badge,
   BarChart,
+  BarVisx,
   BottomAppBar,
+  BottomSheet,
   Button,
   Card,
   Checkbox,
@@ -22,13 +25,17 @@ import {
   Dropdown,
   ExtendedFAB,
   FAB,
+  Gallery,
   IconButton,
+  Img,
   InputFilled,
   InputOutlined,
   LinkBox,
   List,
   Loading,
+  MapVisx,
   NavigationBar,
+  NavigationDrawerOut,
   NavigationRail,
   OnIconBadge,
   OverflowMenu,
@@ -38,10 +45,12 @@ import {
   SearchInput,
   SearchItem,
   SegmentedButtons,
+  SideSheet,
   Slider,
   SliderDual,
   Snackbar,
   SnackbarWrapper,
+  Stories,
   Switch,
   TabsPrimary,
   TabsSecondary,
@@ -93,6 +102,11 @@ const chartData = [
   { month: "Apr", value: 22 },
 ];
 
+const areaVisxData = Array.from({ length: 60 }, (_, i) => ({
+  time: new Date(2024, 0, i + 1),
+  value: 40 + Math.sin(i / 4) * 18 + (i % 7),
+}));
+
 type Person = {
   name: string;
   role: string;
@@ -114,6 +128,10 @@ const tableColumns: ColumnDef<Person>[] = [
 export default function Home() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
+  const [sideSheetOpen, setSideSheetOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [sliderValue, setSliderValue] = useState(40);
 
   return (
     <>
@@ -252,8 +270,13 @@ export default function Home() {
               <TextFieldOutlined placeholder="Outlined textarea" rows={3} />
             </div>
             <div className="flex flex-col gap-4">
-              <Slider min={0} max={100} />
-              <SliderDual min={0} max={100} />
+              <Slider
+                min={0}
+                max={100}
+                value={sliderValue}
+                onChange={setSliderValue}
+              />
+              <SliderDual min={0} max={100} defaultValue={{ min: 20, max: 80 }} />
             </div>
           </Section>
 
@@ -383,7 +406,7 @@ export default function Home() {
             </NavigationBar>
             <div className="h-56 overflow-hidden rounded-large border border-outline">
               <NavigationRail
-                height="100%"
+                height="h-full"
                 center={
                   <>
                     <NavigationRail.Item
@@ -454,6 +477,55 @@ export default function Home() {
                 height="220"
               />
             </div>
+            <p className="text-body-small text-on-surface-variant">Visx</p>
+            <div className="grid gap-6 md:grid-cols-2">
+              <AreaVisx data={areaVisxData} width={420} height={220} />
+              <BarVisx width={420} height={280} />
+            </div>
+            <MapVisx width={640} height={360} />
+          </Section>
+
+          {/* Stories & Gallery */}
+          <Section title="Stories & Gallery">
+            <Stories>
+              <Stories.User
+                name="Ada"
+                size={56}
+                ring
+                src="https://i.pravatar.cc/112?u=ada"
+              />
+              <Stories.User
+                name="Alan"
+                size={56}
+                src="https://i.pravatar.cc/112?u=alan"
+              />
+              <Stories.Business
+                text="Studio"
+                width={120}
+                height={72}
+                radius={16}
+                ring
+                src="https://picsum.photos/seed/studio/240/144"
+              />
+            </Stories>
+            <Gallery>
+              <Gallery.Row>
+                <Img
+                  alt="Gallery 1"
+                  src="https://picsum.photos/seed/mm1/320/200"
+                  height={120}
+                  radius={16}
+                  className="min-w-0 flex-1"
+                />
+                <Img
+                  alt="Gallery 2"
+                  src="https://picsum.photos/seed/mm2/320/200"
+                  height={120}
+                  radius={16}
+                  className="min-w-0 flex-1"
+                />
+              </Gallery.Row>
+            </Gallery>
           </Section>
 
           {/* Overlays */}
@@ -465,13 +537,22 @@ export default function Home() {
               <Button variant="tonal" onClick={() => setSnackbarOpen(true)}>
                 Show snackbar
               </Button>
+              <Button variant="outlined" onClick={() => setBottomSheetOpen(true)}>
+                Bottom sheet
+              </Button>
+              <Button variant="outlined" onClick={() => setSideSheetOpen(true)}>
+                Side sheet
+              </Button>
+              <Button variant="text" onClick={() => setDrawerOpen(true)}>
+                Drawer
+              </Button>
             </Row>
           </Section>
         </div>
 
       </main>
 
-      <Dialog isVisible={dialogOpen} onClose={() => setDialogOpen(false)}>
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <Dialog.Header
           headline="Dialog title"
           text="Supports light and dark surface tokens."
@@ -491,9 +572,51 @@ export default function Home() {
         </Dialog.Footer>
       </Dialog>
 
+      <BottomSheet
+        open={bottomSheetOpen}
+        onOpenChange={setBottomSheetOpen}
+        dragHandle
+      >
+        <p className="py-4 text-body-medium text-on-surface">
+          Bottom sheet with focus trap and Escape to close.
+        </p>
+        <Button variant="filled" onClick={() => setBottomSheetOpen(false)}>
+          Done
+        </Button>
+      </BottomSheet>
+
+      <SideSheet
+        open={sideSheetOpen}
+        onOpenChange={setSideSheetOpen}
+        title="Side sheet"
+      >
+        <p className="mt-4 text-body-medium text-on-surface-variant">
+          Side panel content with restored focus on close.
+        </p>
+      </SideSheet>
+
+      <NavigationDrawerOut open={drawerOpen} onOpenChange={setDrawerOpen}>
+        <NavigationDrawerOut.Item
+          href="#home"
+          active
+          label="Home"
+          leftElement={<MdHome size={24} />}
+        />
+        <NavigationDrawerOut.Item
+          href="#search"
+          label="Search"
+          leftElement={<MdSearch size={24} />}
+        />
+        <NavigationDrawerOut.Item
+          href="#settings"
+          label="Settings"
+          leftElement={<MdSettings size={24} />}
+        />
+      </NavigationDrawerOut>
+
       <SnackbarWrapper>
         <Snackbar
-          isVisible={snackbarOpen}
+          open={snackbarOpen}
           text="Saved successfully"
           button={
             <Button variant="text" onClick={() => setSnackbarOpen(false)}>

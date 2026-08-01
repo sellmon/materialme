@@ -3,53 +3,45 @@
 import {
   MouseEvent,
   ReactNode,
-  useEffect,
+  useCallback,
   useRef,
 } from "react";
 
 import { cn } from "../../lib/utils";
+import { type OpenStateProps, resolveOpenState } from "../../lib/open-state";
+import { useFocusTrap } from "../../lib/use-focus-trap";
 
-export interface BottomSheetProps {
+export interface BottomSheetProps extends OpenStateProps {
   children?: ReactNode;
   className?: string;
   dragHandle?: boolean;
-  isVisible?: boolean;
-  onClose?: () => void;
 }
 
 function BottomSheet({
   children,
   className,
   dragHandle,
+  open,
+  onOpenChange,
   isVisible,
   onClose,
 }: BottomSheetProps) {
   const panelRef = useRef<HTMLDivElement>(null);
+  const { open: resolvedOpen, setOpen } = resolveOpenState({
+    open,
+    onOpenChange,
+    isVisible,
+    onClose,
+  });
 
-  useEffect(() => {
-    if (!isVisible) return;
+  const close = useCallback(() => setOpen(false), [setOpen]);
+  useFocusTrap(resolvedOpen, panelRef, close);
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose?.();
-      }
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [isVisible, onClose]);
-
-  if (!isVisible) return null;
+  if (!resolvedOpen) return null;
 
   const handleScrimClick = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
-      onClose?.();
+      close();
     }
   };
 
@@ -62,8 +54,9 @@ function BottomSheet({
         ref={panelRef}
         role="dialog"
         aria-modal="true"
+        tabIndex={-1}
         className={cn(
-          "mt-[56px] flex w-full max-w-[740px] animate-transition-bottom flex-col items-center justify-center sm:mb-[12px]",
+          "mt-[56px] flex w-full max-w-[740px] animate-transition-bottom flex-col items-center justify-center outline-none sm:mb-[12px]",
           className
         )}
         onClick={(event) => event.stopPropagation()}
@@ -74,7 +67,7 @@ function BottomSheet({
               <button
                 type="button"
                 aria-label="Close"
-                onClick={onClose}
+                onClick={close}
                 className="mb-[4px] flex cursor-pointer px-[16px] pb-[10px] pt-[6px]"
               >
                 <span className="flex h-[4px] w-[32px] rounded-full bg-surface-container-highest" />

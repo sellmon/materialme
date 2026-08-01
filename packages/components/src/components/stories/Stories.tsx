@@ -1,28 +1,32 @@
-import {FC, ReactNode} from "react";
+import { ReactNode } from "react";
 
-import {BusinessItem} from "./items/BusinessItem";
-import {UserItem} from "./items/UserItem";
+import { cn } from "../../lib/utils";
+import { BusinessItem } from "./items/BusinessItem";
+import { UserItem } from "./items/UserItem";
 
-interface StoriesProps {
-    children: ReactNode;
-    className?: string;
+export interface StoriesProps {
+  children: ReactNode;
+  className?: string;
 }
 
-interface StoriesComponent extends FC<StoriesProps> {
-    Business: typeof BusinessItem;
-    User: typeof UserItem;
+function StoriesRoot({ children, className }: StoriesProps) {
+  return (
+    <div
+      className={cn(
+        "flex h-fit w-full flex-row gap-[16px] overflow-x-auto px-[16px] pb-[16px] pt-[12px] scrollbar-hide",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
 }
 
-const Stories: StoriesComponent = ({children, className}: StoriesProps) => {
-    return (
-        <div
-            className={`flex h-fit w-full flex-row gap-[16px] overflow-x-auto px-[16px] pb-[16px] pt-[12px] scrollbar-hide ${className}`}>
-            {children}
-        </div>
-    );
-};
+StoriesRoot.displayName = "Stories";
 
-Stories.Business = BusinessItem;
-Stories.User = UserItem;
+const Stories = Object.assign(StoriesRoot, {
+  Business: BusinessItem,
+  User: UserItem,
+});
 
-export {Stories};
+export { Stories };

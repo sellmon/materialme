@@ -47,7 +47,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
           autoComplete="off"
           placeholder={placeholder}
           className={cn(
-            "peer flex h-[56px] w-full border-0 bg-surface-container-low px-[12px] pt-[24px] text-body-medium text-on-surface shadow-none placeholder-transparent focus:outline-none",
+            "peer flex h-[56px] w-full border-0 bg-surface-container-low px-[12px] pb-[8px] pt-[24px] text-body-medium text-on-surface shadow-none placeholder-transparent focus:outline-none",
             leftElement ? "rounded-full pl-[56px]" : "rounded-t-[8px]",
             className
           )}

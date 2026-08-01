@@ -1,34 +1,49 @@
-import {FC, ReactNode} from "react";
+"use client";
 
-import {NavDrawerItem} from "./items/NavDrawerItem";
+import { ReactNode } from "react";
 
-interface NavDrawerInProps {
-    isVisible?: boolean;
-    children?: ReactNode;
-    className?: string;
+import { cn } from "../../lib/utils";
+import { type OpenStateProps, resolveOpenState } from "../../lib/open-state";
+import { NavDrawerItem } from "./items/NavDrawerItem";
+
+export interface NavigationDrawerInProps extends OpenStateProps {
+  children?: ReactNode;
+  className?: string;
 }
 
-interface NavigationDrawerComponent extends FC<NavDrawerInProps> {
-    Item: typeof NavDrawerItem;
-}
-
-const NavigationDrawerIn: NavigationDrawerComponent = ({
+function NavigationDrawerInRoot({
+  children,
+  className,
+  open,
+  onOpenChange,
+  isVisible,
+  onClose,
+}: NavigationDrawerInProps) {
+  const { open: resolvedOpen } = resolveOpenState({
+    open,
+    onOpenChange,
     isVisible,
-    children,
-    className,
-}: NavDrawerInProps) => {
-    if (!isVisible) return null;
+    onClose,
+  });
 
-    return (
-        <nav
-            className={`sticky left-0 top-0 flex h-screen min-w-[280px] max-w-[360px] flex-col overflow-y-auto bg-surface px-[12px] py-[28px] ${
-                className || ""
-            }`}>
-            {children}
-        </nav>
-    );
-};
+  if (!resolvedOpen) return null;
 
-NavigationDrawerIn.Item = NavDrawerItem;
+  return (
+    <nav
+      className={cn(
+        "sticky left-0 top-0 flex h-screen min-w-[280px] max-w-[360px] flex-col overflow-y-auto bg-surface px-[12px] py-[28px]",
+        className
+      )}
+    >
+      {children}
+    </nav>
+  );
+}
 
-export {NavigationDrawerIn};
+NavigationDrawerInRoot.displayName = "NavigationDrawerIn";
+
+const NavigationDrawerIn = Object.assign(NavigationDrawerInRoot, {
+  Item: NavDrawerItem,
+});
+
+export { NavigationDrawerIn };

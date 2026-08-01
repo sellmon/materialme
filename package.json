@@ -17,6 +17,8 @@
     "sync:components": "node scripts/sync-components.mjs",
     "build:registry": "node scripts/build-registry.mjs",
     "build:cli": "pnpm --filter materialme-cli build",
-    "dev": "pnpm --filter preview dev"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "pnpm --filter preview dev",
+    "ci": "pnpm typecheck && pnpm build:cli && pnpm build:registry && pnpm --filter preview build"
   }
 }
